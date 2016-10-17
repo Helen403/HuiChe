@@ -11,10 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.huiche.base.MyApplication;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 因为经过超简的优化后  就不要新建一个类 放在Adapter包  直接使用内部类的形式（加快维修的速度和阅读的速度）
@@ -33,7 +33,7 @@ import java.util.ArrayList;
 public abstract class MyBaseAdapter<T> extends BaseAdapter {
     //需要配置一下Context
     protected Context contextApplication = MyApplication.getInstance();
-    protected ArrayList<T> data;
+    protected List<T> data;
     protected View view;
 
     /******************************************/
@@ -47,14 +47,14 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
     protected ImageView[] iv;
 
 
-    public MyBaseAdapter(ArrayList<T> data) {
+    public MyBaseAdapter(List<T> data) {
         this.data = data;
     }
 
     /**
      * 设置数据
      */
-    public void setData(ArrayList<T> data) {
+    public void setData(List<T> data) {
         this.data = data;
         notifyDataSetChanged();
     }

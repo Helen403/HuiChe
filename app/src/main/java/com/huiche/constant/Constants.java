@@ -20,6 +20,8 @@ public interface Constants {
         String CHANGEPHONE = "http://hyh2.281.com.cn/api.php/home/user/setmobile";
         String MYCOMMIT = "http://hyh2.281.com.cn/api.php/home/evaluate/myevaluate";
 
+        String CARMANAGER = "http://hyh2.281.com.cn/api.php/home/car/allcar";
+
     }
     interface startActivityForResult {
         int LOGIN = 0X55;
