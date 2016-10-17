@@ -1,0 +1,128 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_bg"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical" >
+
+    <!-- 买单页面 -->
+
+    <include layout="@layout/include_title_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dp" >
+
+        <!-- 商家店招 -->
+
+        <ImageView
+            android:id="@+id/iv_storeIcon_pay"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_launcher" />
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical" >
+
+            <!-- 商家名称 -->
+
+            <TextView
+                android:id="@+id/tv_storeName_pay"
+                android:singleLine="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="名丝发艺"
+                android:textColor="@color/text_color_black_title"
+                android:textSize="20sp" />
+
+            <!-- 商家地址 -->
+
+            <TextView
+                android:id="@+id/tv_storeAddress_pay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="东城区第一国际F座天河百货"
+                android:textColor="@color/text_color_black_light"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+    <!-- 退款说明 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/prompt" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="如需退款，请在30分钟联系商家"
+            android:textColor="@color/yellow"
+            android:textSize="16sp" />
+    </LinearLayout>
+    <!-- 金额 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="金额"
+            android:textColor="@color/text_color_black_title"
+            android:textSize="18sp" />
+
+        <EditText
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@color/transparent"
+            android:hint="请输入消费金额，请与商家确认..."
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:textColorHint="@color/text_color_hint"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <!-- 确认买单 -->
+
+    <TextView
+        android:id="@+id/tv_payTheBill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_blue_button"
+        android:gravity="center"
+        android:padding="12dp"
+        android:text="确认买单"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+</LinearLayout>

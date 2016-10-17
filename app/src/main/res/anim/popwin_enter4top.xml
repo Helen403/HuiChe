@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- 定义从top到下进入动画 -->
+    <translate
+        android:duration="300"
+        android:fromYDelta="100%"
+        android:toYDelta="0" />
+  <!--<alpha-->
+        <!--android:duration="500"-->
+        <!--android:fromAlpha="0.0"-->
+        <!--android:toAlpha="1.0" />-->
+
+</set>

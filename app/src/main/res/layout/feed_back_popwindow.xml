@@ -1,0 +1,131 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingTop="1dp" >
+
+    <!-- 全部 -->
+
+    <TextView
+        android:textSize="15sp"
+        android:id="@+id/tv_gn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@color/white"
+        android:clickable="true"
+        android:padding="12dp"
+        android:text="功能意见"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/text_color_grey" />
+     <View 
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:background="#E1E1E1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+    <!-- 已上架 -->
+
+    <TextView
+         android:textSize="15sp"
+        android:id="@+id/tv_jm"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@color/white"
+        android:clickable="true"
+        android:padding="12dp"
+        android:text="界面意见"
+         android:layout_marginLeft="20dp"
+        android:textColor="@color/text_color_grey" />
+    <!-- 已下架 -->
+
+ <View 
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:background="#E1E1E1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+    <TextView
+         android:textSize="15sp"
+        android:id="@+id/tv_xq"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@color/white"
+        android:clickable="true"
+        android:padding="12dp"
+         android:layout_marginLeft="20dp"
+        android:text="您的新需求"
+        android:textColor="@color/text_color_grey" />
+    <!-- 待审核 -->
+ <View 
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:background="#E1E1E1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+    <TextView
+        android:textSize="15sp"
+        android:id="@+id/tv_cz"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@color/white"
+        android:clickable="true"
+        android:padding="12dp"
+        android:text="操作意见"
+         android:layout_marginLeft="20dp"
+        android:textColor="@color/text_color_grey" />
+     <View 
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:background="#E1E1E1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+    <TextView
+        android:textSize="15sp"
+        android:id="@+id/tv_ll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@color/white"
+        android:clickable="true"
+        android:padding="12dp"
+        android:text="流量问题"
+         android:layout_marginLeft="20dp"
+        android:textColor="@color/text_color_grey" />
+     <View 
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:background="#E1E1E1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+    <TextView
+        android:textSize="15sp"
+        android:id="@+id/tv_qt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@color/white"
+        android:clickable="true"
+        android:padding="12dp"
+        android:text="其他"
+         android:layout_marginLeft="20dp"
+        android:textColor="@color/text_color_grey" />
+     <View 
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:background="#E1E1E1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+
+</LinearLayout>

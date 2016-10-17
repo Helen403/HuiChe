@@ -1,0 +1,164 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_item_paySuccess"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/duihuan"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- 兑换成功 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/payment_confirmation" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="兑换成功"
+                    android:textColor="@color/text_color_black_title"
+                    android:textSize="22sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="验证码 :"
+                    android:textColor="@color/text_color_black_light2"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_checkCode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:text="6666"
+                    android:textColor="@color/oranges"
+                    android:textSize="22sp" />
+            </LinearLayout>
+            <!-- 订单编号 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="订单编号:"
+                    android:textColor="@color/text_color_black_light2"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_orderNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:text="8866"
+                    android:textColor="@color/text_color_black_light2"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            <!-- 所属商家 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="所属商家 :"
+                    android:textColor="@color/text_color_black_light2"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_storeName_exchangeSuccess"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:text="何康宝鸡中山分店"
+                    android:textColor="@color/text_color_black_light2"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            <!--支付金额&返回积分-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="支付金额 :"
+                    android:textColor="@color/text_color_black_light2"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_payMoney"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="10.4元"
+                    android:textColor="@color/tv_red"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_returnIntegral_exchangeSuccess"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="right"
+                    android:text="返回0积分"
+                    android:textColor="@color/tv_red"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+    <!-- 二维码 -->
+
+    <ImageView
+        android:id="@+id/iv_twoCode_exchangeSuccess"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:src="@drawable/shangj_beij11" />
+
+</LinearLayout>

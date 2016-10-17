@@ -1,0 +1,213 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_header_productDetail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_bg"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!-- 店照 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <!-- 店面展示图 -->
+
+        <ImageView
+            android:id="@+id/iv_showPicture_productDetail"
+            android:layout_width="match_parent"
+            android:layout_height="267dp"
+            android:scaleType="fitXY" />
+        <!-- 产品名称 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/tv_productName_productDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="杀马特洗剪吹"
+                android:textColor="@color/text_color_black_title"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_hasExchange_productDetail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right|bottom"
+                android:text="已兑换250件"
+                android:textColor="@color/text_color_black_light" />
+        </LinearLayout>
+        <!-- 兑换值 -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/tv_exchangeIntegral_productDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="250积分"
+                android:textColor="@color/yellow"
+                android:textSize="18sp" />
+
+            <com.huiche.view.ObliqueLineTextView xmlns:app="http://schemas.android.com/apk/res/com.huiche"
+                android:id="@+id/tv_doorPrice_productDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="门店价:25元"
+                android:textColor="@color/text_color_black_light"
+                app:line_color="@color/text_color_deep_red" />
+        </RelativeLayout>
+        <!-- 商家信息 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="15dp">
+
+            <View
+                android:layout_width="4dp"
+                android:layout_height="match_parent"
+                android:layout_margin="3dp"
+                android:background="@color/bule_title" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="商家信息"
+                android:textColor="@color/text_color_black_title"
+                android:textSize="18sp" />
+            <!-- 店铺距离 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right|center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/sm_address" />
+
+                <TextView
+                    android:id="@+id/tv_distance_productDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="0.152km"
+                    android:textColor="@color/text_color_black_light" />
+            </LinearLayout>
+        </LinearLayout>
+        <!-- 名称和客服电话 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="15dp">
+
+            <LinearLayout
+                android:id="@+id/ll_enter_store"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_storeName_productDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="名丝发艺"
+                    android:textColor="@color/text_color_black_title"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_storeAddress_productDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="东莞/南城/大保健"
+                    android:textColor="@color/text_color_black_light" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right|center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/divide_color" />
+
+                <ImageView
+                    android:id="@+id/iv_callPhone_productDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:clickable="true"
+                    android:padding="5dp"
+                    android:src="@drawable/blue_phone" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 店长推荐 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <!-- 标题 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="3dp"
+                    android:background="@color/bule_title" />
+
+                <TextView
+                    android:id="@+id/tv_recommendTitle_productDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="店长推荐"
+                    android:textColor="#7F7F7F"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

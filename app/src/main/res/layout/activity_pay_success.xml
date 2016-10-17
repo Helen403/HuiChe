@@ -1,0 +1,69 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_vp_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bule_title"
+    android:clipChildren="false"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!--返回首页-->
+    <RelativeLayout
+        android:id="@+id/rl_returnHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/imb_titleBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:padding="10dp"
+            android:src="@drawable/back_arrow_left" />
+
+        <TextView
+            android:id="@+id/tv_returnHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/imb_titleBack"
+            android:text="首页"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="支付成功"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <!--clipChildren 默认为true，false则显示一页显示多个view-->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_paySuccess"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/transparent"
+        android:clipChildren="false"
+       />
+    <!--选择标识点-->
+    <LinearLayout
+        android:id="@+id/ll_container_circle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="-30dp">
+    </LinearLayout>
+
+</LinearLayout>

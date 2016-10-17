@@ -1,0 +1,369 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_content_productDetail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_bg"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!-- 标题栏 -->
+
+    <RelativeLayout
+        android:id="@+id/title_bar_productDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bule_title"
+        android:gravity="center_vertical"
+        android:padding="5dp">
+
+        <ImageButton
+            android:id="@+id/imb_titleBack_productDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:padding="15dp"
+            android:src="@drawable/back_arrow_left" />
+
+        <TextView
+            android:id="@+id/tv_titleText_productDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/business_detail"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imb_favorite_productDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:padding="5dp"
+                android:src="@drawable/star" />
+
+            <ImageButton
+                android:id="@+id/imb_share_productDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/transparent"
+                android:padding="5dp"
+                android:src="@drawable/share" />
+        </LinearLayout>
+    </RelativeLayout>
+    <!-- 店照 -->
+
+    <com.huiche.view.MyScrollView
+        android:id="@+id/scrollView_productDetail"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!-- 店面展示图 -->
+
+            <ImageView
+                android:id="@+id/iv_showPicture_productDetail"
+                android:layout_width="440dp"
+                android:layout_height="267dp"
+                android:scaleType="fitXY" />
+            <!-- 产品名称 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <TextView
+                    android:id="@+id/tv_productName_productDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="杀马特洗剪吹"
+                    android:textColor="@color/text_color_black_title"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_hasExchange_productDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="right|bottom"
+                    android:text="已兑换250件"
+                    android:textColor="@color/text_color_black_light" />
+            </LinearLayout>
+            <!-- 兑换值 -->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <TextView
+                    android:id="@+id/tv_exchangeIntegral_productDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="250积分"
+                    android:textColor="@color/yellow"
+                    android:textSize="18sp" />
+
+                <com.huiche.view.ObliqueLineTextView xmlns:app="http://schemas.android.com/apk/res/com.huiche"
+                    android:id="@+id/tv_doorPrice_productDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="门店价:25元"
+                    android:textColor="@color/text_color_black_light"
+                    app:line_color="@color/text_color_deep_red" />
+            </RelativeLayout>
+            <!-- 商家信息 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="3dp"
+                    android:background="@color/bule_title" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="商家信息"
+                    android:textColor="@color/text_color_black_title"
+                    android:textSize="18sp" />
+                <!-- 店铺距离 -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="right|center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/sm_address" />
+
+                    <TextView
+                        android:id="@+id/tv_distance_productDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="0.152km"
+                        android:textColor="@color/text_color_black_light" />
+                </LinearLayout>
+            </LinearLayout>
+            <!-- 名称和客服电话 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_storeName_productDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="名丝发艺"
+                        android:textColor="@color/text_color_black_title"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_storeAddress_productDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="东莞/南城/大保健"
+                        android:textColor="@color/text_color_black_light" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="right|center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/divide_color" />
+
+                    <ImageView
+                        android:id="@+id/iv_callPhone_productDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:clickable="true"
+                        android:padding="5dp"
+                        android:src="@drawable/blue_phone" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 店长推荐 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <!-- 标题 -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <View
+                        android:layout_width="4dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="3dp"
+                        android:background="@color/bule_title" />
+
+                    <TextView
+                        android:id="@+id/tv_recommendTitle_productDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="店长推荐"
+                        android:textColor="#7F7F7F"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+            <!-- 推荐gridview列表 -->
+
+            <com.github.jdsjlzx.recyclerview.LRecyclerView
+                android:id="@+id/gv_recommend_productDetail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/grey_bg"></com.github.jdsjlzx.recyclerview.LRecyclerView>
+        </LinearLayout>
+    </com.huiche.view.MyScrollView>
+    <!-- 底部购物车 -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tv_addTo_next_productDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bule_title"
+            android:clickable="true"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="下一步"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/ll_addTo_shoppingCart_productDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <!-- 购物车图标 -->
+
+                <ImageView
+                    android:id="@+id/iv_shoppingCar_icon_productDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:padding="8dp"
+                    android:src="@drawable/shoppingcar_grey" />
+                <!-- 购物车商品数量 -->
+
+                <TextView
+                    android:id="@+id/tv_shoppingCar_account_productDetail"
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:layout_alignRight="@+id/iv_shoppingCar_icon_productDetail"
+                    android:background="@drawable/small_circle_red"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+            <!-- 加入购物车 -->
+
+            <TextView
+                android:id="@+id/tv_addProduct_toCart_productDetail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@color/green"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="加入购物车"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+            <!-- 结算 -->
+
+            <TextView
+                android:id="@+id/tv_settle_accounts_productDetail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@color/bule_title"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="结算"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

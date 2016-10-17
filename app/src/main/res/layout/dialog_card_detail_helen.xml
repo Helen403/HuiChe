@@ -1,0 +1,135 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/kaquan_beij_b">
+
+
+        <com.huiche.view.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="13dp"
+            android:src="@drawable/ic_launcher"
+            app:border_color="@color/transparent" />
+
+        <TextView
+            android:id="@+id/tv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/icon"
+            android:paddingLeft="@dimen/dp_10"
+            android:text="涛记自选快餐"
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_1"
+            android:layout_marginTop="6dp"
+            android:layout_toRightOf="@id/icon"
+            android:paddingLeft="@dimen/dp_10"
+            android:text="南城区"
+            android:textColor="#808080"
+            android:textSize="14sp" />
+        <TextView
+            android:id="@+id/tv_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/icon"
+
+            android:layout_marginLeft="16dp"
+            android:background="@drawable/bg_card_detail_one_helen"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp"
+            android:text="商家详情"
+            android:textColor="#676767"
+            android:textSize="14dp" />
+        <TextView
+            android:id="@+id/tv_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/icon"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@id/tv_3"
+            android:background="@drawable/bg_card_detail_two_helen"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp"
+            android:text="点击领取"
+            android:textColor="#fff"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/tv_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingBottom="@dimen/dp_10"
+            android:paddingLeft="3dp"
+            android:paddingRight="@dimen/dp_10"
+            android:paddingTop="15dp"
+            android:text="20"
+            android:textColor="#fff"
+            android:textSize="44dp" />
+
+        <TextView
+            android:id="@+id/tv_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_6"
+            android:layout_marginBottom="6dp"
+            android:layout_marginRight="3dp"
+            android:layout_toLeftOf="@id/tv_6"
+            android:gravity="center"
+            android:paddingBottom="@dimen/dp_10"
+            android:text="￥"
+            android:textColor="#fff"
+            android:textSize="20dp" />
+
+
+        <TextView
+            android:id="@+id/tv_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_6"
+            android:layout_marginRight="@dimen/dp_10"
+            android:text="满100可用"
+            android:textColor="#fff"
+            android:textSize="15dp" />
+
+        <ImageView
+            android:id="@+id/tv_8"
+            android:layout_alignParentRight="true"
+            android:layout_width="90dp"
+            android:layout_height="100dp" />
+
+
+        </RelativeLayout>
+
+
+
+
+
+</RelativeLayout>

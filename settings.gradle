@@ -1,0 +1,3 @@
+include ':slidelibrary', ':LRecyclerview_library'
+include ':systembar_lib'
+include ':app'

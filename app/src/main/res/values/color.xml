@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 状态栏颜色 -->
+     <color name="status_color">#E82418</color>
+       <!-- select颜色灰色 (阿聪)-->
+     <color name="text_color_grey">#9C9C9C</color>
+     <color name="Light_gray"> #F0F0F0</color>
+     <color  name="text_gray">#9F9F9F</color>
+     <color name="light_grey">#afafaf</color>
+      <color name="light_black">#4D4D4D</color>
+     <color name="grey_text">#676767</color>
+     <color name="back_red">#F10000</color><!--红色背景 -->
+     <color name="tv_org">#F1BB3D</color><!--橙色字体背景 -->
+      <color name="tv_red">#FF3366</color><!--红色字体背景 -->
+      <!--二维码-->
+ <color name="top_color">#20AEE5</color>
+ <color name="backgroud">#ffffffff</color>
+ <color name="viewfinder_laser">#ffcc0000</color>
+ <color name="viewfinder_mask">#cb000000</color>
+ <color name="viewfinder_frame">#ff4EEE94</color>
+ <color name="possible_result_points">#c0ffbd21</color>
+ <color name="textColor_sameAs_Title">#1FAEE6</color>
+
+
+ <color name="bg_color">#E82418</color>
+ <color name="bg_color_division">#f4f4f4</color>
+ <color name="bg_color_transparent">#80000000</color>
+
+ <color name="background_tab_pressed">#6633B5E5</color>
+
+ <color name="background_window">#FFE5E5E5</color>
+ <color name="deep_green">#E82418</color>
+ <color name="light_green">#9A9A9A</color>
+ <color name="background_green">#E2F0B6</color>
+
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources >
+    <color name="transparent">#00000000</color> <!--透明  -->
+    <color name="bule_title">#E82418</color>    <!--蓝色——标题栏  -->
+    <color name="change_title">#E82418</color>    <!--变化的蓝色——标题栏  -->
+    <color name="white">#ffffff</color> <!-- 白色 -->
+    <color name="grey_bg">#F5F5F5</color> <!--灰色背景  -->  
+    <color name="text_color_black">#6A6A6A</color><!--黑色文字 -->
+    <color name="text_color_hint">#D2D2D2</color><!--EditText提示文字颜色 -->
+    <color name="grey_button">#CCCCCC</color><!--灰色按钮 -->
+    <color name="green_button">#9BCF50</color><!--绿色按钮 -->
+    <color name="text_color_black_light">#9FA3AA</color><!--浅黑色文字 -->
+    <color name="lucency">#00000000</color><!--透明颜色 -->
+    <color name="selected">#E4E4E4</color><!--选中后背景 -->
+    <color name="border_color">#84D3F2</color><!--边框颜色 -->
+    <color name="divide_color">#DEDEDE</color><!--分隔线颜色  -->
+    <color name="text_color_sky_blue">#4FC0EB</color><!--天蓝色  -->
+    <color name="text_color_red">#FF615E</color><!--红色  -->
+    <color name="text_color_black_title">#4D4D4D</color><!--黑色标题  -->
+    <color name="yellow">#E3AD3D</color><!--橘黄色  -->
+    <color name="green">#67CC90</color><!--绿色  -->
+    <color name="text_color_black_light2">#767676</color><!--浅黑色文字2号  -->
+    <color name="text_color_pink">#F55B99</color><!--粉色  -->
+    <color name="oranges">#FF6600</color><!--深橘色  -->
+    <color name="yellow_red_packet">#F6DA30</color><!--黄色红包数值 -->
+    <color name="text_color_deep_red">#FE0000</color><!--深红色 -->
+    <color name="deep_blue_bg">#0A1D3E</color><!--深蓝色,U-U -->
+    <color name="deep_grey">#999999</color>//深灰色文字
+    <color name="small_blace">#000000</color>//黑色
+    <color name="small_grey">#AFAFAF</color>//浅灰色
+    <color name="ssmall_grey">#CCCCCC</color>更加浅灰色，玛德
+    <color name="small_status">#75CBEC</color>
+
+
+
+</resources>

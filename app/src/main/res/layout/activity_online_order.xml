@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:orientation="vertical" >
+    <include 
+        layout="@layout/title_all"
+        />
+    <HorizontalScrollView 
+        android:id="@+id/horizon_scroll"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:scrollbars="none">
+        <LinearLayout 
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+           <LinearLayout
+                android:id="@+id/ll_all_order" 
+               android:gravity="center"
+               
+                 android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tv_all_order" 
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="全部订单"
+                android:textSize="16sp"
+                android:textColor="#676767"
+                />
+                <View 
+                   android:id="@+id/view_quan"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:background="@color/status_color"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:visibility="invisible"
+                    />
+                
+                </LinearLayout>
+            
+            <View
+                 
+                android:layout_width="0.3dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#D2D2D2"                
+                />
+               <LinearLayout 
+                   android:id="@+id/ll_not_pay"
+               android:gravity="center"
+                  android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView 
+                    android:id="@+id/tv_un_pay"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="待付款 "
+                android:textSize="16sp"
+                android:textColor="#676767"
+                />
+                <View 
+                    android:id="@+id/view_second"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:background="@color/status_color"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:visibility="invisible"
+                    />
+                </LinearLayout>
+            
+            <View
+                android:layout_width="0.3dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#D2D2D2"                
+                />
+              <LinearLayout
+                  android:id="@+id/ll_not_send_goods" 
+               android:gravity="center"
+                 android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView 
+                    android:textSize="16sp"
+                    android:id="@+id/tv_un_send"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="待发货 "
+                android:textColor="#676767"
+                />
+                <View 
+                    android:id="@+id/view_third"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:background="@color/status_color"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:visibility="invisible"
+                    />
+                </LinearLayout>
+                
+              
+              <View
+                android:layout_width="0.3dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#D2D2D2"                
+                />
+              <LinearLayout
+                  android:id="@+id/ll_cancel_goods" 
+               android:gravity="center"
+                 android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView 
+                    android:textSize="16sp"
+                    android:id="@+id/tv_canceled"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="已取消 "
+                android:textColor="#676767"
+                />
+                <View 
+                    android:id="@+id/view_calcel"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:background="@color/status_color"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:visibility="invisible"
+                    />
+                </LinearLayout>
+                
+               <View
+                android:layout_width="0.3dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#D2D2D2"                
+                />
+              <LinearLayout
+                  android:id="@+id/ll_close_goods" 
+               android:gravity="center"
+                 android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView 
+                    android:textSize="16sp"
+                    android:id="@+id/tv_closed"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="已关闭 "
+                android:textColor="#676767"
+                />
+                <View 
+                    android:id="@+id/view_close"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:background="@color/status_color"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:visibility="invisible"
+                    />
+                </LinearLayout>
+            
+            <View
+                android:layout_width="0.3dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#D2D2D2"                
+                />
+               <LinearLayout 
+                   android:id="@+id/ll_wait_goods"
+               android:gravity="center"
+                 android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView 
+                    android:textSize="16sp"
+                    android:id="@+id/tv_wait_goods"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                
+                android:text="已完成"
+               
+                android:textColor="#676767"
+                />
+                <View 
+                    android:id="@+id/view_fourth"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:background="@color/status_color"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:visibility="invisible"
+                    />
+                </LinearLayout>
+            
+            <View
+                android:layout_width="0.3dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#D2D2D2"                
+                />
+                 <LinearLayout
+                     android:id="@+id/ll_has_goods" 
+               android:gravity="center"
+                 android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:textSize="16sp"
+                    android:paddingLeft="10dp"
+               android:paddingRight="10dp"
+                 android:id="@+id/tv_has_goods"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="待收货"
+               
+                android:textColor="#676767"
+                />
+                <View
+                    android:id="@+id/view_five" 
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:background="@color/status_color"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:visibility="invisible"
+                    />
+                </LinearLayout>
+            
+            
+           
+            
+            </LinearLayout>
+        </HorizontalScrollView>
+        
+     <FrameLayout
+         android:id="@+id/my_frame" 
+         
+       android:layout_width="match_parent"
+       android:background="@color/white"
+       android:layout_height="match_parent">
+       </FrameLayout>
+
+</LinearLayout>

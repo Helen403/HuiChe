@@ -1,0 +1,151 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <!-- 店铺名称 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <CheckBox
+            android:padding="5dp"
+            android:id="@+id/checkBox_checkAll_shoppingCartItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableLeft="@drawable/selector_checkbox_status"
+            android:checked="false" />
+
+        <TextView
+            android:id="@+id/tv_storeName_shoppingCartItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="名艺发丝"
+            android:textColor="@color/text_color_black_title"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <!-- 分割线 -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divide_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <CheckBox
+            android:padding="5dp"
+            android:id="@+id/checkBox_checkSub_shoppingCartItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableLeft="@drawable/selector_checkbox_status"
+            android:checked="false" />
+
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:scaleType="fitXY"
+            android:id="@+id/iv_productIcon_shoppingCartItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/main_button" />
+
+        <LinearLayout
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_productName_shoppingCartItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="洗剪吹5555555"
+                android:singleLine="true"
+                android:textColor="@color/text_color_black_title"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_exchangeIntegral_shoppingCartItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="490积分"
+                android:textColor="@color/yellow"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <com.huiche.view.ObliqueLineTextView
+                xmlns:app="http://schemas.android.com/apk/res/com.huiche"
+                android:id="@+id/tv_doorPrice_shoppingCartItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:line_color="@color/text_color_red"
+                android:layout_gravity="right"
+                android:singleLine="true"
+                android:text="门店价:50元"
+                android:textColor="@color/text_color_black_light" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <ImageButton
+                    android:id="@+id/imb_reduceProduct_shoppingCartItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:src="@drawable/reduce_green" />
+
+                <TextView
+                    android:id="@+id/tv_addCount_shoppingCartItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/center_green"
+                    android:gravity="center"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:text="100"
+                    android:textColor="@color/text_color_black_light2" />
+
+                <ImageButton
+                    android:id="@+id/imb_increaseProduct_shoppingCartItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:src="@drawable/increase_green" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <!-- 分割线 -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divide_color" />
+</LinearLayout>

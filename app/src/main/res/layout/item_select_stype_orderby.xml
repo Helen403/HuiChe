@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_stype_category"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/grey_bg"
+    android:clickable="true"
+    android:orientation="horizontal">
+
+    <CheckedTextView
+        android:gravity="center_vertical"
+        android:id="@+id/checkTextView_stype"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:drawableLeft="@drawable/select_item_classifyof"
+        android:drawablePadding="12dp"
+        android:text="2222"
+        android:textColor="@color/selector_radiobutton__textcolor" />
+
+</LinearLayout>

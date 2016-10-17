@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white" >
+
+    <LinearLayout
+        android:id="@+id/layout_top"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <!--  <LinearLayout
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center" >
+
+             <TextView
+                 android:id="@+id/tv_sin"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:drawableTop="@drawable/sin"
+                 android:gravity="center_horizontal"
+                 android:text="微博"
+                 android:textColor="@color/txt_balck"
+                 android:textSize="14sp" />
+         </LinearLayout> -->
+
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/tv_weixin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ssdk_oks_classic_wechat"
+                android:gravity="center_horizontal"
+                android:text="微信"
+                android:textColor="@color/small_grey"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/tv_pyq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/sns_weixin_timeline_icon"
+                android:gravity="center_horizontal"
+                android:text="朋友圈"
+                android:textColor="@color/small_grey"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center" >
+            <TextView
+                android:id="@+id/tv_qq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/sns_qqfriends_icon"
+                android:gravity="center_horizontal"
+                android:text="QQ"
+                android:textColor="@color/small_grey"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:background="@color/ssmall_grey"
+        android:layout_height="0.2dp"></View>
+    <TextView
+        android:id="@+id/tv_share_cancel"
+        android:layout_width="match_parent"
+       android:text="取消"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:padding="5dp"
+        android:textColor="@color/small_grey"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content" />
+    <View
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:background="@color/ssmall_grey"
+        android:layout_height="0.2dp"></View>
+
+
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>

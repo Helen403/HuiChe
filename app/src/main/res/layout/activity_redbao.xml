@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#D74F43"
+        android:padding="5dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:src="@drawable/back_arrow_left" />
+
+        <TextView
+            android:id="@+id/tv_titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:singleLine="true"
+            android:text="红包详情"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+        <!-- android:imeOptions="actionSearch"-->
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#D74F43"
+        android:fadingEdge="none"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <com.huiche.view.CircleImageView
+                    android:id="@+id/icon"
+                    app:border_color="@color/transparent"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_launcher" />
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/businessname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:gravity="center"
+                android:text="汇一城星巴克"
+                android:textColor="#FFFFFB"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/textimg" />
+
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="星巴克(Starbucks) [1]是美国一家连锁咖啡公司的名称，1971年成立，为全球最大的咖啡连锁店，是世界领先的特种咖啡的零售商，烘焙者和品牌拥有者，其总部坐落美国华盛顿州西雅图市。除咖啡外，星巴克亦有茶、馅皮饼及蛋糕等商品。星巴克在全球范围内已经有近12,000间分店遍布北美、南美洲、欧洲、中东及太平洋区。“星巴克”这个名字来自美国作家麦尔维尔的小说《白鲸》中一位处事极其冷静，极具性格魅力的大副。2013年10月20日，央视抨击星巴克中国“暴利门”，同样一款星巴克饮品，中国市场价格足足比美国的贵了1/3。对此，星巴克中国声明，各个国家的成本完全不同，对于“暴力门”外界声音也各不相同。2015年3月19日，星巴克咖啡公司宣布与康师傅控股有限公司“结盟”。2016年2月7日，美国有线电视新闻报道，在沙特的一家星巴克咖啡厅，女性被暂时禁止入内。[2]2016年4月21日，星巴克公布了该公司的第二财季财报，星巴克的净利润为5.751亿美元"
+                android:textColor="#E4BB83"
+                android:textSize="18sp" />
+
+
+            <ImageView
+                android:id="@+id/head_icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/redbao_footer" />
+
+
+            <com.huiche.view.MyListView
+                android:id="@+id/listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
+                    android:src="@drawable/arrow_up" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/jifenxinz"
+                android:gravity="center"
+                android:padding="35dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp_22"
+                            android:text="335"
+                            android:textColor="#FCDBB2"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="积分"
+                            android:textColor="#FCDBB2"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="已存入积分账户"
+                        android:textColor="#E7BA81"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_10"
+                android:gravity="center"
+                android:text="已领取22 100个 共25 200积分"
+                android:textColor="#E7BA81"
+                android:textSize="15sp" />
+
+            <com.huiche.view.MyListView
+                android:id="@+id/listview_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+
+

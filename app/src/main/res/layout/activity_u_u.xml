@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/rl_mainContent_UU"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/deep_blue_bg"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical" >
+
+    <com.huiche.view.WhewView
+        android:id="@+id/whewView_U_U"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- 标题 -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/rl_titleBar_UU"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/deep_blue_bg"
+            android:gravity="center_vertical"
+            android:padding="5dp" >
+
+            <ImageButton
+                android:id="@+id/imb_titleBack_UU"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:padding="15dp"
+                android:src="@drawable/back_arrow_left" />
+
+            <TextView
+                android:id="@+id/tv_titleText_UU"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/user_login"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+            <!-- 标题栏右边按钮 -->
+
+            <TextView
+                android:id="@+id/tv_titleButton_UU"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:padding="15dp"
+                android:text="提交"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+        <!--中心图片  -->
+        <com.huiche.view.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res/com.huiche"
+            android:id="@+id/civ_uuIcon"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:src="@drawable/head_merchants"
+            app:border_color="@color/white"
+            app:border_width="2dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_randomView_UU"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </RelativeLayout>
+
+</RelativeLayout>

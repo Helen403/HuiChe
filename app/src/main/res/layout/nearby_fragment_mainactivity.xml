@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+
+     >
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/listView_nearByFragment_MainActivity"
+        android:layout_width="match_parent"
+        android:layout_marginTop="-5dp"
+        android:scrollbars="none"
+        android:layout_height="match_parent" />
+    <!--android:layout_marginTop="49dp"-->
+    <LinearLayout
+        android:id="@+id/ll_changeCity_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:orientation="vertical" >
+
+
+        <include
+            android:id="@+id/titalbar_nearByFragment_MainActivity"
+            layout="@layout/titlebar_mainactivity"
+             />
+        <LinearLayout
+            android:id="@+id/cityLayout_nearByFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EFEFEF"
+            android:orientation="vertical"
+            android:visibility="gone" >
+            <LinearLayout
+                android:id="@+id/cityAbout_nearByFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/linealayou_background_stoke"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:id="@+id/curryCity_nearByFragment"
+                    android:text="当前城市 : 东莞" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/moveToCityChoice_nearByFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:drawablePadding="5dp"
+                    android:drawableRight="@drawable/the_gray_arrow_right"
+                    android:gravity="center"
+                    android:text="更换"
+                    android:textColor="@color/bule_title" />
+            </LinearLayout>
+            <!-- 细线 -->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ddd" />
+
+            <GridView
+                android:id="@+id/girdView_cityName_nearbyFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="#EFEFEF"
+                android:listSelector="@null"
+                android:numColumns="3"
+                android:scrollbars="none"
+                android:overScrollMode="never"
+                android:verticalSpacing="5dp" >
+            </GridView>
+            <!--阴影背景-->
+            <View
+                android:id="@+id/view_shadow_category"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#44000000"
+                android:clickable="true" />
+        </LinearLayout>
+    </LinearLayout>
+
+   
+</RelativeLayout>

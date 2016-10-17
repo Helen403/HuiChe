@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/status_color"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="5dp" >
+
+        <LinearLayout
+            android:id="@+id/lv_searchActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_searchActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="-5dp"
+                android:text="商品"
+                android:textColor="@color/white" />
+
+            <ImageButton
+                android:id="@+id/image_searchActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:padding="10dp"
+                android:src="@drawable/pull_down_bar" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/edit_searchActivity"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.6"
+            android:background="@drawable/round_edittext"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="请输入商家/商品名称"
+            android:textColor="@color/text_color_hint"
+            android:textSize="12sp" >
+        </EditText>
+
+        <TextView
+            android:id="@+id/cancle_searchActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/first_lv_searchActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="搜索热词" />
+
+            <GridView
+                android:id="@+id/girdVeiw_searchActivity"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                android:background="@color/white"
+                android:numColumns="3"
+                android:scrollbars="none" >
+            </GridView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/second_lv_searchActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="暂无更多数据"
+                android:textColor="@color/text_color_hint" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/thrid_lv_searchActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+            <com.handmark.pulltorefresh.library.PullToRefreshListView
+                android:id="@+id/listView_searchActivity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

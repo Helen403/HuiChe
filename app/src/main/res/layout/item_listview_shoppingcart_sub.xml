@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_bg"
+    android:orientation="vertical" >
+
+    <!-- 店铺名称 -->
+
+    <LinearLayout
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <CheckBox
+            android:id="@+id/checkBox_shoppingCartSub"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:focusable="false"
+            android:drawableLeft="@drawable/selector_checkbox_status"
+            android:checked="false" />
+
+        <TextView
+            android:id="@+id/tv_storeName_shoppingCartItem_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="名艺发丝"
+            android:textColor="@color/text_color_black_title"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <!-- 分割线 -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divide_color" />
+<!-- 动态添加子项 -->
+    <LinearLayout
+        android:id="@+id/ll_shoppingCart_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+</LinearLayout>

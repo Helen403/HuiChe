@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:orientation="vertical">
+    <include
+        android:id="@+id/title_include"
+        layout="@layout/title_all"
+        />
+    <LinearLayout
+        android:id="@+id/ll_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:background="#EB62A6"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="20dp"
+            >
+            <com.huiche.view.CircleImageView
+                android:layout_width="60dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/textimg"
+                android:visibility="gone"
+                android:layout_height="60dp"
+                app:border_width="0dp"
+                app:border_color="@color/transparent"
+                android:id="@+id/img_store" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="通用抵扣券"
+                android:layout_marginLeft="8dp"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+
+                android:id="@+id/card_name" />
+
+        </LinearLayout>
+
+        <RelativeLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout 
+                android:id="@+id/ll_card_money"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥"
+                android:textSize="20sp"
+                 
+                android:textColor="@color/white"
+                />
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="40sp"
+                android:textColor="@color/white"
+
+                android:id="@+id/card_money" />
+             <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="现金券"
+                android:textSize="25sp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="10dp"
+                
+                />
+            
+            </LinearLayout>
+            <TextView 
+                android:id="@+id/use_type"
+                android:layout_below="@id/ll_card_money"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="20sp"
+                />
+            <LinearLayout
+                android:layout_below="@id/use_type"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             android:layout_marginTop="25dp" >
+             <LinearLayout 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center" >
+             <TextView
+                 android:id="@+id/textView4"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="有效期:"
+                 android:textSize="16sp"
+                 android:textColor="#FFFFFF" />
+       
+             <TextView
+                 android:textSize="16sp"
+                 android:id="@+id/tv_star_time"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginLeft="3dp"
+                 android:textColor="#FFFFFF" />
+             <TextView
+                 android:textSize="16sp"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                
+                 android:text="到"
+                 android:layout_marginLeft="8dp"
+                 android:layout_marginRight="8dp"
+                 android:textColor="#FFFFFF" />
+
+             <TextView
+                 android:textSize="16sp"
+                 android:layout_marginLeft="3dp"
+                 android:id="@+id/tv_end_time"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:textColor="#FFFFFF" />
+                 </LinearLayout> 
+                 <View 
+                     android:layout_width="match_parent"
+                     android:layout_height="8dp"
+                     />   
+         </LinearLayout>
+
+         <ImageView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
+             android:layout_below="@+id/ll_card_money"
+             android:src="@drawable/has_the_failure"
+             android:visibility="gone"
+             android:id="@+id/card_status" />
+            
+            </RelativeLayout>
+        
+        
+        
+        
+        
+            
+        
+
+        
+
+         
+        </LinearLayout>
+        <LinearLayout 
+            android:background="#FFFFFF"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:id="@+id/ll_sell">
+         <TextView 
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="去买单"
+             android:textColor="#20AFE7"
+             android:textSize="20sp"
+             />
+            </LinearLayout>
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.8dp"
+                    android:background="#D2D2D2" />
+
+           <LinearLayout
+               android:layout_marginTop="10dp"
+               android:id="@+id/ll_store"
+            android:background="#FFFFFF"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:layout_height="40dp"
+               android:orientation="horizontal">
+         <TextView
+
+             android:layout_marginLeft="10dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="商家详情"
+             android:textColor="#666666"
+             android:textSize="16sp"
+             />
+         <View 
+             android:layout_width="0dp"
+             android:layout_weight="1"
+             android:layout_height="1dp"
+             />
+         <LinearLayout 
+             android:layout_marginRight="10dp"
+             android:layout_width="20dp"
+             android:layout_height="match_parent">
+                 
+             <ImageView 
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/the_gray_arrow_right"
+             />
+             </LinearLayout>
+         
+         
+            </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="#D2D2D2" />
+    <LinearLayout
+
+        android:id="@+id/card_userule"
+        android:background="#FFFFFF"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:layout_height="40dp">
+        <TextView
+
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="使用条款:"
+            android:textColor="#666666"
+            android:lineSpacingExtra="5dp"
+            android:textSize="16sp"
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="1dp"
+            />
+
+
+
+    </LinearLayout>
+    <View
+        android:id="@+id/line_view"
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="#D2D2D2" />
+    <ScrollView
+        android:visibility="gone"
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="wrap_content">
+        <TextView
+            android:paddingBottom="10dp"
+            android:id="@+id/tv_detail"
+            android:layout_marginLeft="10dp"
+            android:lineSpacingExtra="8dp"
+            android:textSize="16sp"
+            android:textColor="#666666"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </ScrollView>
+
+        
+    
+
+</LinearLayout>

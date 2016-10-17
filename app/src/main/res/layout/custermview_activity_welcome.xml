@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color">
+
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/ic_launcher" />
+
+
+    <com.huiyouhui.lib.NavView.AnimImageGroup
+        android:id="@+id/animpicid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:datas="@array/pic_group"
+        app:linanim="@anim/custermview_img_left_in"
+        app:loutanim="@anim/custermview_img_left_out"
+        app:rinanim="@anim/custermview_img_right_in"
+        app:routanim="@anim/custermview_img_rigth_out" />
+
+    <com.huiyouhui.lib.NavView.NavImgLayout
+        android:id="@+id/navImag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:visibility="invisible"
+        app:checkedimg="@mipmap/custermview_img_dot_white"
+        app:count="4"
+        app:uncheckedimg="@mipmap/custermview_img_dot_gray" />
+
+
+</RelativeLayout>

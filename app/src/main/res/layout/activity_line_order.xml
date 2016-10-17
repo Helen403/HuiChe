@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_bg"
+    android:orientation="vertical" >
+     <include 
+        layout="@layout/title_all"
+        />
+     <com.handmark.pulltorefresh.library.PullToRefreshListView 
+        android:id="@+id/lind_order_listview"
+        android:layout_width="match_parent"
+        android:divider="@null"
+       
+        android:dividerHeight="8dp"
+        android:layout_height="match_parent">
+        
+        </com.handmark.pulltorefresh.library.PullToRefreshListView>
+   
+    
+
+</LinearLayout>

@@ -1,0 +1,86 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:gravity="center"
+    >
+ <RelativeLayout
+     android:layout_width="@dimen/x230"
+     android:background="@drawable/big_red_packets"
+     android:layout_height="@dimen/y270">
+     <ImageView
+         android:id="@+id/img_finish"
+         android:layout_width="wrap_content"
+         android:layout_marginRight="5dp"
+         android:padding="5dp"
+         android:src="@drawable/transparent_exit"
+         android:layout_alignParentRight="true"
+         android:layout_height="wrap_content"
+         android:layout_gravity="right" />
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:orientation="vertical"
+         android:gravity="center"
+         android:layout_height="wrap_content">
+         <TextView
+             android:layout_width="wrap_content"
+             android:text="恭喜你"
+             android:textSize="28sp"
+             android:textColor="@color/white"
+             android:layout_marginTop="@dimen/y40"
+             android:layout_height="wrap_content" />
+         <TextView
+
+             android:id="@+id/tv_red_type"
+             android:layout_width="wrap_content"
+             android:text="获取一个随机红包"
+             android:textSize="16sp"
+             android:textColor="@color/white"
+             android:layout_marginTop="@dimen/y15"
+             android:layout_height="wrap_content" />
+
+         <LinearLayout
+             android:layout_width="wrap_content"
+             android:orientation="horizontal"
+             android:layout_height="wrap_content">
+             <TextView
+                 android:id="@+id/tv_inter_red"
+                 android:layout_width="wrap_content"
+                 android:text=""
+                 android:textSize="45sp"
+                 android:textColor="@color/yellow_red_packet"
+                 android:layout_marginTop="@dimen/y15"
+                 android:layout_height="wrap_content" />
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:text="积分"
+                 android:layout_marginLeft="3dp"
+                 android:textSize="28sp"
+                 android:textColor="@color/yellow_red_packet"
+                 android:layout_marginTop="@dimen/y15"
+                 android:layout_height="wrap_content" />
+         </LinearLayout>
+         <TextView
+             android:layout_width="wrap_content"
+             android:text="积分已存入你的账号"
+             android:textSize="14sp"
+             android:textColor="@color/white"
+             android:layout_marginTop="@dimen/y4"
+             android:layout_height="wrap_content" />
+
+     </LinearLayout>
+     <TextView
+         android:layout_width="wrap_content"
+         android:text="优积分"
+         android:textSize="15sp"
+         android:layout_alignParentBottom="true"
+         android:layout_centerHorizontal="true"
+         android:layout_marginBottom="@dimen/dp_10"
+         android:textColor="@color/white"
+         android:layout_marginTop="@dimen/y15"
+         android:layout_height="wrap_content" />
+
+ </RelativeLayout>
+
+</RelativeLayout>

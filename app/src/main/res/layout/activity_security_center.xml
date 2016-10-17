@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <include layout="@layout/title_all" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#F5F5F5" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="50dp">
+        <EditText
+            android:id="@+id/edit_old"
+            android:layout_marginRight="18dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_marginLeft="18dp"
+            android:background="@null"
+            android:singleLine="true"
+            android:textColorHint="#EBEBEB"
+            android:hint="请输入旧密码,如无可不填" />
+
+        <ImageButton
+            android:layout_gravity="center_vertical"
+            android:id="@+id/delete_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:src="@drawable/the_delete_button"
+            android:layout_marginRight="15dp"
+            android:visibility="invisible"
+            />
+
+    </LinearLayout>
+
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="#E0E0E0" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="50dp">
+        <EditText
+            android:id="@+id/edit_newf"
+            android:layout_marginRight="18dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_marginLeft="18dp"
+            android:inputType="textPassword"
+            android:textColorHint="#EBEBEB"
+            android:background="@null"
+            android:hint="请输入新密码" />
+
+        <ImageButton
+            android:layout_gravity="center_vertical"
+            android:id="@+id/delete_new1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:src="@drawable/eyes"
+            android:layout_marginRight="15dp"
+            android:visibility="invisible"
+            />
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="#E0E0E0" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="50dp">
+
+
+        <EditText
+            android:id="@+id/edit_newt"
+            android:layout_marginRight="18dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_marginLeft="18dp"
+            android:background="@null"
+            android:inputType="textPassword"
+            android:textColorHint="#EBEBEB"
+            android:hint="请输入新密码" />
+        <ImageButton
+            android:layout_gravity="center_vertical"
+            android:id="@+id/delete_new2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:src="@drawable/eyes"
+            android:layout_marginRight="15dp"
+            android:visibility="invisible"
+            />
+    </LinearLayout>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="#E0E0E0" />
+    <Button 
+             android:id="@+id/btn_confirm"
+             android:layout_marginTop="25dp"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="确定"
+             android:background="@drawable/buton_grey_shape"
+             android:layout_marginLeft="18dp"
+             android:layout_marginRight="18dp"
+             android:textColor="#EBEBEB"
+             />
+
+</LinearLayout>

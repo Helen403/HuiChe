@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical">
+    <!--图片-->
+    <com.huiche.view.HackyViewPager
+        android:id="@+id/vp_photoAlbum"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <ImageView
+        android:id="@+id/img_finish"
+        android:layout_width="40dp"
+        android:src="@drawable/the_delete_button"
+        android:layout_height="40dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignTop="@+id/tv_albumCount"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <!--页码-->
+    <TextView
+        android:id="@+id/tv_albumCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+    <!--名称和下载-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/tv_photoName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+         android:visibility="invisible"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:clickable="true"
+            android:id="@+id/iv_photoAlbum_download"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/addess_022" />
+    </LinearLayout>
+
+
+</RelativeLayout>

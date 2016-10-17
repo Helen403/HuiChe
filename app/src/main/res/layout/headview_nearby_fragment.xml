@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <!--android:background="#fff"-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPageHeadVeiw_nearByFragment_MainActivity"
+            android:layout_width="match_parent"
+            android:layout_height="184dp"
+             />
+        <!--android:fadingEdge="none"-->
+        <LinearLayout
+            android:id="@+id/containFristHeadView_nearByFargment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal" 
+            android:layout_marginTop="-20dp">
+        </LinearLayout>
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/gridViewHeadView_nearByFragment_MainActivity"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="10dp"
+        android:numColumns="4" >
+    </GridView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="-10dp"
+        android:background="#F5F5F5" />
+
+    <TextView
+        android:id="@+id/textHeadView_nearByFragment_MainActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:drawableLeft="@drawable/sm_address"
+        android:drawablePadding="5dp"
+        android:gravity="center_vertical"
+        android:text="正在为您加载位置信息..."
+        android:textColor="@color/text_color_grey" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#ddd" />
+
+    <LinearLayout
+        android:id="@+id/showInfo_headview_nearByFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/rotateImage_headview_nearByFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/juchi" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="正在为您收集附近商家..."
+            android:textColor="@color/text_color_grey" />
+    </LinearLayout>
+
+</LinearLayout>

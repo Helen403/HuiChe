@@ -1,0 +1,226 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <!-- 添加的商品信息 -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp" >
+
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/iv_addToCart_productIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY" />
+
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:padding="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/iv_addToCart_productIcon"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_addToCart_productName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="洗剪吹"
+                android:textColor="@color/text_color_black_light2" />
+
+            <TextView
+                android:id="@+id/tv_addToCart_integral"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="500积分"
+                android:textColor="@color/yellow" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="center" >
+
+            <ImageButton
+                android:id="@+id/imb_addToCart_deleteAdd_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:padding="5dp"
+                android:src="@drawable/the_fork" />
+
+            <ImageButton
+                android:id="@+id/imb_addToCart_deleteAdd_blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:padding="5dp"
+                android:src="@drawable/delete_blue"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divide_color" />
+    <!-- 数量 -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="数量"
+            android:textColor="@color/text_color_black_light2"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/imb_reduceProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:src="@drawable/reduce_green" />
+
+            <EditText
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:maxLength="8"
+                android:id="@+id/et_addCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/center_green"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="1"
+                android:textColor="@color/text_color_black_light2" />
+
+            <ImageButton
+                android:id="@+id/imb_increaseProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:paddingBottom="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="5dp"
+                android:src="@drawable/increase_green" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divide_color" />
+    <!--  -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tv_addTo_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bule_title"
+            android:clickable="true"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="下一步"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/ll_addTo_shoppingCart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:id="@+id/rl_addTo_shoppingCart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center" >
+
+                <!-- 购物车图标 -->
+
+                <ImageView
+                    android:id="@+id/iv_shoppingCar_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:padding="12dp"
+                    android:src="@drawable/shoppingcar_grey" />
+                <!-- 购物车商品数量 -->
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/tv_shoppingCar_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/iv_shoppingCar_icon"
+                    android:background="@drawable/news_tip"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+            <!-- 加入购物车 -->
+
+            <TextView
+                android:id="@+id/tv_addProduct_toCart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@color/green"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="加入购物车"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+            <!-- 结算 -->
+
+            <TextView
+                android:id="@+id/tv_settle_accounts"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@color/bule_title"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="结算"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>
