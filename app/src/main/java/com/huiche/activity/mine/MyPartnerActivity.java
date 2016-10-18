@@ -1,50 +1,129 @@
 package com.huiche.activity.mine;
 
-import android.widget.ListView;
+import android.content.Intent;
+import android.view.View;
+import android.widget.TextView;
 
 import com.huiche.R;
 import com.huiche.adapter.Adapter_MyPartner;
-import com.huiche.base.BaseActivity;
+import com.huiche.base.MyApplication;
 import com.huiche.bean.MyPartnerBean;
+import com.huiche.constant.Constants;
+import com.huiche.lib.lib.MyRecycleView.MyLinearLayoutManager;
+import com.huiche.lib.lib.Utils.ControlUtils;
+import com.huiche.lib.lib.Utils.Param;
+import com.huiche.lib.lib.base.MyBaseRecycleAdapter;
+import com.huiche.lib.lib.custemview.MyRecycleView;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 /**
  * Created by Administrator on 2016/10/8.
  */
-public class MyPartnerActivity extends BaseActivity {
+public class MyPartnerActivity extends com.huiche.lib.lib.base.BaseActivity {
 
-    ListView listView;
 
     Adapter_MyPartner adapter_myPartner;
 
 
-    @Override
-    public void dealLogicBeforeFindView() {
+    MyRecycleView recycleView;
+    TextView tv_1;
 
+    @Override
+    public int getContentView() {
+        return R.layout.activity_my_partner_recycleview;
     }
 
     @Override
     public void findViews() {
-        setContentView(R.layout.activity_my_partner);
-        listView = (ListView) findViewById(R.id.listview);
-
-        ArrayList<MyPartnerBean> data = new ArrayList<>();
-
-        for (int i = 0; i < 6; i++) {
-            data.add(new MyPartnerBean());
-        }
-        adapter_myPartner = new Adapter_MyPartner(data);
-        listView.setAdapter(adapter_myPartner);
+        setTitle("我的合伙人");
+        setRightRes(R.drawable.classify_01);
+        recycleView = (MyRecycleView) findViewById(R.id.myrecycle_view);
     }
 
     @Override
     public void initData() {
 
+        //设置RecyclerView
+        setRecycleView();
+        //添加头部View
+        addHeadView();
+    }
+
+    private void addHeadView() {
+        View head = inflater.inflate(R.layout.activity_my_partner, contentView, false);
+        recycleView.addHeaderView(head);
+        tv_1 = (TextView) head.findViewById(R.id.tv_1);
+    }
+
+    private void setRecycleView() {
+        // 使用重写后的线性布局管理器
+        MyLinearLayoutManager manager = new MyLinearLayoutManager(MyPartnerActivity.this);
+        recycleView.setLayoutManager(manager);
+        adapter_myPartner = new Adapter_MyPartner(MyPartnerActivity.this, recycleView);
+        recycleView.setAdapter(adapter_myPartner);
+        adapter_myPartner.setOnRefresh(new MyBaseRecycleAdapter.OnRefresh() {
+            @Override
+            public void onRefresh() {
+                if (MyApplication.loginResultBean == null) {
+                    T("请登录");
+                    return;
+                }
+                bufferCircleView.show();
+                Param param = new Param();
+                param.put("us_id", MyApplication.loginResultBean.data.id);
+                //为纬度
+                param.put("lat", 22.5);
+                //经度
+                param.put("lng", 113.5);
+
+
+                StringBuffer sb = new StringBuffer();
+                sb.append("{").append("\"us_id\":\"").append(MyApplication.loginResultBean.data.id).append("\",\"lat\":\"").append(22.5).append("\",\"lng\":\"").append(113.5).append("\"}");
+                param.put("key", getMd5Password(sb.toString()));
+
+                ControlUtils.postsEveryTime(Constants.Helen.ADDPARTERADD, param, MyPartnerBean.class, new ControlUtils.OnControlUtils<MyPartnerBean>() {
+                    @Override
+                    public void onSuccess(String url, MyPartnerBean myPartnerBean, ArrayList<MyPartnerBean> list, String result, JSONObject jsonObject, JSONArray jsonArray) {
+                        bufferCircleView.hide();
+                        T(myPartnerBean.msg);
+                        adapter_myPartner.setRefresh(myPartnerBean.data.partner);
+                    }
+
+                    @Override
+                    public void onFailure(String url) {
+                        bufferCircleView.hide();
+                        T("请检测网络");
+                        adapter_myPartner.setRefresh(null);
+                    }
+                });
+
+
+            }
+
+            @Override
+            public void onAddData() {
+                adapter_myPartner.setAddData(null);
+            }
+        });
+        // 刷新
+        recycleView.setRefresh(true);
+
     }
 
     @Override
     public void setListeners() {
+
+        getRightBtn().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyPartnerActivity.this, DetailsHelenActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }

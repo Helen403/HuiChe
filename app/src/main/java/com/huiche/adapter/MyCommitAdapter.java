@@ -39,10 +39,10 @@ public class MyCommitAdapter extends MyBaseRecycleAdapter<MyCommitBean.DataBean.
 
         //设置评分
         holder.setText(evaluateBean.ev_mark, R.id.tv_2);
-        String str = evaluateBean.ev_mark.substring(0);
+        String str = evaluateBean.ev_mark.substring(0, 1);
         int mark = Integer.parseInt(str);
 
-        int drawable = getFieldValue("id", "comments_star_" + mark + "_0", context);
+        int drawable = getFieldValue("drawable", "comments_star_" + mark + "_0", context);
         holder.getViewById(R.id.iv_1).setBackgroundResource(drawable);
     }
 

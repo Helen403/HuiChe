@@ -5,6 +5,7 @@ import android.view.View;
 import com.huiche.R;
 import com.huiche.bean.DetailHelenBean;
 import com.huiche.lib.lib.base.MyBaseAdapter;
+import com.huiche.lib.lib.base.MyBaseRecycleAdapter;
 
 import java.util.ArrayList;
 
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 /**
  * Created by Administrator on 2016/9/28.
  */
-public class Adapter_Detail_Helen extends MyBaseAdapter<DetailHelenBean> {
+public class Adapter_Detail_Helen extends MyBaseRecycleAdapter<DetailHelenBean> {
     public Adapter_Detail_Helen(ArrayList<DetailHelenBean> data) {
         super(data);
     }

@@ -11,18 +11,40 @@ public interface Constants {
      */
     interface Helen {
 
-         String VERIFICATION = "http://hyh2.281.com.cn/api.php/home/user/verify";
-         String REGISTER = "http://hyh2.281.com.cn/api.php/home/user/register";
-         String LOGIN = "http://hyh2.281.com.cn/api.php/home/user/login";
+        String VERIFICATION = "http://hyh2.281.com.cn/api.php/home/user/verify";
+        String REGISTER = "http://hyh2.281.com.cn/api.php/home/user/register";
+        String LOGIN = "http://hyh2.281.com.cn/api.php/home/user/login";
 
-        String SECURITY="http://hyh2.281.com.cn/api.php/home/user/user_safe";
-        String CHANGEPASSWORD ="http://hyh2.281.com.cn/api.php/home/user/uppassword";
+        String SECURITY = "http://hyh2.281.com.cn/api.php/home/user/user_safe";
+        String CHANGEPASSWORD = "http://hyh2.281.com.cn/api.php/home/user/uppassword";
         String CHANGEPHONE = "http://hyh2.281.com.cn/api.php/home/user/setmobile";
         String MYCOMMIT = "http://hyh2.281.com.cn/api.php/home/evaluate/myevaluate";
 
         String CARMANAGER = "http://hyh2.281.com.cn/api.php/home/car/allcar";
+        String EDITCARMANAGER = "http://hyh2.281.com.cn/api.php/home/car/onecar";
+        String DELECTCAR = "http://hyh2.281.com.cn/api.php/home/car/delcar";
 
+        String CALLPHONE = "http://hyh2.281.com.cn/api.php/home/user/contact";
+
+        String GETUSERPOINT = "http://hyh2.281.com.cn/api.php/home/user/get_user_upoint ";
+
+        String USERPOINT = "http://hyh2.281.com.cn/api.php/home/user/user_shoplog";
+
+
+        String MYOIlCARD = "http://hyh2.281.com.cn/api.php/home/gas/checkgas";
+
+
+        String SUGGESTION = "http://hyh2.281.com.cn/api.php/home/suggestion/addsuggestion";
+
+
+        String ADDPARTER = "http://hyh2.281.com.cn/api.php/home/partner/addpartner";
+        String ADDPARTERADD = "http://hyh2.281.com.cn/api.php/home/partner/allpartner";
+
+
+        String MYCOLLECTION = "http://hyh2.281.com.cn/api.php/home/collect/mycollect";
+        String DELECTMYCOLLECTION = "http://hyh2.281.com.cn/api.php/home/collect/delcollect";
     }
+
     interface startActivityForResult {
         int LOGIN = 0X55;
         int LOGINRESULT = 0X54;
@@ -45,7 +67,7 @@ public interface Constants {
      * 只会加载一次
      */
     String[] BITMAP = new String[]{
-           "http://mmbiz.qpic.cn/mmbiz_jpg/X2Vhfqvibrba9EAlvv5ZMwlgnA5diaGQE6kPgVwpltLQDrdxnYtuXbJvJovQErq9CQC94vFaF4Q2MPR3ib7aiagZ1g/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1"
+            "http://mmbiz.qpic.cn/mmbiz_jpg/X2Vhfqvibrba9EAlvv5ZMwlgnA5diaGQE6kPgVwpltLQDrdxnYtuXbJvJovQErq9CQC94vFaF4Q2MPR3ib7aiagZ1g/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1"
     };
 
 

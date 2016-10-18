@@ -11,6 +11,7 @@ import com.huiche.R;
 import com.huiche.adapter.Adapter_CarManagerFister;
 import com.huiche.base.CarManagerFisterBean;
 import com.huiche.base.MyApplication;
+import com.huiche.bean.DELECTCAR;
 import com.huiche.constant.Constants;
 import com.huiche.lib.lib.Utils.ControlUtils;
 import com.huiche.lib.lib.Utils.Param;
@@ -31,6 +32,7 @@ public class CarManagerFisterActivity extends com.huiche.lib.lib.base.BaseActivi
     Adapter_CarManagerFister adapter_carManagerFister;
     private PullToRefreshSwipeListView pull_listview;
     private SwipeListView listview;
+    CarManagerFisterBean carManagerFisterBeanTmp;
 
 
     @Override
@@ -60,39 +62,15 @@ public class CarManagerFisterActivity extends com.huiche.lib.lib.base.BaseActivi
     }
 
     private void setCarManager() {
-
-
-        Param param = new Param();
-        param.put("us_id", MyApplication.loginResultBean.data.id);
-        StringBuffer sb = new StringBuffer();
-        sb.append("{").append("\"us_id\":\"").append(MyApplication.loginResultBean.data.id).append("\"}");
-        param.put("key", getMd5Password(sb.toString()));
-        ControlUtils.postsEveryTime(Constants.Helen.CARMANAGER, param, CarManagerFisterBean.class, new ControlUtils.OnControlUtils<CarManagerFisterBean>() {
-            @Override
-            public void onSuccess(String url, CarManagerFisterBean carManagerFisterBean, ArrayList<CarManagerFisterBean> list, String result, JSONObject jsonObject, JSONArray jsonArray) {
-                T(carManagerFisterBean.msg);
-                adapter_carManagerFister = new Adapter_CarManagerFister(carManagerFisterBean.data.car, listview.getRightViewWidth(), new Adapter_CarManagerFister.IOnItemRightClickListener() {
-                    @Override
-                    public void onRightClick(View v, int position) {
-                        T("暂时不提供删除");
-                    }
-                });
-                listview.setAdapter(adapter_carManagerFister);
-            }
-
-            @Override
-            public void onFailure(String url) {
-
-            }
-        });
-
+       //获取车辆信息
+        getCarInfo();
 
 
         pull_listview.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<SwipeListView>() {
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<SwipeListView> refreshView) {
-
-
+                //获取车辆信息
+                getCarInfo();
             }
 
             @Override
@@ -103,17 +81,89 @@ public class CarManagerFisterActivity extends com.huiche.lib.lib.base.BaseActivi
 
         });
 
+    }
+
+    //获取车辆信息
+    private void getCarInfo() {
+        if (MyApplication.loginResultBean == null) {
+            T("请登录");
+            return;
+        }
+        bufferCircleView.show();
+        Param param = new Param();
+        param.put("us_id", MyApplication.loginResultBean.data.id);
+        StringBuffer sb = new StringBuffer();
+        sb.append("{").append("\"us_id\":\"").append(MyApplication.loginResultBean.data.id).append("\"}");
+        param.put("key", getMd5Password(sb.toString()));
+        ControlUtils.postsEveryTime(Constants.Helen.CARMANAGER, param, CarManagerFisterBean.class, new ControlUtils.OnControlUtils<CarManagerFisterBean>() {
+
+
+            @Override
+            public void onSuccess(String url, CarManagerFisterBean carManagerFisterBean, ArrayList<CarManagerFisterBean> list, String result, JSONObject jsonObject, JSONArray jsonArray) {
+                carManagerFisterBeanTmp = carManagerFisterBean;
+                bufferCircleView.hide();
+                T(carManagerFisterBean.msg);
+                adapter_carManagerFister = new Adapter_CarManagerFister(carManagerFisterBean.data.car, listview.getRightViewWidth(), new Adapter_CarManagerFister.IOnItemRightClickListener() {
+                    @Override
+                    public void onRightClick(View v, int position) {
+                        //删除车辆
+                        delectCar(position);
+                    }
+                });
+                listview.setAdapter(adapter_carManagerFister);
+            }
+
+            @Override
+            public void onFailure(String url) {
+                bufferCircleView.hide();
+                T("请检测网络");
+            }
+        });
+    }
+
+
+    //删除车辆
+    private void delectCar(int position) {
+        if (carManagerFisterBeanTmp == null) {
+            T("暂不提供删除功能");
+            return;
+        }
+        bufferCircleView.show();
+        Param param = new Param();
+        param.put("ca_id", carManagerFisterBeanTmp.data.car.get(position).ca_id);
+        StringBuffer sb = new StringBuffer();
+        sb.append("{").append("\"ca_id\":\"").append(carManagerFisterBeanTmp.data.car.get(position).ca_id).append("\"}");
+        param.put("key", getMd5Password(sb.toString()));
+        ControlUtils.postsEveryTime(Constants.Helen.DELECTCAR, param, DELECTCAR.class, new ControlUtils.OnControlUtils<DELECTCAR>() {
+            @Override
+            public void onSuccess(String url, DELECTCAR delectcar, ArrayList<DELECTCAR> list, String result, JSONObject jsonObject, JSONArray jsonArray) {
+                bufferCircleView.hide();
+                T(delectcar.msg);
+                getCarInfo();
+            }
+
+            @Override
+            public void onFailure(String url) {
+                bufferCircleView.hide();
+            }
+        });
 
     }
 
     @Override
     public void setListeners() {
-        tv_1.setOnClickListener(new View.OnClickListener() {
+        setOnListeners(tv_1);
+        setOnClick(new onClick() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CarManagerFisterActivity.this, CarManagerActivity.class);
-                startActivity(intent);
+            public void onClick(View v, int id) {
+                switch (id) {
+                    case R.id.tv_1:
+                        Intent intent = new Intent(CarManagerFisterActivity.this, CarManagerActivity.class);
+                        startActivity(intent);
+                        break;
+                }
             }
         });
+
     }
 }

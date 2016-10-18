@@ -1,6 +1,5 @@
 package com.huiche.activity.mine;
 
-import android.graphics.Color;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -129,8 +128,6 @@ public class SecurityCenterActivity extends BaseActivity implements
             public void onSuccess(String url, SecurityChangePasswordBean securityChangePasswordBean, ArrayList<SecurityChangePasswordBean> list, String result, JSONObject jsonObject, JSONArray jsonArray) {
                 T(securityChangePasswordBean.msg);
                 bufferCircleView.hide();
-
-
             }
 
             @Override

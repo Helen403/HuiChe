@@ -6,7 +6,6 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,6 +17,7 @@ import com.huiche.bean.LoginResultBean;
 import com.huiche.constant.Constants;
 import com.huiche.lib.lib.Utils.CipherUtils;
 import com.huiche.lib.lib.Utils.ControlUtils;
+import com.huiche.lib.lib.Utils.DButils;
 import com.huiche.lib.lib.Utils.Param;
 import com.huiche.lib.lib.base.BaseActivity;
 import com.huiche.utils.SetSizeUtils;
@@ -32,27 +32,27 @@ import java.util.ArrayList;
  *
  * @author Administrator
  */
-public class LoginActivity extends BaseActivity implements OnClickListener,
+public class LoginActivity extends BaseActivity implements
         TextWatcher {
 
     private EditText et_accountInput;// 账户输入
     private EditText et_passwordInput;// 密码输入
     private TextView tv_forgetPasswd, tv_22, forget;// 忘记密码
-//    private IWXAPI api;
+    //    private IWXAPI api;
     private TextView tv_login;// 登录
     private LinearLayout ll_wechat_login;// 微信登录
 
-    @Override
-    public void dealLogicBeforeFindView() {
-        // 把应用注册到微信
+    // 把应用注册到微信
 //        api = WXAPIFactory.createWXAPI(this, MyApplication.appid);
 //        api.registerApp(MyApplication.appid);
-    }
 
     @Override
     public int getContentView() {
         return R.layout.activity_login;
     }
+
+
+
 
     @Override
     public void findViews() {
@@ -73,6 +73,26 @@ public class LoginActivity extends BaseActivity implements OnClickListener,
 
     @Override
     public void initData() {
+        if (MyApplication.loginResultBean != null) {
+            //自动填充数据
+            String user = DButils.getString("user");
+            String pass = DButils.getString("pass");
+            if (!(TextUtils.isEmpty(user) && TextUtils.isEmpty(pass))) {
+                et_accountInput.setText(user);
+                et_passwordInput.setText(pass);
+                tv_login.setEnabled(true);
+                return;
+            }
+        } else {
+            //自动登录
+            String user = DButils.getString("user");
+            String pass = DButils.getString("pass");
+            if (!(TextUtils.isEmpty(user) && TextUtils.isEmpty(pass))) {
+                et_accountInput.setText(user);
+                et_passwordInput.setText(pass);
+                login();
+            }
+        }
     }
 
     @Override
@@ -80,7 +100,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener,
         et_accountInput.addTextChangedListener(this);
         et_passwordInput.addTextChangedListener(this);
         tv_22.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG); //下划线
-        setOnListeners(tv_22, forget,ll_wechat_login,tv_forgetPasswd,tv_login);
+        setOnListeners(tv_22, forget, ll_wechat_login, tv_forgetPasswd, tv_login);
         setOnClick(new onClick() {
             @Override
             public void onClick(View v, int id) {
@@ -112,10 +132,10 @@ public class LoginActivity extends BaseActivity implements OnClickListener,
     }
 
 
-
     /**
      * 用户登录
      */
+
     private void login() {
 
         final String account = et_accountInput.getText().toString().trim();
@@ -149,8 +169,10 @@ public class LoginActivity extends BaseActivity implements OnClickListener,
                         MyApplication.loginResultBean = loginResultBean;
                         MyApplication.phone = account;
                         setResult(Constants.startActivityForResult.LOGINRESULT);
-                        finish();
+                        //存储用户信息到数据库
+                        setInfoToSQL(account, passwd);
 
+                        finish();
                         break;
                 }
             }
@@ -158,10 +180,17 @@ public class LoginActivity extends BaseActivity implements OnClickListener,
             @Override
             public void onFailure(String url) {
                 bufferCircleView.hide();
+                T("请检测网络");
             }
         });
 
 
+    }
+
+    //存储用户信息到数据库
+    private void setInfoToSQL(String account, String passwd) {
+        DButils.putString("user", account);
+        DButils.putString("pass", passwd);
     }
 
     @Override
@@ -178,6 +207,9 @@ public class LoginActivity extends BaseActivity implements OnClickListener,
         } else {
             tv_login.setEnabled(false);
         }
+
+
+
 
     }
 

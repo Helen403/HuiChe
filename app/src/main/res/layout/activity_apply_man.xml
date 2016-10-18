@@ -2,72 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:clipToPadding="true"
-    android:fitsSystemWindows="true"
+    android:background="#f5f5f5"
     android:orientation="vertical">
-
-    <LinearLayout
-        android:id="@+id/rl_title_mainActivity"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/bule_title"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="5dp">
-
-        <ImageButton
-            android:id="@+id/imageLeft_titil_all"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:background="@color/transparent"
-            android:padding="10dp"
-            android:src="@drawable/back_arrow" />
-
-        <TextView
-            android:id="@+id/text_titil_all"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:singleLine="true"
-            android:text="申请合伙人"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-
-
-        <RelativeLayout
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:background="@color/transparent">
-
-            <ImageButton
-                android:id="@+id/imageRigth_titil_all"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:background="@color/transparent"
-                android:padding="10dp"
-                android:src="@drawable/classify_01"
-                android:visibility="gone" />
-
-            <TextView
-                android:id="@+id/tv_right_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-        </RelativeLayout>
-    </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#fff">
 
 
         <TextView
@@ -81,7 +23,7 @@
 
 
         <EditText
-            android:id="@+id/edittext"
+            android:id="@+id/edit_1"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
@@ -92,7 +34,7 @@
             android:focusableInTouchMode="true"
             android:hint="请输入你的姓名"
             android:singleLine="true"
-            android:textColor="#D2D2D2"
+            android:textColorHint="#D2D2D2"
             android:textSize="18sp" />
 
 
@@ -101,7 +43,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp">
+        android:layout_marginTop="1dp"
+        android:background="#fff">
 
 
         <TextView
@@ -115,6 +58,7 @@
 
 
         <EditText
+            android:id="@+id/edit_2"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
@@ -125,17 +69,17 @@
             android:focusableInTouchMode="true"
             android:hint="请输入你的手机号"
             android:singleLine="true"
-            android:textColor="#D2D2D2"
+            android:textColorHint="#D2D2D2"
             android:textSize="18sp" />
 
 
     </LinearLayout>
 
     <LinearLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp">
+        android:layout_marginTop="1dp"
+        android:background="#fff">
 
 
         <TextView
@@ -149,6 +93,7 @@
 
 
         <EditText
+            android:id="@+id/edit_3"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
@@ -159,7 +104,7 @@
             android:focusableInTouchMode="true"
             android:hint="请输入你的支付宝号码"
             android:singleLine="true"
-            android:textColor="#D2D2D2"
+            android:textColorHint="#D2D2D2"
             android:textSize="18sp" />
 
 
@@ -168,18 +113,17 @@
     <TextView
 
         android:id="@+id/tv_1"
-        android:text="提交申请"
-        android:gravity="center"
-        android:textColor="#fff"
         android:layout_width="match_parent"
-        android:padding="10dp"
-        android:background="@drawable/bg_apply_man"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="10dp"
         android:layout_marginRight="15dp"
-        android:layout_height="wrap_content" />
-
-
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_apply_man"
+        android:gravity="center"
+        android:padding="13dp"
+        android:text="提交申请"
+        android:textColor="#fff"
+        android:textSize="18sp" />
 
 
 </LinearLayout>

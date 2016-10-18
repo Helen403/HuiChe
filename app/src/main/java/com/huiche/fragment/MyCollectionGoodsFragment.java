@@ -14,7 +14,6 @@ import com.handmark.pulltorefresh.library.PullToRefreshSwipeListView;
 import com.handmark.pulltorefresh.library.SwipeListView;
 import com.huiche.PostResult.CollectionGoods;
 import com.huiche.R;
-import com.huiche.activity.mine.MyCollectionsActivity;
 import com.huiche.adapter.MyGoodsCollectionAdapter;
 import com.huiche.base.BaseFragment;
 import com.huiche.utils.AsyncHttp;
@@ -111,7 +110,7 @@ public class MyCollectionGoodsFragment extends BaseFragment {
                     pull_listview.onRefreshComplete();
                     String number = response.optString("total");
                     if (!number.equals("0")) {
-                        MyCollectionsActivity.upDateGoods(number);
+//                        MyCollectionsActivity.upDateGoods(number);
                     }
                     if (allList.size() < 1) {
                         ll_tip.setVisibility(View.VISIBLE);

@@ -13,13 +13,16 @@ import android.widget.TextView;
 import com.huiche.R;
 import com.huiche.activity.LoginActivity;
 import com.huiche.activity.mine.ApplyManActivity;
+import com.huiche.activity.mine.CallPhoneActivity;
 import com.huiche.activity.mine.CarManagerFisterActivity;
-import com.huiche.activity.mine.DetailsHelenActivity;
 import com.huiche.activity.mine.FeedBackActivity;
 import com.huiche.activity.mine.GoodsReceiptActivity;
 import com.huiche.activity.mine.MineActivity;
 import com.huiche.activity.mine.MyCollectionsActivity;
 import com.huiche.activity.mine.MyCommentActivity;
+import com.huiche.activity.mine.MyPartnerActivity;
+import com.huiche.activity.mine.MyjiFenActivity;
+import com.huiche.activity.mine.OilcardActivity;
 import com.huiche.activity.mine.SecurityHelenActivity;
 import com.huiche.adapter.MyPersionalAdapter;
 import com.huiche.base.MyApplication;
@@ -32,7 +35,6 @@ import com.huiche.view.CircleImageView;
  * Created by Administrator on 2016/10/17.
  */
 public class MineHelenFragment extends BaseFragment {
-
 
     private RelativeLayout relaTop;
     private ImageButton imbTitleBarBack;
@@ -77,6 +79,7 @@ public class MineHelenFragment extends BaseFragment {
         icon = (CircleImageView) contentView.findViewById(R.id.icon);
         mygridview = (com.huiche.customer_view.MyGridView) contentView.findViewById(R.id.mygridview);
         tv_3 = (TextView) contentView.findViewById(R.id.tv_3);
+
     }
 
     @Override
@@ -95,7 +98,7 @@ public class MineHelenFragment extends BaseFragment {
 
     @Override
     public void setListeners() {
-        setOnListeners(llNotlogin, icon);
+        setOnListeners(llNotlogin, icon, llIntegralSurplus, llIntegralIncome, llIntegralUsed);
         setOnClick(new onClick() {
             @Override
             public void onClick(View v, int id) {
@@ -110,6 +113,22 @@ public class MineHelenFragment extends BaseFragment {
                     case R.id.icon:
                         Intent intent1 = new Intent(getActivity(), MineActivity.class);
                         startActivity(intent1);
+                        break;
+
+                    //我的积分
+                    case R.id.ll_integral_surplus:
+                        Intent intent2 = new Intent(getActivity(), MyjiFenActivity.class);
+                        startActivity(intent2);
+                        break;
+                    //我的卡卷
+                    case R.id.ll_integral_income:
+                        Intent intent3 = new Intent(getActivity(), MyjiFenActivity.class);
+                        startActivity(intent3);
+                        break;
+                    //我的收藏
+                    case R.id.ll_integral_used:
+                        Intent intent4 = new Intent(getActivity(), MyCollectionsActivity.class);
+                        startActivity(intent4);
                         break;
                 }
             }
@@ -144,8 +163,8 @@ public class MineHelenFragment extends BaseFragment {
                     //联系客服
                     case 3:
                         //获取客服电话
-                        getPhone();
-
+                        intent.setClass(getActivity(), CallPhoneActivity.class);
+                        startActivity(intent);
                         break;
                     //安全设置
                     case 4:
@@ -156,20 +175,18 @@ public class MineHelenFragment extends BaseFragment {
                         intent.setClass(getActivity(), GoodsReceiptActivity.class);
                         startActivity(intent);
                         break;
+                    //意见反馈
                     case 6:
                         intent.setClass(getActivity(), FeedBackActivity.class);
                         startActivity(intent);
                         break;
-                    //意见反馈
+                    //我的油卡
                     case 7:
-                        Intent intent1 = new Intent(getActivity(),
-                                DetailsHelenActivity.class);
-                        startActivity(intent1);
+                        intent.setClass(getActivity(), OilcardActivity.class);
+                        startActivity(intent);
                         break;
                     case 8:
-                        //申请合伙人
-                        intent.setClass(getActivity(), ApplyManActivity.class);
-                        startActivity(intent);
+                        applyMan();
                         break;
                 }
             }
@@ -177,9 +194,24 @@ public class MineHelenFragment extends BaseFragment {
 
     }
 
+    //申请合伙人
+    private void applyMan() {
+        if (MyApplication.loginResultBean == null) {
+            T("请登录");
+            return;
+        }
+        //通过
+        if ("1".equals(MyApplication.loginResultBean.data.partner_state)){
+            //我的合伙人
+            Intent intent = new Intent(getActivity(), MyPartnerActivity.class);
+            startActivity(intent);
 
-    //获取服务器客服电话
-    private void getPhone() {
+        }else {
+            //申请合伙人
+            Intent intent = new Intent(getActivity(), ApplyManActivity.class);
+            startActivity(intent);
+        }
+
 
     }
 

@@ -9,20 +9,21 @@ public class LoginResultBean  {
     /**
      * status : 10017
      * msg : 登录成功
-     * data : {"id":"164","username":null,"sex":"0","birthday":"1970-01-01","headerimg":"http://localhost/hyh_svn/Public/header.jpg","points":"0","vol":"0","collect":0}
+     * data : {"id":"160","username":"zeros","sex":"1","birthday":"2015-04-05","headerimg":"http://hyh2.281.com.cn/Public/header.jpg","points":"0","vol":"0","collect":0,"partner_state":"0"}
      */
 
     public int status;
     public String msg;
     /**
-     * id : 164
-     * username : null
-     * sex : 0
-     * birthday : 1970-01-01
-     * headerimg : http://localhost/hyh_svn/Public/header.jpg
+     * id : 160
+     * username : zeros
+     * sex : 1
+     * birthday : 2015-04-05
+     * headerimg : http://hyh2.281.com.cn/Public/header.jpg
      * points : 0
      * vol : 0
      * collect : 0
+     * partner_state : 0
      */
 
     public DataBean data;
@@ -36,5 +37,6 @@ public class LoginResultBean  {
         public String points;
         public String vol;
         public int collect;
+        public String partner_state;
     }
 }

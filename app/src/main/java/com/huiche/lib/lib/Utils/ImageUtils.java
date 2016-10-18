@@ -17,6 +17,7 @@ import android.media.ExifInterface;
 import android.os.Environment;
 import android.os.Handler;
 import android.support.v4.util.LruCache;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -160,6 +161,9 @@ public final class ImageUtils {
      * 从内存缓存中获取一个Bitmap
      */
     private Bitmap getBitmapFromMemCache(String key) {
+        if (TextUtils.isEmpty(key)){
+            return null;
+        }
         return lruCache.get(key);
     }
 
@@ -310,6 +314,8 @@ public final class ImageUtils {
      */
     public Bitmap getBitmapToSDCardByUrl(String url) {
         if (!isMounted())
+            return null;
+        if (TextUtils.isEmpty(url))
             return null;
         File file = new File(IMAGE_PATH, "" + url.hashCode());
         if (file.exists()) {

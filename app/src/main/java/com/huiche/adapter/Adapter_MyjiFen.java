@@ -1,20 +1,19 @@
 package com.huiche.adapter;
 
-import android.view.View;
+import android.content.Context;
 
 import com.huiche.R;
 import com.huiche.bean.MyjiFenBean;
-import com.huiche.lib.lib.base.MyBaseAdapter;
-
-import java.util.ArrayList;
-
+import com.huiche.lib.lib.base.MyBaseRecycleAdapter;
+import com.huiche.lib.lib.custemview.MyRecycleView;
 
 /**
  * Created by Administrator on 2016/9/27.
  */
-public class Adapter_MyjiFen extends MyBaseAdapter<MyjiFenBean> {
-    public Adapter_MyjiFen(ArrayList<MyjiFenBean> data) {
-        super(data);
+public class Adapter_MyjiFen extends MyBaseRecycleAdapter<MyjiFenBean.DataBean> {
+
+    public Adapter_MyjiFen(Context context, MyRecycleView mRecyclerView) {
+        super(context, mRecyclerView);
     }
 
     @Override
@@ -23,7 +22,11 @@ public class Adapter_MyjiFen extends MyBaseAdapter<MyjiFenBean> {
     }
 
     @Override
-    public void onInitView(View view, MyjiFenBean myjiFenBean, int position) {
-
+    public void onInitView(RecycleViewHolder holder, MyjiFenBean.DataBean dataBean, int position) {
+        holder.setText(dataBean.up_itme,R.id.tv_1);
+        holder.setText(dataBean.up_int,R.id.tv_3);
+        holder.setText(dataBean.up_date,R.id.tv_2);
     }
+
+
 }

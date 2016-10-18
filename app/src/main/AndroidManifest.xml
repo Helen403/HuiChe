@@ -196,6 +196,7 @@
         <activity android:name=".activity.mine.MyPartnerActivity"/>
 
         <activity android:name=".activity.mine.MineActivity"/>
+        <activity android:name=".activity.mine.CallPhoneActivity"/>
 
 
 

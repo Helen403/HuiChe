@@ -160,7 +160,7 @@ public class MyCollectionShopFragment extends BaseFragment {
                     pull_listview.onRefreshComplete();
                     String shopNum = response.optString("total");
                     if (!shopNum.equals("0")) {
-                        MyCollectionsActivity.upDateShop(shopNum);
+//                        MyCollectionsActivity.upDateShop(shopNum);
                     }
 
 
