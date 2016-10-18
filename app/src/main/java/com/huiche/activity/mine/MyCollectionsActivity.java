@@ -85,11 +85,11 @@ public class MyCollectionsActivity extends com.huiche.lib.lib.base.BaseActivity 
         Param param = new Param();
         param.put("us_id", MyApplication.loginResultBean.data.id);
         //为纬度
-        param.put("lat", 22.5);
+        param.put("lat", 22.479685);
         //经度
-        param.put("lng", 113.5);
+        param.put("lng", 113.391561);
         StringBuffer sb = new StringBuffer();
-        sb.append("{").append("\"us_id\":\"").append(MyApplication.loginResultBean.data.id).append("\",\"lat\":\"").append(22.5).append("\",\"lng\":\"").append(113.5).append("\"}");
+        sb.append("{").append("\"us_id\":\"").append(MyApplication.loginResultBean.data.id).append("\",\"lat\":\"").append(22.479685).append("\",\"lng\":\"").append(113.391561).append("\"}");
         param.put("key", getMd5Password(sb.toString()));
 
         ControlUtils.postsEveryTime(Constants.Helen.MYCOLLECTION, param, MyCollectionBean.class, new ControlUtils.OnControlUtils<MyCollectionBean>() {

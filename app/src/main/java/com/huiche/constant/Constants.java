@@ -43,6 +43,8 @@ public interface Constants {
 
         String MYCOLLECTION = "http://hyh2.281.com.cn/api.php/home/collect/mycollect";
         String DELECTMYCOLLECTION = "http://hyh2.281.com.cn/api.php/home/collect/delcollect";
+
+        String MYCOLLECTIONDETAIL = "http://hyh2.281.com.cn/api.php/home/partner/commissionlist";
     }
 
     interface startActivityForResult {

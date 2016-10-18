@@ -452,7 +452,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     public void startActivityForResult(Intent intent, int requestCode) {
         super.startActivityForResult(intent, requestCode);
         String result = intent.getStringExtra("result");
-        Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
+//        Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
     }
 
     /*********************************************************************/

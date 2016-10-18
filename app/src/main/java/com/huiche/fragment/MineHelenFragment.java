@@ -238,6 +238,10 @@ public class MineHelenFragment extends BaseFragment {
             tvIncome.setText(MyApplication.loginResultBean.data.vol + "");
             //设置收藏
             tvOutcome.setText(MyApplication.loginResultBean.data.collect + "");
+            if ("1".equals(MyApplication.loginResultBean.data.partner_state)){
+
+            }
+
         }
     }
 
