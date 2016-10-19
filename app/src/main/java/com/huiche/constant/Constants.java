@@ -48,8 +48,14 @@ public interface Constants {
     }
 
     interface startActivityForResult {
+        //登录
         int LOGIN = 0X55;
         int LOGINRESULT = 0X54;
+        //注销
+        int CANCELLATION = 0X53;
+        int CANCELLATIONRESULT = 0X52;
+
+
     }
 
     /******************************************************************************************/

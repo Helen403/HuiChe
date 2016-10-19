@@ -2,6 +2,7 @@ package com.huiche.activity.mine;
 
 import android.view.View;
 
+import com.baidu.location.BDLocation;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshSwipeListView;
 import com.handmark.pulltorefresh.library.SwipeListView;
@@ -12,6 +13,7 @@ import com.huiche.bean.MyCollectionBean;
 import com.huiche.bean.MyCollectionDelectBean;
 import com.huiche.constant.Constants;
 import com.huiche.lib.lib.Utils.ControlUtils;
+import com.huiche.lib.lib.Utils.LocationUtils;
 import com.huiche.lib.lib.Utils.Param;
 
 import org.json.JSONArray;
@@ -81,22 +83,35 @@ public class MyCollectionsActivity extends com.huiche.lib.lib.base.BaseActivity 
             T("请登录");
             return;
         }
+        LocationUtils.getBDLocation(new LocationUtils.OnLocationUtils() {
+            @Override
+            public void onSuccess(BDLocation location) {
+
+                setData(location.getLatitude(), location.getLongitude());
+            }
+        });
+
+
+
+    }
+
+    private void setData(double latitude, double longitude) {
         bufferCircleView.show();
         Param param = new Param();
         param.put("us_id", MyApplication.loginResultBean.data.id);
         //为纬度
-        param.put("lat", 22.479685);
+        param.put("lat", latitude);
         //经度
-        param.put("lng", 113.391561);
+        param.put("lng", longitude);
         StringBuffer sb = new StringBuffer();
-        sb.append("{").append("\"us_id\":\"").append(MyApplication.loginResultBean.data.id).append("\",\"lat\":\"").append(22.479685).append("\",\"lng\":\"").append(113.391561).append("\"}");
+        sb.append("{").append("\"us_id\":\"").append(MyApplication.loginResultBean.data.id).append("\",\"lat\":\"").append(latitude).append("\",\"lng\":\"").append(longitude).append("\"}");
         param.put("key", getMd5Password(sb.toString()));
 
         ControlUtils.postsEveryTime(Constants.Helen.MYCOLLECTION, param, MyCollectionBean.class, new ControlUtils.OnControlUtils<MyCollectionBean>() {
             @Override
             public void onSuccess(String url, MyCollectionBean myCollectionBean, ArrayList<MyCollectionBean> list, String result, JSONObject jsonObject, JSONArray jsonArray) {
                 bufferCircleView.hide();
-                T(myCollectionBean.msg);
+
                 myCollectionBeanTmp = myCollectionBean;
                 adapter = new Adapter_MyCollection(myCollectionBean.data, listview.getRightViewWidth(), new Adapter_MyCollection.IOnItemRightClickListener() {
                     @Override
@@ -114,7 +129,10 @@ public class MyCollectionsActivity extends com.huiche.lib.lib.base.BaseActivity 
                 T("请检测网络");
             }
         });
+
     }
+
+
 
 
     //删除车辆
@@ -141,7 +159,7 @@ public class MyCollectionsActivity extends com.huiche.lib.lib.base.BaseActivity 
             @Override
             public void onSuccess(String url, MyCollectionDelectBean myCollectionDelectBean, ArrayList<MyCollectionDelectBean> list, String result, JSONObject jsonObject, JSONArray jsonArray) {
                 bufferCircleView.hide();
-                T(myCollectionDelectBean.msg);
+
                 //获取收藏的数据
                 getCollection();
             }

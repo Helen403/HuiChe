@@ -189,7 +189,7 @@
         <activity android:name=".activity.mine.ApplyManActivity"/>
 
         <activity android:name=".activity.mine.commentActivity"/>
-        <activity android:name=".activity.mine.DetailsHelenActivity"/>
+        <activity android:name=".activity.mine.DetailsActivity"/>
         <activity android:name=".activity.mine.CarBeautifulActivity"/>
         <activity android:name=".activity.mine.GoodsReceiptActivity"/>
         <activity android:name=".activity.mine.AddGoodsReceiptActivity"/>

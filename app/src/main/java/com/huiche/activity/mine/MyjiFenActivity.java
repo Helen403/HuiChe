@@ -96,10 +96,7 @@ public class MyjiFenActivity extends com.huiche.lib.lib.base.BaseActivity {
         adapter_myjiFen.setOnRefresh(new MyBaseRecycleAdapter.OnRefresh() {
             @Override
             public void onRefresh() {
-                if (MyApplication.loginResultBean == null) {
-                    T("请登录");
-                    return;
-                }
+
                 bufferCircleView.show();
                 Param param = new Param();
                 param.put("id", MyApplication.loginResultBean.data.id);
@@ -133,9 +130,13 @@ public class MyjiFenActivity extends com.huiche.lib.lib.base.BaseActivity {
             }
         });
 
-
-        // 刷新
-        recycleView.setRefresh(true);
+        if (MyApplication.loginResultBean == null) {
+            T("请登录");
+            return;
+        } else {
+            // 刷新
+            recycleView.setRefresh(true);
+        }
 
 
     }

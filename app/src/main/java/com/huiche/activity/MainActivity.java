@@ -36,7 +36,7 @@ import com.huiche.bean.RequestBaoBean;
 import com.huiche.constant.HttpConstant;
 import com.huiche.constant.MyRequestCode;
 import com.huiche.fragment.IntegralShopFragment;
-import com.huiche.fragment.MineHelenFragment;
+import com.huiche.fragment.MineFragment;
 import com.huiche.fragment.NearByFragme;
 import com.huiche.fragment.ShoppingCartFragment;
 import com.huiche.fragment.U_CardFragment;
@@ -93,7 +93,7 @@ public class MainActivity extends BaseActivity implements OnClickListener,
     private ShoppingCartFragment shoppingCartFragment;
     private U_UFragment uuFragment;
     private ImageView iv_uu_Fragment;
-    private MineHelenFragment mineFragment;
+    private MineFragment mineFragment;
     private NearByFragme nearByFragme;
     private U_CardFragment cardFragment;
     private IntegralShopFragment integralShopFragment;
@@ -418,7 +418,7 @@ public class MainActivity extends BaseActivity implements OnClickListener,
     private void initFragment() {
         nearByFragme = new NearByFragme();
         integralShopFragment = new IntegralShopFragment();
-        mineFragment = new MineHelenFragment();
+        mineFragment = new MineFragment();
 
         listFragment.add(nearByFragme);
         listFragment.add(integralShopFragment);

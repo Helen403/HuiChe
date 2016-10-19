@@ -407,7 +407,7 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
         if (null != tv_right) {
             Drawable drawableRight = ContextCompat.getDrawable(this, resId);
             assert drawableRight != null;
-            drawableRight.setBounds(0, 0, dip2px(contextAppliction, 30), dip2px(contextAppliction, 30));//第一0是距左边距离，第二0是距上边距离，40分别是长宽
+            drawableRight.setBounds(0, 0, dip2px(contextAppliction, 20), dip2px(contextAppliction, 20));//第一0是距左边距离，第二0是距上边距离，40分别是长宽
             tv_right.setCompoundDrawables(null, drawableRight, null, null);//只放上边
         }
     }

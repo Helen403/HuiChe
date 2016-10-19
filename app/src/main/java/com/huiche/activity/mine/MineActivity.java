@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.huiche.R;
 import com.huiche.base.MyApplication;
+import com.huiche.constant.Constants;
 import com.huiche.lib.lib.base.BaseActivity;
 import com.huiche.lib.lib.custemview.CircleImageView;
 
@@ -24,6 +25,7 @@ public class MineActivity extends BaseActivity {
     private ImageView iv3;
     private ImageView iv5;
     private TextView tv4;
+    private TextView tv_12;
 
 
     @Override
@@ -45,6 +47,7 @@ public class MineActivity extends BaseActivity {
         iv3 = (ImageView) findViewById(R.id.iv_3);
         iv5 = (ImageView) findViewById(R.id.iv_5);
         tv4 = (TextView) findViewById(R.id.tv_4);
+        tv_12 = (TextView) findViewById(R.id.tv_12);
         icon.setBorderWidth(0);
         icon.setBorderColor(Color.parseColor("#00000000"));
         //设置男或者女
@@ -59,27 +62,29 @@ public class MineActivity extends BaseActivity {
 
     //设置个人信息
     private void setInfo() {
-        if (MyApplication.loginResultBean != null) {
-            //设置名称
-            tv1.setText(MyApplication.loginResultBean.data.username);
-            //设置生日
-            tv4.setText(MyApplication.loginResultBean.data.birthday);
-            //设置头像
-            setImageByUrl(MyApplication.loginResultBean.data.headerimg, icon);
-            //设置男或者女
-            if ("0".equals(MyApplication.loginResultBean.data.sex)){
-                //男
-                iv3.setTag(1);
-                iv2.setTag(0);
-                iv2.setImageResource(R.drawable.black_circle);
-                iv3.setImageResource(R.drawable.blue_button_confirmation);
-            }else {
-                //女
-                iv3.setTag(0);
-                iv2.setTag(1);
-                iv2.setImageResource(R.drawable.blue_button_confirmation);
-                iv3.setImageResource(R.drawable.black_circle);
-            }
+        if (MyApplication.loginResultBean == null) {
+            T("请登录");
+            return;
+        }
+        //设置名称
+        tv1.setText(MyApplication.loginResultBean.data.username);
+        //设置生日
+        tv4.setText(MyApplication.loginResultBean.data.birthday);
+        //设置头像
+        setImageByUrl(MyApplication.loginResultBean.data.headerimg, icon);
+        //设置男或者女
+        if ("0".equals(MyApplication.loginResultBean.data.sex)) {
+            //男
+            iv3.setTag(1);
+            iv2.setTag(0);
+            iv2.setImageResource(R.drawable.black_circle);
+            iv3.setImageResource(R.drawable.blue_button_confirmation);
+        } else {
+            //女
+            iv3.setTag(0);
+            iv2.setTag(1);
+            iv2.setImageResource(R.drawable.blue_button_confirmation);
+            iv3.setImageResource(R.drawable.black_circle);
         }
     }
 
@@ -87,7 +92,7 @@ public class MineActivity extends BaseActivity {
     @Override
     public void setListeners() {
 
-        setOnListeners(iv2, iv3);
+        setOnListeners(iv2, iv3, tv_12);
         setOnClick(new onClick() {
             @Override
             public void onClick(View v, int id) {
@@ -106,9 +111,31 @@ public class MineActivity extends BaseActivity {
                         iv2.setImageResource(R.drawable.black_circle);
                         iv3.setImageResource(R.drawable.blue_button_confirmation);
                         break;
+
+                    //退出当前帐号
+                    case R.id.tv_12:
+                        cancelAccount();
+
+                        break;
+
                 }
             }
         });
 
+    }
+
+    //退出当前帐号
+    private void cancelAccount() {
+        if (MyApplication.loginResultBean == null) {
+            T("请登录");
+            return;
+        }
+        //清除当前帐号数据
+        MyApplication.loginResultBean = null;
+        MyApplication.phone = null;
+        setResult(Constants.startActivityForResult.CANCELLATIONRESULT);
+        T("成功退出当前帐号");
+        //回到上一个界面
+        finish();
     }
 }

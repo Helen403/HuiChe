@@ -19,7 +19,7 @@ import java.util.ArrayList;
 /**
  * Created by Administrator on 2016/9/28.
  */
-public class DetailsHelenActivity extends com.huiche.lib.lib.base.BaseActivity {
+public class DetailsActivity extends com.huiche.lib.lib.base.BaseActivity {
     Adapter_Detail_Helen adapter;
 
     MyRecycleView myRecycleView;
@@ -45,9 +45,9 @@ public class DetailsHelenActivity extends com.huiche.lib.lib.base.BaseActivity {
 
     private void setRecycleView() {
         // 使用重写后的线性布局管理器
-        MyLinearLayoutManager manager = new MyLinearLayoutManager(DetailsHelenActivity.this);
+        MyLinearLayoutManager manager = new MyLinearLayoutManager(DetailsActivity.this);
         myRecycleView.setLayoutManager(manager);
-        adapter = new Adapter_Detail_Helen(DetailsHelenActivity.this, myRecycleView);
+        adapter = new Adapter_Detail_Helen(DetailsActivity.this, myRecycleView);
         myRecycleView.setAdapter(adapter);
         adapter.setOnRefresh(new MyBaseRecycleAdapter.OnRefresh() {
             @Override
