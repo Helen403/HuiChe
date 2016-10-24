@@ -1,17 +1,13 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ll_content_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical"
-    tools:context="com.huiche.activity.MainActivity">
+    android:background="@color/white">
 
     <FrameLayout
         android:id="@+id/frameLayout_MainActivity"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_height="match_parent" />
 
     <RadioGroup
         android:id="@+id/radioGroup_MainActivity"
@@ -23,7 +19,7 @@
         android:background="@drawable/dibu_01"
         android:gravity="center"
         android:orientation="horizontal">
-        <!-- 附近 -->
+
         <RadioButton
             android:id="@+id/radioButton_nearBy_MainActivity"
             android:layout_width="0dp"
@@ -40,7 +36,6 @@
             android:text="@string/nearby_main"
             android:textColor="@color/selector_radiobutton__textcolor"
             android:textSize="13sp" />
-        <!-- 积分商城 -->
 
         <RadioButton
             android:id="@+id/radioButton_scoreMall_MainActivity"
@@ -60,15 +55,6 @@
             android:textSize="13sp" />
         <!-- 优 -->
 
-        <!--<RadioButton-->
-        <!--android:gravity="center_horizontal"-->
-        <!--android:id="@+id/radioButton_shoppingCart_Fragment"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_weight="1"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:drawableLeft="@drawable/main_button"-->
-        <!--android:button="@null"-->
-        <!--android:checked="false" />-->
         <ImageView
             android:id="@+id/iv_uu_Fragment"
             android:layout_width="0dp"
@@ -77,12 +63,6 @@
             android:clickable="true"
             android:gravity="center_horizontal"
             android:src="@drawable/sou_00" />
-        <!--
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"-->
-        <!-- 购物车 -->
 
         <RadioButton
             android:id="@+id/radioButton_shoppingCart_MainActivity"
@@ -99,7 +79,7 @@
             android:text="@string/shoppingcart_main"
             android:textColor="@color/selector_radiobutton__textcolor"
             android:textSize="13sp" />
-        <!-- 我的 -->
+
         <RadioButton
             android:id="@+id/radioButton_mine_MainActivity"
             android:layout_width="0dp"
@@ -117,4 +97,4 @@
             android:textSize="13sp" />
     </RadioGroup>
 
-</LinearLayout>
+</RelativeLayout>

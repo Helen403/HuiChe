@@ -290,8 +290,6 @@ public class MineFragmentTTTTTTTTTTT extends BaseFragment implements OnClickList
         animation.setRepeatMode(RotateAnimation.REVERSE);
         animation.setRepeatCount(2);
         MainActivity activity = (MainActivity) getActivity();
-        if (red_bao != null && activity.bufferRedBaoViewDialog.getVisibility() == View.GONE)
-            red_bao.startAnimation(animation);
     }
 
 
@@ -312,7 +310,6 @@ public class MineFragmentTTTTTTTTTTT extends BaseFragment implements OnClickList
             @Override
             public void onClick(View v) {
                 MainActivity activity = (MainActivity) getActivity();
-                activity.charRedBao();
                 red_bao.clearAnimation();
             }
         });

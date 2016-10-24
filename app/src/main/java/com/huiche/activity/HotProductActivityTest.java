@@ -19,13 +19,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
-import com.github.jdsjlzx.progressindicator.AVLoadingIndicatorView;
-import com.github.jdsjlzx.recyclerview.HeaderSpanSizeLookup;
-import com.github.jdsjlzx.recyclerview.LRecyclerView;
-import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
-import com.github.jdsjlzx.recyclerview.ProgressStyle;
-import com.github.jdsjlzx.util.RecyclerViewStateUtils;
-import com.github.jdsjlzx.view.LoadingFooter;
 import com.huiche.R;
 import com.huiche.adapter.DataAdapter_HotProduct;
 import com.huiche.adapter.ProductGridViewAdapter;
@@ -39,6 +32,13 @@ import com.huiche.bean.ProductCategory;
 import com.huiche.bean.ProductInfo;
 import com.huiche.bean.SubCategory;
 import com.huiche.constant.HttpConstant;
+import com.huiche.lib.lib.LRecyclerView.progressindicator.AVLoadingIndicatorView;
+import com.huiche.lib.lib.LRecyclerView.recyclerview.HeaderSpanSizeLookup;
+import com.huiche.lib.lib.LRecyclerView.recyclerview.LRecyclerView;
+import com.huiche.lib.lib.LRecyclerView.recyclerview.LRecyclerViewAdapter;
+import com.huiche.lib.lib.LRecyclerView.recyclerview.ProgressStyle;
+import com.huiche.lib.lib.LRecyclerView.util.RecyclerViewStateUtils;
+import com.huiche.lib.lib.LRecyclerView.view.LoadingFooter;
 import com.huiche.listener.AddToShoppingCartListener;
 import com.huiche.utils.AsyncHttp;
 import com.huiche.utils.LoadImageUtil;
@@ -167,7 +167,7 @@ public  class HotProductActivityTest extends BaseActivity implements
     private void initRecyclerView() {
         dataAdapter = new DataAdapter_HotProduct(mContext, loadImageUtil, false);
 //        dataAdapter = new DataAdapter_HotProduct(mContext, loadImageUtil, allInfos);
-        mRecyclerViewAdapter = new LRecyclerViewAdapter(mContext, dataAdapter);
+//        mRecyclerViewAdapter = new LRecyclerViewAdapter(mContext, dataAdapter);
         gridLayoutManager = new GridLayoutManager(mContext, 2);
         gridLayoutManager.setSpanSizeLookup(new HeaderSpanSizeLookup((LRecyclerViewAdapter) mRecyclerView.getAdapter(), gridLayoutManager.getSpanCount()));
         mRecyclerView.setLayoutManager(gridLayoutManager);
@@ -175,42 +175,42 @@ public  class HotProductActivityTest extends BaseActivity implements
         //设置样式必须在调用setAdapter后调用否则不生效
         mRecyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         mRecyclerView.setRefreshing(true);
-        mRecyclerView.setLScrollListener(new LRecyclerView.LScrollListener() {
-            @Override
-            public void onRefresh() {
-                isRefresh = true;
-                tmepInfos.clear();
-                page = 1;
-                getProduct(page, rows);
-            }
-            @Override
-            public void onScrollUp() {
-
-            }
-
-            @Override
-            public void onScrollDown() {
-
-            }
-
-            @Override
-            public void onBottom() {
-                LoadingFooter.State state = RecyclerViewStateUtils.getFooterViewState(mRecyclerView);
-                if (state == LoadingFooter.State.Loading) {
-//                    Log.d(TAG, "the state is Loading, just wait..");
-                    return;
-                }
-                RecyclerViewStateUtils.setFooterViewState(HotProductActivityTest.this, mRecyclerView, rows, LoadingFooter.State.Loading, null);
-                page++;
-                getProduct(page, rows);
+//        mRecyclerView.setLScrollListener(new LRecyclerView.LScrollListener() {
+//            @Override
+//            public void onRefresh() {
+//                isRefresh = true;
+//                tmepInfos.clear();
+//                page = 1;
+//                getProduct(page, rows);
+//            }
+//            @Override
+//            public void onScrollUp() {
 //
-            }
-
-            @Override
-            public void onScrolled(int distanceX, int distanceY) {
-
-            }
-        });
+//            }
+//
+//            @Override
+//            public void onScrollDown() {
+//
+//            }
+//
+//            @Override
+//            public void onBottom() {
+//                LoadingFooter.State state = RecyclerViewStateUtils.getFooterViewState(mRecyclerView);
+//                if (state == LoadingFooter.State.Loading) {
+////                    Log.d(TAG, "the state is Loading, just wait..");
+//                    return;
+//                }
+//                RecyclerViewStateUtils.setFooterViewState(HotProductActivityTest.this, mRecyclerView, rows, LoadingFooter.State.Loading, null);
+//                page++;
+//                getProduct(page, rows);
+////
+//            }
+//
+//            @Override
+//            public void onScrolled(int distanceX, int distanceY) {
+//
+//            }
+//        });
 
         //点击添加按钮
         dataAdapter.setAddProductListener(new AddToShoppingCartListener() {

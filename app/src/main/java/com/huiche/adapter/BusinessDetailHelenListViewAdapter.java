@@ -30,7 +30,7 @@ import org.apache.http.Header;
 import org.json.JSONObject;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2016/9/9.
@@ -41,8 +41,8 @@ public class BusinessDetailHelenListViewAdapter extends MyBaseAdapter<ProductInf
     private DisplayImageOptions options;
     Context mContext;
 
-    public BusinessDetailHelenListViewAdapter(Context context, ArrayList<ProductInfo> data) {
-        super(data);
+    public BusinessDetailHelenListViewAdapter(Context context, List<ProductInfo> data) {
+        super(context);
         // 设置加载网络图片
         initImageLoader();
         this.mContext = context;

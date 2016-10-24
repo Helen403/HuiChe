@@ -129,7 +129,6 @@ public class ApplyManActivity extends com.huiche.lib.lib.base.BaseActivity {
         ControlUtils.postsEveryTime(Constants.Helen.ADDPARTER, param, ApplyManBean.class, new ControlUtils.OnControlUtils<ApplyManBean>() {
             @Override
             public void onSuccess(String url, ApplyManBean applyManBean, ArrayList<ApplyManBean> list, String result, JSONObject jsonObject, JSONArray jsonArray) {
-                T(applyManBean.msg);
                 //10044:申请提交成功
                 if (10044 == applyManBean.status) {
                     MyApplication.loginResultBean.data.partner_state = "1";

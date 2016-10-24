@@ -66,7 +66,6 @@ public class SecurityHelenActivity extends com.huiche.lib.lib.base.BaseActivity 
             @Override
             public void onSuccess(String url, SecurityInfoBean securityInfoBean, ArrayList<SecurityInfoBean> list, String result, JSONObject jsonObject, JSONArray jsonArray) {
                 bufferCircleView.hide();
-                T(securityInfoBean.msg);
                 setPersonInfo(securityInfoBean);
             }
 

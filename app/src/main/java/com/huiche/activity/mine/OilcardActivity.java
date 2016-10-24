@@ -114,7 +114,6 @@ public class OilcardActivity extends com.huiche.lib.lib.base.BaseActivity {
             @Override
             public void onSuccess(String url, OilCardJiHuoBean oilCardJiHuoBean, ArrayList<OilCardJiHuoBean> list, String result, JSONObject jsonObject, JSONArray jsonArray) {
                 bufferCircleView.hide();
-                T(oilCardJiHuoBean.msg);
 
                 //设置数据
                 setInfo(oilCardJiHuoBean);

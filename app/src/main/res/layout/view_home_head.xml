@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#f5f5f5"
+    android:orientation="vertical">
+
+    <com.huiche.lib.lib.custemview.MyAdverView
+        android:id="@+id/myadverview"
+        android:layout_width="match_parent"
+        android:layout_height="185dp"
+        android:background="#fff" />
+
+    <com.huiche.lib.lib.custemview.MyGridView
+        android:id="@+id/mygridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:numColumns="4" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="#fff">
+
+        <ImageView
+            android:id="@+id/iv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:src="@drawable/sm_address" />
+
+        <TextView
+            android:id="@+id/tv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_1"
+            android:text="正在为您加载位置信息..."
+            android:textColor="@color/text_color_grey"
+            android:textSize="14sp" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

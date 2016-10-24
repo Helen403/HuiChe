@@ -52,7 +52,7 @@
                 android:paddingRight="20dp"
                 android:paddingTop="10dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/textimg" />
+                />
 
             <RelativeLayout
 

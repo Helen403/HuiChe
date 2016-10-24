@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.huiche.R;
-import com.huiche.activity.MainActivity;
 import com.huiche.activity.mine.WebViewActivity;
 import com.huiche.base.MyApplication;
 import com.huiche.bean.RedBaoDetailFillBean;
@@ -112,13 +111,7 @@ public class BufferRedBaoViewDialog extends RelativeLayout {
                                             "&businessStoreImage=" + redBaoDetailFillBean.rows.businessStoreImage + "&image=" + redBaoDetailFillBean.rows.image + "&id=" + requestBaoBean.rows.id + "&integral=" + redBaoDetailFillBean.rows.integral + "&v=1000");
                                     intent.putExtra("title", "红包详情");
                                     getContext().startActivity(intent);
-//                                    Intent intent = new Intent(getContext(), RedBaoDetailActivity.class);
-//                                    intent.putExtra("redBaoDetailFillBean", redBaoDetailFillBean);
-//                                    getContext().startActivity(intent);
                                     view.setVisibility(GONE);
-                                    //请求完红包后
-                                    MainActivity.isHasRed = false;
-                                    MainActivity.isRecieve = true;
                                 }
                                 //判断返回的status，为1则弹出“您来晚啦，红包领完了！”。然后关闭图1.2和遮罩层，把图1.1的红色红包小图标恢复到图1.0的卡券图标。继续请求红包接口。
                                 if (status.equals("1")) {
@@ -130,8 +123,6 @@ public class BufferRedBaoViewDialog extends RelativeLayout {
                             }
                         }
                 );
-
-
             }
         });
     }

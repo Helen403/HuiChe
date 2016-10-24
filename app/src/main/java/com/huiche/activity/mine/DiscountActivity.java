@@ -41,8 +41,9 @@ public class DiscountActivity extends BaseActivity {
             DiscountBean dis = new DiscountBean();
             data.add(dis);
         }
-        adapter_discount = new Adapter_discount(data);
+        adapter_discount = new Adapter_discount(DiscountActivity.this);
         listView.setAdapter(adapter_discount);
+        adapter_discount.setData(data);
     }
 
     @Override

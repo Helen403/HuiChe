@@ -20,13 +20,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
-import com.github.jdsjlzx.recyclerview.HeaderSpanSizeLookup;
-import com.github.jdsjlzx.recyclerview.LRecyclerView;
-import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
-import com.github.jdsjlzx.recyclerview.ProgressStyle;
-import com.github.jdsjlzx.util.RecyclerViewStateUtils;
-import com.github.jdsjlzx.util.RecyclerViewUtils;
-import com.github.jdsjlzx.view.LoadingFooter;
 import com.huiche.R;
 import com.huiche.activity.mine.ChangePhoneActivity;
 import com.huiche.adapter.DataAdapter_HotProduct;
@@ -35,6 +28,13 @@ import com.huiche.base.MyApplication;
 import com.huiche.bean.ProductInfo;
 import com.huiche.bean.RecommendInfo;
 import com.huiche.constant.HttpConstant;
+import com.huiche.lib.lib.LRecyclerView.recyclerview.HeaderSpanSizeLookup;
+import com.huiche.lib.lib.LRecyclerView.recyclerview.LRecyclerView;
+import com.huiche.lib.lib.LRecyclerView.recyclerview.LRecyclerViewAdapter;
+import com.huiche.lib.lib.LRecyclerView.recyclerview.ProgressStyle;
+import com.huiche.lib.lib.LRecyclerView.util.RecyclerViewStateUtils;
+import com.huiche.lib.lib.LRecyclerView.util.RecyclerViewUtils;
+import com.huiche.lib.lib.LRecyclerView.view.LoadingFooter;
 import com.huiche.listener.AddToShoppingCartListener;
 import com.huiche.share.onekeyshare.OnekeyShare;
 import com.huiche.share.onekeyshare.OnekeyShareTheme;
@@ -198,7 +198,7 @@ public class ProductDetailActivity extends BaseActivity implements
     private void initRecyclerView() {
         LoadImageUtil loadImageUtil = new LoadImageUtil();
         dataAdapter = new DataAdapter_HotProduct(mContext, loadImageUtil, true);
-        mRecyclerViewAdapter = new LRecyclerViewAdapter(mContext, dataAdapter);
+//        mRecyclerViewAdapter = new LRecyclerViewAdapter(mContext, dataAdapter);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, 2);
         gridLayoutManager.setSpanSizeLookup(new HeaderSpanSizeLookup((LRecyclerViewAdapter) mRecyclerView.getAdapter(), gridLayoutManager.getSpanCount()));
         mRecyclerView.setLayoutManager(gridLayoutManager);
@@ -207,46 +207,46 @@ public class ProductDetailActivity extends BaseActivity implements
         RecyclerViewUtils.setHeaderView(mRecyclerView, headerView);
         mRecyclerView.setRefreshing(true);
         mRecyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
-        mRecyclerView.setLScrollListener(new LRecyclerView.LScrollListener() {
-            @Override
-            public void onRefresh() {
-                //刷新整个页面的数据
-                isRefresh = true;
-                page = 1;
-                getCollectionList(memberId);
-                getProductDetail();
-                getExchangeProduct(page, rows);
-            }
-
-            @Override
-            public void onScrollUp() {
-
-            }
-
-            @Override
-            public void onScrollDown() {
-
-            }
-
-            @Override
-            public void onBottom() {
-                LoadingFooter.State state = RecyclerViewStateUtils.getFooterViewState(mRecyclerView);
-                if (state == LoadingFooter.State.Loading) {
-//                    Log.d(TAG, "the state is Loading, just wait..");
-                    return;
-                }
-//                if (mCurrentCounter < TOTAL_COUNTER) {
-                // loading more rows必须小于显示条目数否则看不到底部加载更多
-                RecyclerViewStateUtils.setFooterViewState(ProductDetailActivity.this, mRecyclerView, rows, LoadingFooter.State.Loading, null);
-                page++;
-                getExchangeProduct(page, rows);
-            }
-
-            @Override
-            public void onScrolled(int distanceX, int distanceY) {
-
-            }
-        });
+//        mRecyclerView.setLScrollListener(new LRecyclerView.LScrollListener() {
+//            @Override
+//            public void onRefresh() {
+//                //刷新整个页面的数据
+//                isRefresh = true;
+//                page = 1;
+//                getCollectionList(memberId);
+//                getProductDetail();
+//                getExchangeProduct(page, rows);
+//            }
+//
+//            @Override
+//            public void onScrollUp() {
+//
+//            }
+//
+//            @Override
+//            public void onScrollDown() {
+//
+//            }
+//
+//            @Override
+//            public void onBottom() {
+//                LoadingFooter.State state = RecyclerViewStateUtils.getFooterViewState(mRecyclerView);
+//                if (state == LoadingFooter.State.Loading) {
+////                    Log.d(TAG, "the state is Loading, just wait..");
+//                    return;
+//                }
+////                if (mCurrentCounter < TOTAL_COUNTER) {
+//                // loading more rows必须小于显示条目数否则看不到底部加载更多
+//                RecyclerViewStateUtils.setFooterViewState(ProductDetailActivity.this, mRecyclerView, rows, LoadingFooter.State.Loading, null);
+//                page++;
+//                getExchangeProduct(page, rows);
+//            }
+//
+//            @Override
+//            public void onScrolled(int distanceX, int distanceY) {
+//
+//            }
+//        });
     }
 
     @Override

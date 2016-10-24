@@ -1,20 +1,19 @@
 package com.huiche.adapter;
 
+import android.content.Context;
 import android.view.View;
 
 import com.huiche.R;
 import com.huiche.bean.CarBeautifulBean;
 import com.huiche.lib.lib.base.MyBaseAdapter;
 
-import java.util.ArrayList;
-
 
 /**
  * Created by Administrator on 2016/9/29.
  */
 public class Adapter_CarBeautiful extends MyBaseAdapter<CarBeautifulBean> {
-    public Adapter_CarBeautiful(ArrayList<CarBeautifulBean> data) {
-        super(data);
+    public Adapter_CarBeautiful(Context context) {
+        super(context);
     }
 
     @Override

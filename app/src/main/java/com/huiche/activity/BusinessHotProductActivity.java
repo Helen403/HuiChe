@@ -10,17 +10,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
-import com.github.jdsjlzx.recyclerview.HeaderSpanSizeLookup;
-import com.github.jdsjlzx.recyclerview.LRecyclerView;
-import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
-import com.github.jdsjlzx.recyclerview.ProgressStyle;
-import com.github.jdsjlzx.util.RecyclerViewStateUtils;
-import com.github.jdsjlzx.view.LoadingFooter;
 import com.huiche.R;
 import com.huiche.adapter.BusinessHotProductAdapter;
 import com.huiche.base.BaseActivity;
 import com.huiche.bean.ProductInfo;
 import com.huiche.constant.HttpConstant;
+import com.huiche.lib.lib.LRecyclerView.recyclerview.HeaderSpanSizeLookup;
+import com.huiche.lib.lib.LRecyclerView.recyclerview.LRecyclerView;
+import com.huiche.lib.lib.LRecyclerView.recyclerview.LRecyclerViewAdapter;
+import com.huiche.lib.lib.LRecyclerView.recyclerview.ProgressStyle;
+import com.huiche.lib.lib.LRecyclerView.util.RecyclerViewStateUtils;
+import com.huiche.lib.lib.LRecyclerView.view.LoadingFooter;
 import com.huiche.listener.AddToShoppingCartListener;
 import com.huiche.utils.AsyncHttp;
 import com.huiche.utils.ToastUtils;
@@ -85,49 +85,49 @@ public  class BusinessHotProductActivity extends BaseActivity implements View.On
     //初始化recyclerview
     private void initRecyclerView() {
         dataAdapter=new BusinessHotProductAdapter(this,false);
-        mRecyclerViewAdapter=new LRecyclerViewAdapter(this,dataAdapter);
+//        mRecyclerViewAdapter=new LRecyclerViewAdapter(this,dataAdapter);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(BusinessHotProductActivity.this, 2);
         gridLayoutManager.setSpanSizeLookup(new HeaderSpanSizeLookup((LRecyclerViewAdapter) my_recyclerView.getAdapter(), gridLayoutManager.getSpanCount()));
         my_recyclerView.setLayoutManager(gridLayoutManager);
         my_recyclerView.setItemAnimator(new DefaultItemAnimator());
         my_recyclerView.setAdapter(mRecyclerViewAdapter);
         //设置样式必须在调用setAdapter后调用否则不生效
-       my_recyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
+        my_recyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         my_recyclerView.setRefreshing(true);
-        my_recyclerView.setLScrollListener(new LRecyclerView.LScrollListener() {
-            @Override
-            public void onRefresh() {
-                isRefresh = true;
-                exchangeProductList.clear();
-                page = 1;
-                getBusinessData(page);
-            }
-            @Override
-            public void onScrollUp() {
-
-            }
-            @Override
-            public void onScrollDown() {
-
-            }
-            @Override
-            public void onBottom() {
-                LoadingFooter.State state = RecyclerViewStateUtils.getFooterViewState(my_recyclerView);
-                if (state == LoadingFooter.State.Loading) {
-//                    Log.d(TAG, "the state is Loading, just wait..");
-                    return;
-                }
-                RecyclerViewStateUtils.setFooterViewState(BusinessHotProductActivity.this, my_recyclerView,10, LoadingFooter.State.Loading, null);
-
-                page++;
-                getBusinessData(page);
-            }
-
-            @Override
-            public void onScrolled(int distanceX, int distanceY) {
-
-            }
-        });
+//        my_recyclerView.setLScrollListener(new LRecyclerView.LScrollListener() {
+//            @Override
+//            public void onRefresh() {
+//                isRefresh = true;
+//                exchangeProductList.clear();
+//                page = 1;
+//                getBusinessData(page);
+//            }
+//            @Override
+//            public void onScrollUp() {
+//
+//            }
+//            @Override
+//            public void onScrollDown() {
+//
+//            }
+//            @Override
+//            public void onBottom() {
+//                LoadingFooter.State state = RecyclerViewStateUtils.getFooterViewState(my_recyclerView);
+//                if (state == LoadingFooter.State.Loading) {
+////                    Log.d(TAG, "the state is Loading, just wait..");
+//                    return;
+//                }
+//                RecyclerViewStateUtils.setFooterViewState(BusinessHotProductActivity.this, my_recyclerView, 10, LoadingFooter.State.Loading, null);
+//
+//                page++;
+//                getBusinessData(page);
+//            }
+//
+//            @Override
+//            public void onScrolled(int distanceX, int distanceY) {
+//
+//            }
+//        });
 
     }
 

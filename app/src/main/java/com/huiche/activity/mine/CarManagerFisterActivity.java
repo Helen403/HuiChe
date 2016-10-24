@@ -102,7 +102,6 @@ public class CarManagerFisterActivity extends com.huiche.lib.lib.base.BaseActivi
             public void onSuccess(String url, CarManagerFisterBean carManagerFisterBean, ArrayList<CarManagerFisterBean> list, String result, JSONObject jsonObject, JSONArray jsonArray) {
                 carManagerFisterBeanTmp = carManagerFisterBean;
                 bufferCircleView.hide();
-                T(carManagerFisterBean.msg);
                 adapter_carManagerFister = new Adapter_CarManagerFister(carManagerFisterBean.data.car, listview.getRightViewWidth(), new Adapter_CarManagerFister.IOnItemRightClickListener() {
                     @Override
                     public void onRightClick(View v, int position) {

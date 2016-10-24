@@ -1,6 +1,9 @@
 package com.huiche.lib.lib.base;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -12,9 +15,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.huiche.base.MyApplication;
+import com.huiche.lib.lib.Utils.ImageUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * 因为经过超简的优化后  就不要新建一个类 放在Adapter包  直接使用内部类的形式（加快维修的速度和阅读的速度）
@@ -30,33 +36,44 @@ import java.util.List;
  * 设置图片数据  使用自己定义的图片加载器
  * public void setImageByUrl(int resId, String url)
  */
-public abstract class MyBaseAdapter<T> extends BaseAdapter {
+public abstract class MyBaseAdapter<T> extends BaseAdapter implements View.OnClickListener {
     //需要配置一下Context
     protected Context contextApplication = MyApplication.getInstance();
+    //用于跳转的Context
+    protected Context context;
     protected List<T> data;
     protected View view;
 
-    /******************************************/
-    /**
-     * TextView  ImageView
-     * 提供自动查找ID的数组  布局命名规范符合
-     * TextView tv_0 ,tv_1....
-     * ImageView iv_0,iv_1.....
-     */
-    protected TextView[] tv;
-    protected ImageView[] iv;
-
+    public MyBaseAdapter(Context context) {
+        this.data = new ArrayList<>();
+        this.context = context;
+    }
 
     public MyBaseAdapter(List<T> data) {
         this.data = data;
     }
 
+
     /**
      * 设置数据
      */
     public void setData(List<T> data) {
-        this.data = data;
-        notifyDataSetChanged();
+        if (data != null) {
+            this.data.clear();
+            this.data.addAll(data);
+            notifyDataSetChanged();
+        }
+    }
+
+
+    /**
+     * 在原有数据的基础上再添加数据
+     */
+    public void addMoreByData(List<T> data) {
+        if (data != null) {
+            this.data.addAll(data);
+            notifyDataSetChanged();
+        }
     }
 
     /**
@@ -67,15 +84,6 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    /**
-     * 在原有数据的基础上再添加数据
-     */
-    public void addMoreByData(ArrayList<T> data) {
-        if (data != null) {
-            this.data.addAll(data);
-            notifyDataSetChanged();
-        }
-    }
 
     @Override
     public int getCount() {
@@ -109,7 +117,6 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
         LayoutInflater layoutInflater = (LayoutInflater) contextApplication
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = layoutInflater.inflate(layoutResID, null);
-        fillLayout();
         return view;
     }
 
@@ -142,7 +149,7 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
     /**
      * 设置文本数据
      */
-    public void setText(String text,int resId) {
+    public void setText(String text, int resId) {
         TextView view = getViewById(resId);
         view.setText(text);
     }
@@ -150,15 +157,15 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
     /**
      * 设置图片数据  使用自己定义的图片加载器
      */
-    public void setImageByUrl(String url,int resId) {
+    public void setImageByUrl(String url, int resId) {
         ImageView imageView = getViewById(resId);
-//        ImageUtils.getInstance().setImageByUrl(url, imageView);
+        ImageUtils.getInstance().setImageByUrl(url, imageView);
     }
 
     /**
      * 设置文本数据
      */
-    public void setText(View view,  String text,int resId) {
+    public void setText(View view, String text, int resId) {
         TextView textView = (TextView) view.findViewById(resId);
         textView.setText(text);
     }
@@ -166,15 +173,15 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
     /**
      * 设置图片数据  使用自己定义的图片加载器
      */
-    public void setImageByUrl(View view,  String url,int resId) {
+    public void setImageByUrl(View view, String url, int resId) {
         ImageView imageView = (ImageView) view.findViewById(resId);
-//        ImageUtils.getInstance().setImageByUrl(url, imageView);
+        ImageUtils.getInstance().setImageByUrl(url, imageView);
     }
 
     /**************************************************************/
     //配合自动生成的方法
     public void setImageByUrl(String url, ImageView imageView) {
-//        ImageUtils.getInstance().setImageByUrl(url, imageView);
+        ImageUtils.getInstance().setImageByUrl(url, imageView);
     }
 
     /*********************************************************************/
@@ -218,52 +225,94 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
         Log.d("Helen", msg + "");
     }
     /*********************************************************************/
-
-    /*************************************************************************/
     /**
-     * 根据名字填充tv数组  iv数组
+     * 跳转到另一个Activity，不携带数据，不设置flag
      */
-
-    private void fillLayout() {
-        String packageName = contextApplication.getPackageName();
-        ArrayList<TextView> textViews = new ArrayList<>();
-        TextView tvTmp;
-        ArrayList<ImageView> imageViews = new ArrayList<>();
-        ImageView ivTmp;
-
-        //填充TextView
-        int i = 0;
-        int resId;
-        do {
-            resId = contextApplication.getResources().getIdentifier("tv_" + i, "id", packageName);
-            if (resId != 0) {
-                tvTmp = getViewById(resId);
-                textViews.add(tvTmp);
-            } else {
-                break;
-            }
-            ++i;
-        } while (tvTmp != null);
-        int sizeTv = textViews.size();
-        if (sizeTv > 0)
-            tv = textViews.toArray(new TextView[sizeTv]);
-
-        //填充ImageView  i归零
-        i = 0;
-        do {
-            resId = contextApplication.getResources().getIdentifier("iv_" + i, "id", packageName);
-            if (resId != 0) {
-                ivTmp = getViewById(resId);
-                imageViews.add(ivTmp);
-            } else {
-                break;
-            }
-            ++i;
-        } while (ivTmp != null);
-        int sizeIv = imageViews.size();
-        if (sizeIv > 0)
-            iv = imageViews.toArray(new ImageView[sizeIv]);
+    public void goToActivityByClass(Class<?> cls) {
+        Intent intent = new Intent();
+        intent.setClass(context, cls);
+        context.startActivity(intent);
     }
 
+    /**
+     * 跳转到另一个Activity，携带数据
+     */
+    public void goToActivityByClass(Class<?> cls, Bundle bundle) {
+        Intent intent = new Intent();
+        intent.setClass(context, cls);
+        intent.putExtras(bundle);
+        context.startActivity(intent);
+    }
+
+
+    /**
+     * 延迟去往新的Activity
+     */
+    public void delayToActivity(final Class<?> cls, long delay) {
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                context.startActivity(new Intent(context, cls));
+            }
+        }, delay);
+    }
+
+    /********************************************************************************************/
+    /**
+     * 发送广播信号 自己选择类方法或者字符方法
+     */
+    private void onSendBroadCast(Class<?> cls, String action, Bundle bundle) {
+        Intent intent = new Intent();
+        if (bundle != null)
+            intent.putExtras(bundle);
+        if (cls != null) {
+            intent.setAction(cls.getCanonicalName());
+        }
+        if (!TextUtils.isEmpty(action)) {
+            intent.setAction(action);
+        }
+        context.sendBroadcast(intent);
+    }
+
+
+    /**
+     * 发送广播特定的类方法
+     */
+    protected void onSendBroadCast(Class<?> cls, Bundle bundle) {
+        onSendBroadCast(cls, "", bundle);
+    }
+
+    /**
+     * 发送广播特定的字符方法
+     */
+    protected void onSendBroadCast(String action, Bundle bundle) {
+        onSendBroadCast(null, action, bundle);
+    }
+
+    /****************************************************************************************************/
+    /**
+     * 添加点击事件
+     */
+    protected void setOnListeners(View... views) {
+        for (View view : views) {
+            view.setOnClickListener(this);
+        }
+    }
+
+    onClick click;
+
+    public void setOnClick(onClick click) {
+        this.click = click;
+    }
+
+    public interface onClick {
+        void onClick(View v, int id);
+    }
+
+    @Override
+    public void onClick(View v) {
+        click.onClick(v, v.getId());
+    }
 
 }

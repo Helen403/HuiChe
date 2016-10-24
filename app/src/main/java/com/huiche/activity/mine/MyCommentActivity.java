@@ -1,5 +1,6 @@
 package com.huiche.activity.mine;
 
+import android.graphics.Color;
 import android.view.View;
 import android.widget.TextView;
 
@@ -60,6 +61,8 @@ public class MyCommentActivity extends com.huiche.lib.lib.base.BaseActivity {
         View head = inflater.inflate(R.layout.view_my_commit_head, contentView, false);
         recycleView.addHeaderView(head);
         cir = (CircleImageView) head.findViewById(R.id.cir);
+        cir.setBorderColor(Color.parseColor("#00000000"));
+        cir.setBorderWidth(0);
         tv_1 = (TextView) head.findViewById(R.id.tv_1);
         tv_2 = (TextView) head.findViewById(R.id.tv_2);
 
@@ -91,7 +94,6 @@ public class MyCommentActivity extends com.huiche.lib.lib.base.BaseActivity {
                 ControlUtils.postsEveryTime(Constants.Helen.MYCOMMIT, param, MyCommitBean.class, new ControlUtils.OnControlUtils<MyCommitBean>() {
                     @Override
                     public void onSuccess(String url, MyCommitBean myCommitBean, ArrayList<MyCommitBean> list, String result, JSONObject jsonObject, JSONArray jsonArray) {
-                        T(myCommitBean.msg);
                         bufferCircleView.hide();
                         //设置数据
                         setInfo(myCommitBean);
@@ -113,9 +115,13 @@ public class MyCommentActivity extends com.huiche.lib.lib.base.BaseActivity {
                 myCommitAdapter.setAddData(null);
             }
         });
-
-        // 刷新
-        recycleView.setRefresh(true);
+        if (MyApplication.loginResultBean == null) {
+            T("请登录");
+            return;
+        } else {
+            // 刷新
+            recycleView.setRefresh(true);
+        }
 
 
     }
@@ -133,16 +139,6 @@ public class MyCommentActivity extends com.huiche.lib.lib.base.BaseActivity {
 
     @Override
     public void setListeners() {
-
-
-//        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Intent intent = new Intent(MyCommentActivity.this, commentActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//
 
 
     }

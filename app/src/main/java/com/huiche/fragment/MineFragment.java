@@ -171,6 +171,7 @@ public class MineFragment extends BaseFragment {
                         intent.setClass(getActivity(), SecurityHelenActivity.class);
                         startActivity(intent);
                         break;
+                    //收获地址
                     case 5:
                         intent.setClass(getActivity(), GoodsReceiptActivity.class);
                         startActivity(intent);
@@ -252,7 +253,7 @@ public class MineFragment extends BaseFragment {
             //设置名称
             tv_3.setText("登录/注册");
             //设置积分
-            tvIntegral.setText(0+ "");
+            tvIntegral.setText(0 + "");
             //设置卡卷
             tvIncome.setText(0 + "");
             //设置收藏
@@ -260,7 +261,6 @@ public class MineFragment extends BaseFragment {
             strType[8] = "申请合伙人";
             myPersionalAdapter.notifyDataSetChanged();
         }
-
 
 
     }

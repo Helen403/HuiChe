@@ -14,9 +14,8 @@
 
         <RelativeLayout
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-          >
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/tv_1"
@@ -30,25 +29,25 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/tv_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_toRightOf="@id/tv_1"
-                android:text="女士13876912845"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:text="女士13876912845" />
 
 
             <TextView
-                android:layout_below="@id/tv_1"
+                android:id="@+id/tv_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/tv_1"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="20dp"
                 android:padding="3dp"
                 android:text="柏景台3栋13A"
                 android:textColor="#8C8C8C"
-                android:layout_marginBottom="10dp"
                 android:textSize="14sp" />
-
-
 
 
         </RelativeLayout>
@@ -60,6 +59,7 @@
 
 
         <RelativeLayout
+            android:id="@+id/rl1"
             android:layout_width="90dp"
             android:layout_height="match_parent"
             android:gravity="center">

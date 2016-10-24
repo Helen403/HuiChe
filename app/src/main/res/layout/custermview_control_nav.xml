@@ -2,15 +2,107 @@
 <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rg_tab"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="56dp"
     android:layout_alignParentBottom="true"
     android:background="#fff"
     android:orientation="horizontal">
 
+    <RadioGroup
+        android:id="@+id/radioGroup_MainActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/dibu_01"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <!-- 附近 -->
+        <RadioButton
+            android:id="@+id/radioButton_nearBy_MainActivity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:button="@null"
+            android:checked="false"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/selector_radiobutton_nearby"
+            android:gravity="center_horizontal"
+            android:text="@string/nearby_main"
+            android:textColor="@color/selector_radiobutton__textcolor"
+            android:textSize="13sp" />
+        <!-- 积分商城 -->
+
+        <RadioButton
+            android:id="@+id/radioButton_scoreMall_MainActivity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:button="@null"
+            android:checked="false"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/selector_radiobutton_shopmall"
+            android:gravity="center_horizontal"
+            android:text="@string/scoremall_main"
+            android:textColor="@color/selector_radiobutton__textcolor"
+            android:textSize="13sp" />
+
+
+
+        <ImageView
+            android:id="@+id/iv_uu_Fragment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center_horizontal"
+            android:src="@drawable/sou_00" />
+
+
+        <RadioButton
+            android:id="@+id/radioButton_shoppingCart_MainActivity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:button="@null"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/selector_radiobutton_shoppingcart"
+            android:gravity="center_horizontal"
+            android:text="@string/shoppingcart_main"
+            android:textColor="@color/selector_radiobutton__textcolor"
+            android:textSize="13sp" />
+        <!-- 我的 -->
+        <RadioButton
+            android:id="@+id/radioButton_mine_MainActivity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:button="@null"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/selector_radiobutton_mine"
+            android:gravity="center_horizontal"
+            android:text="@string/mine_main"
+            android:textColor="@color/selector_radiobutton__textcolor"
+            android:textSize="13sp" />
+    </RadioGroup>
+
+
     <RadioButton
         android:id="@+id/rb_0"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="49dp"
         android:layout_weight="1"
         android:background="@android:color/transparent"
         android:button="@null"
@@ -23,13 +115,52 @@
     <RadioButton
         android:id="@+id/rb_1"
         android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:button="@null"
+        android:gravity="center"
+        android:padding="3dp"
+        android:text="积分商城"
+        android:textColor="@drawable/custermview_txt_selector"
+        android:textSize="10sp" />
+
+    <RadioButton
+        android:id="@+id/rb_2"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="@android:color/transparent"
         android:button="@null"
         android:gravity="center"
         android:padding="3dp"
-        android:text="分类"
+        android:text=""
+        android:textColor="@drawable/custermview_txt_selector"
+        android:textSize="10sp" />
+
+    <RadioButton
+        android:id="@+id/rb_3"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:button="@null"
+        android:gravity="center"
+        android:padding="3dp"
+        android:text="扫一扫"
+        android:textColor="@drawable/custermview_txt_selector"
+        android:textSize="10sp" />
+
+    <RadioButton
+        android:id="@+id/rb_4"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:button="@null"
+        android:gravity="center"
+        android:padding="3dp"
+        android:text="我的"
         android:textColor="@drawable/custermview_txt_selector"
         android:textSize="10sp" />
 

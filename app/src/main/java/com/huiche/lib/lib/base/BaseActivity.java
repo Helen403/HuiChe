@@ -412,60 +412,6 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
         }
     }
 
-    /**
-     * 隐藏上方的标题栏
-     */
-    public void hideHeadView() {
-        if (null != head_view) {
-            head_view.setVisibility(View.GONE);
-        }
-    }
-
-    /**
-     * 隐藏左边的按钮
-     */
-    public void hidebtn_left() {
-        if (null != tv_left) {
-            tv_left.setVisibility(View.GONE);
-        }
-    }
-
-    /***
-     * 隐藏右边的按钮
-     */
-    public void hidebtn_right() {
-        if (null != tv_right) {
-            tv_right.setVisibility(View.GONE);
-        }
-    }
-
-
-    /**
-     * 显示上方的标题栏
-     */
-    public void showHeadView() {
-        if (null != head_view) {
-            head_view.setVisibility(View.VISIBLE);
-        }
-    }
-
-    /**
-     * 显示左边的按钮
-     */
-    public void showbtn_left() {
-        if (null != tv_left) {
-            tv_left.setVisibility(View.VISIBLE);
-        }
-    }
-
-    /***
-     * 显示右边的按钮
-     */
-    public void showbtn_right() {
-        if (null != tv_right) {
-            tv_right.setVisibility(View.VISIBLE);
-        }
-    }
 
     /***********************************************************************/
 

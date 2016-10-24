@@ -7,12 +7,12 @@ import com.huiche.R;
 import com.huiche.bean.GoodsReceiptBean;
 import com.huiche.lib.lib.base.MyBaseAdapter;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2016/9/30.
  */
-public class Adapter_GoodsReceipt extends MyBaseAdapter<GoodsReceiptBean> {
+public class Adapter_GoodsReceipt extends MyBaseAdapter<GoodsReceiptBean.DataBean> {
 
     private int mRightWidth = 0;
     /**
@@ -25,7 +25,7 @@ public class Adapter_GoodsReceipt extends MyBaseAdapter<GoodsReceiptBean> {
     }
 
 
-    public Adapter_GoodsReceipt(ArrayList<GoodsReceiptBean> data,int width, IOnItemRightClickListener mListener) {
+    public Adapter_GoodsReceipt(List<GoodsReceiptBean.DataBean> data, int width, IOnItemRightClickListener mListener) {
         super(data);
         this.mListener = mListener;
         this.mRightWidth = width;
@@ -37,7 +37,7 @@ public class Adapter_GoodsReceipt extends MyBaseAdapter<GoodsReceiptBean> {
     }
 
     @Override
-    public void onInitView(View view, GoodsReceiptBean goodsReceiptBean, final int position) {
+    public void onInitView(View view, GoodsReceiptBean.DataBean dataBean, final int position) {
         LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(mRightWidth, LinearLayout.LayoutParams.MATCH_PARENT);
         getViewById(R.id.aditem_right).setLayoutParams(lp2);
         getViewById(R.id.aditem_right).setOnClickListener(new View.OnClickListener() {
@@ -48,5 +48,12 @@ public class Adapter_GoodsReceipt extends MyBaseAdapter<GoodsReceiptBean> {
                 }
             }
         });
+
+
+//        setText(dataBean.);
+
+
+
     }
+
 }

@@ -45,6 +45,9 @@ public interface Constants {
         String DELECTMYCOLLECTION = "http://hyh2.281.com.cn/api.php/home/collect/delcollect";
 
         String MYCOLLECTIONDETAIL = "http://hyh2.281.com.cn/api.php/home/partner/commissionlist";
+
+        String GOODSRECEIPT = "http://hyh2.281.com.cn/api.php/home/address/alladdress";
+
     }
 
     interface startActivityForResult {
@@ -66,8 +69,15 @@ public interface Constants {
      * URL不管存放的位置---------------随便放
      */
     String[] JSON = new String[]{
-            "http://www.ahjmall.com/cloud/get_product_group_v3.json"
+            //获取省份数据
+            "http://hyh2.281.com.cn/api.php/home/address/findprovince",
+            //获取市
+            "http://hyh2.281.com.cn/api.php/home/address/findcity",
+            //获取
+            "http://hyh2.281.com.cn/api.php/home/address/findtown"
     };
+
+//    ProvinceBean
 
     /**
      * 这里就存放特定图片的url  下载完直接存储到SD卡

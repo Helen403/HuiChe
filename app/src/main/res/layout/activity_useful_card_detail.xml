@@ -25,7 +25,7 @@
             <com.huiche.view.CircleImageView
                 android:layout_width="60dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/textimg"
+
                 android:visibility="gone"
                 android:layout_height="60dp"
                 app:border_width="0dp"

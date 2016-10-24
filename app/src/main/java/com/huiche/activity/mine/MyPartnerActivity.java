@@ -76,14 +76,9 @@ public class MyPartnerActivity extends com.huiche.lib.lib.base.BaseActivity {
                     @Override
                     public void onSuccess(BDLocation location) {
                         //获取定位数据
-                        setDataRefresh(22.5, 113.5);
+                        setDataRefresh(location.getLatitude(), location.getLongitude());
                     }
                 });
-
-
-
-
-
             }
 
             @Override
@@ -91,9 +86,13 @@ public class MyPartnerActivity extends com.huiche.lib.lib.base.BaseActivity {
                 adapter_myPartner.setAddData(null);
             }
         });
-        // 刷新
-        recycleView.setRefresh(true);
-
+        if (MyApplication.loginResultBean == null) {
+            T("请登录");
+            return;
+        } else {
+            // 刷新
+            recycleView.setRefresh(true);
+        }
     }
 
     private void setDataRefresh(double lat, double lng) {
@@ -105,7 +104,6 @@ public class MyPartnerActivity extends com.huiche.lib.lib.base.BaseActivity {
         //经度
         param.put("lng", lng);
 
-
         StringBuffer sb = new StringBuffer();
         sb.append("{").append("\"us_id\":\"").append(MyApplication.loginResultBean.data.id).append("\",\"lat\":\"").append(lat).append("\",\"lng\":\"").append(lng).append("\"}");
         param.put("key", getMd5Password(sb.toString()));
@@ -114,7 +112,9 @@ public class MyPartnerActivity extends com.huiche.lib.lib.base.BaseActivity {
             @Override
             public void onSuccess(String url, MyPartnerBean myPartnerBean, ArrayList<MyPartnerBean> list, String result, JSONObject jsonObject, JSONArray jsonArray) {
                 bufferCircleView.hide();
-                T(myPartnerBean.msg);
+
+                //设置数据
+                setInfo(myPartnerBean);
                 adapter_myPartner.setRefresh(myPartnerBean.data.partner);
             }
 
@@ -125,6 +125,11 @@ public class MyPartnerActivity extends com.huiche.lib.lib.base.BaseActivity {
                 adapter_myPartner.setRefresh(null);
             }
         });
+    }
+
+    //设置数据
+    private void setInfo(MyPartnerBean myPartnerBean) {
+        tv_1.setText(myPartnerBean.data.commission);
     }
 
     @Override

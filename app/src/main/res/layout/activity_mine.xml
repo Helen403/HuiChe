@@ -202,7 +202,7 @@
         android:layout_height="wrap_content"
         android:background="#fff"
         android:gravity="center"
-        android:padding="13dp"
+        android:padding="15dp"
         android:text="退出当前帐号"
         android:textColor="#717171"
         android:textSize="16sp" />

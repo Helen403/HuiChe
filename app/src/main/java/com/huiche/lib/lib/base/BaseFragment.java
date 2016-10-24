@@ -21,8 +21,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.huiche.activity.MainActivity;
 import com.huiche.lib.lib.Utils.ImageUtils;
+import com.huiche.lib.lib.activityMain.MainActivity;
 import com.huiche.lib.lib.custemview.BufferCircleView;
 import com.huiche.lib.lib.custemview.MyNetFailView;
 
@@ -42,7 +42,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     //总布局
     protected RelativeLayout content;
     //填充器
-    LayoutInflater inflater;
+   protected LayoutInflater inflater;
 
     /*****************************************/
     //用于特殊节约空间的
@@ -55,18 +55,13 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     /*****************************************/
     //从外界传入的广播
     private BroadcastReceiver broadcastReceiver;
-
-
     /******************************************/
-    public MainActivity activity;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.inflater = inflater;
-        if (getActivity() instanceof MainActivity) {
-            activity = (MainActivity) getActivity();
-        }
+
         dealLogicBeforeFindView();
         //总布局
         content = new RelativeLayout(getActivity());
@@ -92,7 +87,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setClick();
-        onAttachMyRecycleViewAdapter();
+
         //检测网络状态
         checkNet();
     }
@@ -124,6 +119,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
             fillView();
             initData();
             setListeners();
+            onAttachMyRecycleViewAdapter();
         } else {
             myNetFailView.setVisibility(View.VISIBLE);
         }

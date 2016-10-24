@@ -82,9 +82,6 @@ public class DetailsActivity extends com.huiche.lib.lib.base.BaseActivity {
                 });
 
 
-
-
-
             }
 
             @Override
@@ -92,8 +89,15 @@ public class DetailsActivity extends com.huiche.lib.lib.base.BaseActivity {
                 adapter.setAddData(null);
             }
         });
-        // 刷新
-        myRecycleView.setRefresh(true);
+
+        if (MyApplication.loginResultBean == null) {
+            T("请登录");
+            return;
+        } else {
+            // 刷新
+            myRecycleView.setRefresh(true);
+        }
+
 
     }
 

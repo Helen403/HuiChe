@@ -55,8 +55,9 @@ public class CarBeautifulActivity extends BaseActivity {
             data.add(new CarBeautifulBean());
 
         }
-        adapter_carBeautiful = new Adapter_CarBeautiful(data);
+        adapter_carBeautiful = new Adapter_CarBeautiful(CarBeautifulActivity.this);
         listView.setAdapter(adapter_carBeautiful);
+        adapter_carBeautiful.setData(data);
     }
 
     @Override

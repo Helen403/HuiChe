@@ -108,7 +108,6 @@ public class MyjiFenActivity extends com.huiche.lib.lib.base.BaseActivity {
                     @Override
                     public void onSuccess(String url, MyjiFenBean myjiFenBean, ArrayList<MyjiFenBean> list, String result, JSONObject jsonObject, JSONArray jsonArray) {
                         bufferCircleView.hide();
-                        T(myjiFenBean.msg);
                         adapter_myjiFen.setRefresh(myjiFenBean.data);
 
                     }
