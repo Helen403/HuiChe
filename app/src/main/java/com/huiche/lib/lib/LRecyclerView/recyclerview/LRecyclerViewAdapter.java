@@ -79,9 +79,9 @@ public class LRecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
             //设置样式必须在调用setAdapter后调用否则不生效
             myRecycleView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
             adapter = (MyLBaseRecycleAdapter) tClass.newInstance();
+            adapter.setContext(context);
             data = new ArrayList<>();
             setAdapter(adapter);
-
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -21,12 +21,15 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.huiche.lib.lib.Utils.CipherUtils;
+import com.huiche.lib.lib.Utils.DateUtils;
 import com.huiche.lib.lib.Utils.ImageUtils;
 import com.huiche.lib.lib.activityMain.MainActivity;
 import com.huiche.lib.lib.custemview.BufferCircleView;
 import com.huiche.lib.lib.custemview.MyNetFailView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -650,6 +653,93 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
      */
     protected void onSendBroadCast(String action, Bundle bundle) {
         onSendBroadCast(null, action, bundle);
+    }
+
+    /****************************************************************************************************/
+
+
+    //生成密匙
+    public String getMd5Password(String str) {
+
+        //第几天
+        int i = DateUtils.getDayOfWeek();
+
+        String week = "";
+        //星期一
+        if (i == 1) {
+            week = "Mon";
+        } else if (i == 2) {
+            week = "Tue";
+        } else if (i == 3) {
+            week = "Wed";
+        } else if (i == 4) {
+            week = "Thu";
+        } else if (i == 5) {
+            week = "Fri";
+        } else if (i == 6) {
+            week = "Sat";
+        } else if (i == 7) {
+            week = "Sun";
+        }
+        //获取当前年
+        int month = Integer.parseInt(DateUtils.formatDataMonth(System.currentTimeMillis()));
+        String mon = "";
+        switch (month) {
+            case 1:
+                mon = "Jan";
+                break;
+            case 2:
+                mon = "Feb";
+                break;
+            case 3:
+                mon = "Mar";
+                break;
+            case 4:
+                mon = "Apr";
+                break;
+            case 5:
+                mon = "May";
+                break;
+            case 6:
+                mon = "Jun";
+                break;
+            case 7:
+                mon = "Jul";
+                break;
+            case 8:
+                mon = "Aug";
+                break;
+            case 9:
+                mon = "Sep";
+                break;
+            case 10:
+                mon = "Oct";
+                break;
+            case 11:
+                mon = "Nov";
+                break;
+            case 12:
+                mon = "Dec";
+                break;
+        }
+
+        String time = getTime();
+        if (time.length() == 1) {
+            time = "0" + time;
+        }
+
+        //先弄D和H的和
+        String password = CipherUtils.md5L(CipherUtils.md5L(week + time) + str + CipherUtils.md5L(DateUtils.formatDataYear(System.currentTimeMillis()) + mon));
+        return password;
+    }
+
+    /**
+     * getTime 获取系统时间
+     */
+    public static String getTime() {
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(System.currentTimeMillis());
+        return cal.get(Calendar.HOUR_OF_DAY) + "";
     }
 
     /****************************************************************************************************/

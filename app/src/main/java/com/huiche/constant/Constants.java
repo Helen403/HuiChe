@@ -48,6 +48,16 @@ public interface Constants {
 
         String GOODSRECEIPT = "http://hyh2.281.com.cn/api.php/home/address/alladdress";
 
+        String LOCATION = "http://hyh2.281.com.cn/api.php/home/city/getcity";
+
+
+        String PROVINCE = "http://hyh2.281.com.cn/api.php/home/address/findprovince";
+        String CITY = "http://hyh2.281.com.cn/api.php/home/address/findcity";
+
+        String AD = "http://hyh2.281.com.cn/api.php/home/index/ad";
+
+        String SHOPPING = "http://hyh2.281.com.cn/api.php/home/index/distance_limit_goods";
+
     }
 
     interface startActivityForResult {

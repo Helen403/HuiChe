@@ -258,7 +258,6 @@ public class BusinessDetailActivity extends Activity implements
         content.addView(view);
         content.addView(bufferShareViewDialog);
         setContentView(content);
-        shareDialog = new ShareDialog(BusinessDetailActivity.this);
 
 
         /*************************************************************/

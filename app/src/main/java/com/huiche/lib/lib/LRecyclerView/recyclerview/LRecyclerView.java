@@ -358,6 +358,7 @@ public class LRecyclerView extends RecyclerView {
         mScrolledYDistance += dy;
         mScrolledXDistance = (mScrolledXDistance < 0) ? 0 : mScrolledXDistance;
         mScrolledYDistance = (mScrolledYDistance < 0) ? 0 : mScrolledYDistance;
+
         if (mIsScrollDown && (dy == 0)) {
             mScrolledYDistance = 0;
         }

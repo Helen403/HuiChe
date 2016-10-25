@@ -26,6 +26,7 @@ public abstract class MyLBaseRecycleAdapter<T> extends RecyclerView.Adapter<MyLB
 
     private Context contextApplication = BaseApplication.context;
     private ArrayList<T> data;
+    public Context context;
 
 
     private OnItemClickListener<T> mListener;
@@ -36,9 +37,11 @@ public abstract class MyLBaseRecycleAdapter<T> extends RecyclerView.Adapter<MyLB
 
     public MyLBaseRecycleAdapter() {
         this.data = new ArrayList<>();
-        init();
     }
 
+    public void setContext(Context context) {
+        this.context = context;
+    }
 
     @Override
     public RecycleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -158,75 +161,10 @@ public abstract class MyLBaseRecycleAdapter<T> extends RecyclerView.Adapter<MyLB
         public void setImageByUrl(String url, ImageView imageView) {
             ImageUtils.getInstance().setImageByUrl(url, imageView);
         }
-
-
     }
 
+    /**************************************************************/
 
-    /*************************************************************/
-    private void init() {
-
-//        // 设置刷新动画的颜色
-//        mRecyclerView.setColor(Color.RED, Color.BLUE);
-//        // 设置头部恢复动画的执行时间，默认500毫秒
-//        mRecyclerView.setHeaderImageDurationMillis(300);
-//        // 设置拉伸到最高时头部的透明度，默认0.5f
-//        mRecyclerView.setHeaderImageMinAlpha(0.6f);
-//
-//
-//        // 设置刷新和加载更多数据的监听，分别在onRefresh()和onLoadMore()方法中执行刷新和加载更多操作
-//        mRecyclerView.setLoadDataListener(new MyRecycleView.LoadDataListener() {
-//            @Override
-//            public void onRefresh() {
-//                new Thread(new MyRunnable(true)).start();
-//            }
-//
-//            @Override
-//            public void onLoadMore() {
-//                new Thread(new MyRunnable(false)).start();
-//            }
-//        });
-    }
-
-//    private Handler mHandler = new Handler();
-//
-//    class MyRunnable implements Runnable {
-//
-//        boolean isRefresh;
-//
-//        public MyRunnable(boolean isRefresh) {
-//            this.isRefresh = isRefresh;
-//        }
-//
-//        @Override
-//        public void run() {
-//            mHandler.postDelayed(new Runnable() {
-//                @Override
-//                public void run() {
-//                    if (isRefresh) {
-//                        onrefresh.onRefresh();
-//                        //在UI线程中调用
-////                        refreshComplate();
-//                    } else {
-//                        onrefresh.onAddData();
-//                        // 加载更多完成后调用，必须在UI线程中
-////                        loadMoreComplate();
-//                    }
-//                }
-//            }, 1200);
-//        }
-//    }
-//
-//    protected void refreshComplate() {
-//        mRecyclerView.getAdapter().notifyDataSetChanged();
-//        // 刷新完成后调用，必须在UI线程中
-//        mRecyclerView.refreshComplate();
-//    }
-//
-//    protected void loadMoreComplate() {
-//        mRecyclerView.getAdapter().notifyDataSetChanged();
-//        mRecyclerView.loadMoreComplate();
-//    }
 
     /**
      * 添加数据
@@ -235,7 +173,6 @@ public abstract class MyLBaseRecycleAdapter<T> extends RecyclerView.Adapter<MyLB
         if (dataTmp != null) {
             data.addAll(dataTmp);
         }
-//        loadMoreComplate();
     }
 
     public void setRefresh(List<T> dataTmp) {
@@ -243,7 +180,6 @@ public abstract class MyLBaseRecycleAdapter<T> extends RecyclerView.Adapter<MyLB
             data.clear();
             data.addAll(dataTmp);
         }
-//        refreshComplate();
     }
 
     /*********************************************************************/
@@ -301,7 +237,7 @@ public abstract class MyLBaseRecycleAdapter<T> extends RecyclerView.Adapter<MyLB
         if (!TextUtils.isEmpty(action)) {
             intent.setAction(action);
         }
-//        context.sendBroadcast(intent);
+        context.sendBroadcast(intent);
     }
 
 
@@ -342,24 +278,6 @@ public abstract class MyLBaseRecycleAdapter<T> extends RecyclerView.Adapter<MyLB
     @Override
     public void onClick(View v) {
         click.onClick(v, v.getId());
-    }
-
-
-
-    /*****************************************************************************************************/
-
-
-    private OnRefresh onrefresh;
-
-
-    public void setOnRefresh(OnRefresh onrefresh) {
-        this.onrefresh = onrefresh;
-    }
-
-    public interface OnRefresh {
-        void onRefresh();
-
-        void onAddData();
     }
 
 

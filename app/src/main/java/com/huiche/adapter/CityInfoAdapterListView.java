@@ -34,7 +34,7 @@ public class CityInfoAdapterListView extends BaseImageAdapter<CityBean> {
 		}else{
 			holder=(ViewHolder) convertView.getTag();
 		}
-			holder.cityName.setText(list.get(position).getName());
+//			holder.cityName.setText(list.get(position).getName());
 			
 		return convertView;
 	}

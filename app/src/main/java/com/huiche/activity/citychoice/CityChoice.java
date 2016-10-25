@@ -26,7 +26,6 @@ import com.baidu.location.LocationClientOption.LocationMode;
 import com.huiche.R;
 import com.huiche.activity.MainActivity;
 import com.huiche.base.BaseActivity;
-import com.huiche.bean.CityBean;
 import com.huiche.constant.HttpConstantHao;
 import com.huiche.constant.MyRequestCode;
 import com.huiche.listener.GridViewFromNearByListener;
@@ -320,53 +319,53 @@ public class CityChoice extends BaseActivity implements
 	 * 获取城市信息
 	 */
 	public void getCityInfo() {
-		AsyncHttp.get("http://test.51ujf.cn/js/province_bas.json",
-				new JsonHttpResponseHandler() {
-					@Override
-					public void onSuccess(int statusCode, Header[] headers,
-							JSONArray response) {
-
-						super.onSuccess(statusCode, headers, response);
-						for (int i = 0; i < response.length(); i++) {
-
-							JSONObject obj = response.optJSONObject(i);
-							JSONArray arr = obj.optJSONArray("cityList");
-							for (int j = 0; j < arr.length(); j++) {
-								CityBean bean = new CityBean();
-								try {
-									String nameCity = arr.getJSONObject(i)
-											.getString("name");
-									if (!nameCity.equals("地级市")) {
-										bean.setName(nameCity);
-										// listCityInfo.add(bean);
-									}
-								} catch (JSONException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
-								}
-							}
-
-						}
-						CityInfoAdapterCityChoice adapterListView = new CityInfoAdapterCityChoice(
-								getApplicationContext(), listCityInfo);
-						listView.setAdapter(adapterListView);
-					}
-
-					@Override
-					public void onFailure(int statusCode, Header[] headers,
-							String responseString, Throwable throwable) {
-
-						super.onFailure(statusCode, headers, responseString,
-								throwable);
-
-					}
-
-					@Override
-					public void onFinish() {
-
-						super.onFinish();
-					}
-				});
+//		AsyncHttp.get("http://test.51ujf.cn/js/province_bas.json",
+//				new JsonHttpResponseHandler() {
+//					@Override
+//					public void onSuccess(int statusCode, Header[] headers,
+//							JSONArray response) {
+//
+//						super.onSuccess(statusCode, headers, response);
+//						for (int i = 0; i < response.length(); i++) {
+//
+//							JSONObject obj = response.optJSONObject(i);
+//							JSONArray arr = obj.optJSONArray("cityList");
+//							for (int j = 0; j < arr.length(); j++) {
+//								CityBean bean = new CityBean();
+//								try {
+//									String nameCity = arr.getJSONObject(i)
+//											.getString("name");
+//									if (!nameCity.equals("地级市")) {
+//										bean.setName(nameCity);
+//										// listCityInfo.add(bean);
+//									}
+//								} catch (JSONException e) {
+//									// TODO Auto-generated catch block
+//									e.printStackTrace();
+//								}
+//							}
+//
+//						}
+//						CityInfoAdapterCityChoice adapterListView = new CityInfoAdapterCityChoice(
+//								getApplicationContext(), listCityInfo);
+//						listView.setAdapter(adapterListView);
+//					}
+//
+//					@Override
+//					public void onFailure(int statusCode, Header[] headers,
+//							String responseString, Throwable throwable) {
+//
+//						super.onFailure(statusCode, headers, responseString,
+//								throwable);
+//
+//					}
+//
+//					@Override
+//					public void onFinish() {
+//
+//						super.onFinish();
+//					}
+//				});
 	}
 
 	/***

@@ -1,5 +1,7 @@
 package com.huiche.lib.lib.Utils;
 
+import net.sourceforge.pinyin4j.PinyinHelper;
+
 import java.text.DecimalFormat;
 
 /**
@@ -16,6 +18,7 @@ import java.text.DecimalFormat;
  * strFormat2 不足2位前面补0
  * convert2Int 类型安全转换
  * decimalFormat 指定小数输出
+ * getPinYinHeadChar(String str) 提取每个汉字的首字母
  */
 public final class StringUtils {
 
@@ -75,6 +78,26 @@ public final class StringUtils {
             "yin", "ying", "yo", "yong", "you", "yu", "yuan", "yue", "yun", "za", "zai", "zan", "zang", "zao", "ze", "zei", "zen", "zeng", "zha",
             "zhai", "zhan", "zhang", "zhao", "zhe", "zhen", "zheng", "zhi", "zhong", "zhou", "zhu", "zhua", "zhuai", "zhuan", "zhuang", "zhui",
             "zhun", "zhuo", "zi", "zong", "zou", "zu", "zuan", "zui", "zun", "zuo"};
+
+
+    /**
+     * 提取每个汉字的首字母
+     */
+    public static String getPinYinHeadChar(String str) {
+        String convert = "";
+        for (int j = 0; j < str.length(); j++) {
+            char word = str.charAt(j);
+            // 提取汉字的首字母
+
+            String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(word);
+            if (pinyinArray != null) {
+                convert += pinyinArray[0].charAt(0);
+            } else {
+                convert += word;
+            }
+        }
+        return convert;
+    }
 
 
     /**

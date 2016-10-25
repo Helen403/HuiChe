@@ -21,22 +21,16 @@
     <!-- SD卡读取权限，用户写入离线定位数据 -->
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
-
     <uses-permission android:name="android.permission.CAMERA" />
-
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
-
     <!--share 分享需要的权限  上面有重复的权限已删除-->
-
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -53,9 +47,6 @@
         android:theme="@style/AppTheme">
 
 
-        <!-- android:theme="@style/SplashTheme"-->
-
-        <!-- mine -->
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -92,13 +83,8 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <!--<data android:scheme="wx5ed23f8629dd7b90" />-->
             </intent-filter>
         </activity>
-        <!-- aHao -->
-        <!--       <activity
-                   android:name="com.huiche.activity.MainActivity"
-                   android:launchMode="singleTask" />-->
         <activity android:name="com.huiche.activity.citychoice.CityChoice" />
         <activity android:name="com.huiche.activity.ClassifyOfActivity" />
         <activity android:name="com.huiche.activity.MoreProductActivity" />
@@ -127,8 +113,6 @@
         <activity android:name="com.huiche.activity.mine.LineUnPayActivity" />
         <activity android:name="com.huiche.activity.mine.LineFinishOrderActivity" />
         <activity android:name="com.huiche.activity.mine.ChooseCityList" />
-
-
         <activity android:name="com.huiche.activity.mine.ChooseTCityListActivity" />
         <activity android:name="com.huiche.activity.mine.AreaChooseActivity" />
         <activity android:name="com.huiche.activity.mine.FeedBackActivity" />
@@ -136,24 +120,15 @@
         <activity android:name="com.huiche.activity.mine.MyCardActivity" />
         <activity android:name="com.huiche.activity.mine.MyCardDetaiActivity" />
         <activity android:name="com.huiche.activity.mine.CardUseRuleActivity" />
-
         <activity android:name="com.huiche.activity.mine.EditTextUserAddress" />
         <activity android:name="com.huiche.activity.mine.WebViewActivity" />
-
         <activity android:name=".activity.mine.SearchActivity" />
-
         <activity android:name=".activity.mine.CashActivity" />
         <activity android:name=".two_dimensioncode.CaptureActivity" />
         <activity android:name=".activity.mine.LogisticsActivity" />
-
         <activity android:name="com.huiche.activity.GuideActivity" />
         <activity android:name="com.huiche.activity.LoginActivity" />
         <activity android:name="com.huiche.activity.BusinessHotProductActivity" />
-
-        <!--<intent-filter>-->
-        <!--<action android:name="android.intent.action.MAIN" />-->
-        <!--<category android:name="android.intent.category.LAUNCHER" />-->
-        <!--</intent-filter>-->
         <activity android:name="com.huiche.activity.mine.RedPacketActivity" />
         <activity android:name=".activity.PhotoAlbumActivity" />
         <activity android:name=".activity.HotProductActivityTest" />
@@ -161,9 +136,7 @@
         <activity android:name=".activity.ShoppingCartOrderActicity" />
         <activity android:name=".activity.PaySuccessActivity" />
         <activity android:name=".activity.RedBaoDetailActivity" />
-
         <activity android:name=".activity.mine.IntegralShopActivity" />
-
         <activity android:name=".activity.mine.OilcardActivity" />
         <activity android:name=".activity.mine.OilcardRechargeActivity" />
         <activity android:name=".activity.mine.OilPayActivity" />
@@ -172,31 +145,25 @@
         <activity android:name=".activity.mine.CarManagerActivity" />
         <activity android:name=".activity.mine.DiscountActivity" />
         <activity android:name=".activity.mine.RegisterActivity" />
-
         <activity android:name=".activity.mine.MoreActivity" />
         <activity android:name=".activity.mine.JiFenShopping" />
         <activity android:name=".activity.mine.jiFenShopping22Activity" />
         <activity android:name=".activity.mine.CommitActivity" />
-
         <activity android:name=".activity.mine.MyjiFenActivity"/>
         <activity android:name=".activity.mine.MyCommentActivity"/>
-
         <activity android:name=".activity.mine.CarManagerFisterActivity"/>
         <activity android:name=".activity.mine.SecurityHelenActivity"/>
         <activity android:name=".activity.mine.PayHelenActivity"/>
-
-
         <activity android:name=".activity.mine.ApplyManActivity"/>
-
         <activity android:name=".activity.mine.commentActivity"/>
         <activity android:name=".activity.mine.DetailsActivity"/>
         <activity android:name=".activity.mine.CarBeautifulActivity"/>
         <activity android:name=".activity.mine.GoodsReceiptActivity"/>
         <activity android:name=".activity.mine.AddGoodsReceiptActivity"/>
         <activity android:name=".activity.mine.MyPartnerActivity"/>
-
         <activity android:name=".activity.mine.MineActivity"/>
         <activity android:name=".activity.mine.CallPhoneActivity"/>
+        <activity android:name=".activity.mine.LocationCityActivity"/>
 
 
 
@@ -208,20 +175,10 @@
             android:screenOrientation="behind"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <!-- 百度地图key -->
-        <!--   <meta-data
-               android:name="com.baidu.lbsapi.API_KEY"
-               android:value="8fYmpCZEtDNWt5hz2u0GAgsXdoB3yZTk" />-->
-        <!-- <meta-data
-             android:name="com.baidu.lbsapi.API_KEY"
-             android:value="I7girCOtHoPHEjyjuy28SIUo3WGddf40" />-->
         <!--cong百度地图测试key-->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="okhbKoS0xo7gUzHesqffAkGVShaOWrsK" />
-
-        <!--  <meta-data
-              android:name="com.baidu.lbsapi.API_KEY"
-              android:value="okhbKoS0xo7gUzHesqffAkGVShaOWrsK"/>-->
 
         <service
             android:name="com.baidu.location.f"
