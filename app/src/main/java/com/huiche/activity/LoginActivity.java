@@ -11,8 +11,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.huiche.R;
-import com.huiche.activity.mine.RegisterActivity;
-import com.huiche.base.MyApplication;
 import com.huiche.bean.LoginResultBean;
 import com.huiche.constant.Constants;
 import com.huiche.lib.lib.Utils.CipherUtils;
@@ -20,7 +18,7 @@ import com.huiche.lib.lib.Utils.ControlUtils;
 import com.huiche.lib.lib.Utils.DButils;
 import com.huiche.lib.lib.Utils.Param;
 import com.huiche.lib.lib.base.BaseActivity;
-import com.huiche.utils.SetSizeUtils;
+import com.huiche.lib.lib.base.BaseApplication;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -43,15 +41,13 @@ public class LoginActivity extends BaseActivity implements
     private LinearLayout ll_wechat_login;// 微信登录
 
     // 把应用注册到微信
-//        api = WXAPIFactory.createWXAPI(this, MyApplication.appid);
-//        api.registerApp(MyApplication.appid);
+//        api = WXAPIFactory.createWXAPI(this, BaseApplication.appid);
+//        api.registerApp(BaseApplication.appid);
 
     @Override
     public int getContentView() {
         return R.layout.activity_login;
     }
-
-
 
 
     @Override
@@ -63,9 +59,6 @@ public class LoginActivity extends BaseActivity implements
         et_accountInput = (EditText) findViewById(R.id.et_accountInput);
         et_passwordInput = (EditText) findViewById(R.id.et_passwordInput);
         tv_forgetPasswd = (TextView) findViewById(R.id.tv_forgetPasswd);
-        //设置按钮比例
-        SetSizeUtils.setSizeOnlyWidthOf(LoginActivity.this, tv_login, 6, 5);
-        SetSizeUtils.setSizeOnlyWidthOf(LoginActivity.this, ll_wechat_login, 6, 5);
 
         tv_22 = (TextView) findViewById(R.id.tv_22);
         forget = (TextView) findViewById(R.id.forget);
@@ -73,7 +66,7 @@ public class LoginActivity extends BaseActivity implements
 
     @Override
     public void initData() {
-        if (MyApplication.loginResultBean != null) {
+        if (BaseApplication.loginResultBean != null) {
             //自动填充数据
             String user = DButils.getString("user");
             String pass = DButils.getString("pass");
@@ -106,10 +99,10 @@ public class LoginActivity extends BaseActivity implements
             public void onClick(View v, int id) {
                 switch (id) {
                     case R.id.tv_22:
-                        goToActivityByClass(LoginActivity.this, RegisterActivity.class);
+                        goToActivityByClass(RegisterActivity.class);
                         break;
                     case R.id.forget:
-                        goToActivityByClass(LoginActivity.this, ForgetPasswordActivity.class);
+                        goToActivityByClass(ForgetPasswordActivity.class);
                         break;
                     // 登录
                     case R.id.tv_login:
@@ -166,8 +159,8 @@ public class LoginActivity extends BaseActivity implements
                 switch (loginResultBean.status) {
                     //登录成功
                     case 10017:
-                        MyApplication.loginResultBean = loginResultBean;
-                        MyApplication.phone = account;
+                        BaseApplication.loginResultBean = loginResultBean;
+                        BaseApplication.phone = account;
                         setResult(Constants.startActivityForResult.LOGINRESULT);
                         //存储用户信息到数据库
                         setInfoToSQL(account, passwd);
@@ -209,8 +202,6 @@ public class LoginActivity extends BaseActivity implements
         }
 
 
-
-
     }
 
     @Override
@@ -236,7 +227,7 @@ public class LoginActivity extends BaseActivity implements
 //        final SendAuth.Req req = new SendAuth.Req();
 //        req.scope = "snsapi_userinfo";
 //        req.state = "wechat_sdk_demo_test";
-//        MyApplication.isWXlogin = true;
+//        BaseApplication.isWXlogin = true;
 //        api.sendReq(req);
 //
 //    }
@@ -289,7 +280,7 @@ public class LoginActivity extends BaseActivity implements
 //                        editor.putString("name", loginInfo.name);
 //                        editor.putString("phone", loginInfo.phone);
 //                        editor.commit();
-//                        MyApplication.token = loginInfo.token;
+//                        BaseApplication.token = loginInfo.token;
 //                        Intent intent = new Intent();
 //                        intent.setClass(LoginActivity.this, MainActivity.class);
 //                        startActivity(intent);

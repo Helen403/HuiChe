@@ -21,10 +21,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.huiche.activity.MainActivity;
 import com.huiche.lib.lib.Utils.CipherUtils;
 import com.huiche.lib.lib.Utils.DateUtils;
 import com.huiche.lib.lib.Utils.ImageUtils;
-import com.huiche.lib.lib.activityMain.MainActivity;
 import com.huiche.lib.lib.custemview.BufferCircleView;
 import com.huiche.lib.lib.custemview.MyNetFailView;
 

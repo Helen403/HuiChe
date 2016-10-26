@@ -9,16 +9,12 @@ import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
 import com.huiche.R;
-import com.huiche.activity.mine.JiFenShopping;
 import com.huiche.fragment.HomeFragment;
-import com.huiche.fragment.IntegralShopFragment;
 import com.huiche.fragment.MineFragment;
-import com.huiche.fragment.U_CardFragment;
-import com.huiche.listener.GridViewFromNearByListener;
 import com.huiche.two_dimensioncode.CaptureActivity;
 
 public class MainActivity extends com.huiche.lib.lib.base.BaseActivity implements OnClickListener,
-        OnCheckedChangeListener, GridViewFromNearByListener {
+        OnCheckedChangeListener {
     private RadioButton nearBy;
     private RadioGroup radioGroup;
     private ImageView iv_uu_Fragment;
@@ -64,8 +60,6 @@ public class MainActivity extends com.huiche.lib.lib.base.BaseActivity implement
     protected void onFragmentChange(int fragmentId) {
         super.onFragmentChange(R.id.frameLayout_MainActivity);
         HomeFragment homeFragment = new HomeFragment();
-        IntegralShopFragment integralShopFragment = new IntegralShopFragment();
-        U_CardFragment cardFragment = new U_CardFragment();
         MineFragment mineFragment = new MineFragment();
         fragmentList.add(homeFragment);
         fragmentList.add(homeFragment);
@@ -105,9 +99,6 @@ public class MainActivity extends com.huiche.lib.lib.base.BaseActivity implement
     }
 
 
-    @Override
-    public void changColorSetData(String str, int position) {
-    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

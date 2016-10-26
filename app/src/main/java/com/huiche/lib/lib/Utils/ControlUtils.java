@@ -6,7 +6,7 @@ import android.text.TextUtils;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.huiche.base.MyApplication;
+import com.huiche.lib.lib.base.BaseApplication;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,7 +45,7 @@ import java.util.Map;
 public final class ControlUtils {
 
     //配置
-    private static Context contextApplication =  MyApplication.getInstance();
+    private static Context contextApplication =  BaseApplication.context;
 
 
     /**

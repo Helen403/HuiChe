@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
 
-import com.huiche.base.MyApplication;
+import com.huiche.lib.lib.base.BaseApplication;
 
 
 /**
@@ -49,7 +49,7 @@ import com.huiche.base.MyApplication;
 
 public final class DButils {
     //需要配置一下Context
-    private static Context context = MyApplication.getInstance();
+    private static Context context = BaseApplication.context;
     //数据库名                  ---------根据需求项目名改
     private static final String DB_NAME = "helen_db.db";
 

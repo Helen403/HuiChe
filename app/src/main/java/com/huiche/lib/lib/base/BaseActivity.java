@@ -34,7 +34,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.huiche.R;
-import com.huiche.base.MyApplication;
 import com.huiche.lib.lib.Utils.CipherUtils;
 import com.huiche.lib.lib.Utils.DateUtils;
 import com.huiche.lib.lib.Utils.ImageUtils;
@@ -54,7 +53,8 @@ import java.util.TimerTask;
 public abstract class BaseActivity extends FragmentActivity implements View.OnClickListener {
 
     //配置一下
-    protected Context contextAppliction = MyApplication.getInstance();
+    protected Context contextAppliction = BaseApplication.context;
+    public BaseActivity context;
     /******************************************/
     //沉侵的颜色  和导航栏颜色
     private static final int color = Color.parseColor("#E82418");
@@ -184,6 +184,7 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        context = this;
         fm = this.getSupportFragmentManager();
         dealLogicBeforeFindView();
         setFullScreen();
@@ -461,7 +462,7 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
     /**
      * 跳转到另一个Activity，不携带数据，不设置flag
      */
-    public void goToActivityByClass(Context context, Class<?> cls) {
+    public void goToActivityByClass(Class<?> cls) {
         Intent intent = new Intent();
         intent.setClass(context, cls);
         context.startActivity(intent);
@@ -470,7 +471,7 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
     /**
      * 跳转到另一个Activity，携带数据
      */
-    public void goToActivityByClass(Context context, Class<?> cls, Bundle bundle) {
+    public void goToActivityByClass(Class<?> cls, Bundle bundle) {
         Intent intent = new Intent();
         intent.setClass(context, cls);
         intent.putExtras(bundle);
@@ -481,7 +482,7 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
     /**
      * 延迟去往新的Activity
      */
-    public void delayToActivity(final Context context, final Class<?> cls, long delay) {
+    public void delayToActivity(final Class<?> cls, long delay) {
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override

@@ -1,31 +1,29 @@
 package com.huiche.lib.lib.activityMain;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.huiche.R;
+import com.huiche.activity.MainActivity;
 import com.huiche.constant.Constants;
 import com.huiche.lib.lib.NavView.AnimImageGroup;
 import com.huiche.lib.lib.NavView.NavImgLayout;
 import com.huiche.lib.lib.Utils.DButils;
 import com.huiche.lib.lib.Utils.HttpUtils;
 import com.huiche.lib.lib.Utils.ImageUtils;
-import com.huiche.lib.lib.Utils.SystemBarUtils;
+import com.huiche.lib.lib.base.BaseActivity;
 
 
-public final class WelcomeActivity extends Activity implements GestureDetector.OnGestureListener {
+public final class WelcomeActivity extends BaseActivity implements GestureDetector.OnGestureListener {
 
     //左滑 右滑的灵敏度  数值越小 越灵敏
     private int sensitive = 25;
@@ -47,16 +45,27 @@ public final class WelcomeActivity extends Activity implements GestureDetector.O
      */
     private GestureDetector gestureDetector;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        SystemBarUtils.initSystemBarElse(this, color);
-        this.getWindow().setBackgroundDrawable(null);
-        setContentView(R.layout.custermview_activity_welcome);
+    public int getContentView() {
+        return R.layout.custermview_activity_welcome;
+    }
+
+    @Override
+    public void findViews() {
         initView();
         initDetector();
         gotoTimer();
+    }
+
+    @Override
+    public void initData() {
+
+    }
+
+    @Override
+    public void setListeners() {
+
     }
 
     /**

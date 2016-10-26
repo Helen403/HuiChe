@@ -22,7 +22,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.huiche.R;
-import com.huiche.base.MyApplication;
+import com.huiche.lib.lib.base.BaseApplication;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -62,7 +62,7 @@ import java.util.concurrent.Executors;
 public final class ImageUtils {
 
     //需要配置一下Context
-    private Context context =  MyApplication.getInstance();
+    private Context context =  BaseApplication.context;
 
     //单例模式
     private volatile static ImageUtils imageDownLoader;

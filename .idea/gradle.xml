@@ -10,10 +10,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/LRecyclerview_library" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/slidelibrary" />
-            <option value="$PROJECT_DIR$/systembar_lib" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -40,7 +40,7 @@
 
 
     <application
-        android:name=".base.MyApplication"
+        android:name=".lib.lib.base.BaseApplication"
         android:allowBackup="true"
         android:icon="@drawable/car_beauty"
         android:label="@string/app_name"
@@ -54,27 +54,20 @@
             </intent-filter>
         </activity>
         <activity android:name="com.huiche.activity.ForgetPasswordActivity" />
-        <activity android:name="com.huiche.activity.BusinessDetailActivity" />
         <activity android:name="com.huiche.activity.ProductDetailActivity" />
         <activity android:name=".activity.ShoppingCartActivity" />
-        <activity android:name=".activity.ShoppingCartActivityTest" />
         <activity android:name="com.huiche.activity.PayOrderActivity" />
-        <activity android:name="com.huiche.activity.ExchangeSuccessActivity" />
-        <activity android:name="com.huiche.activity.CardStockActivity" />
-        <activity android:name="com.huiche.activity.TestDialogActivity" />
         <activity android:name="com.huiche.activity.ReporterrorOrComplaintActivity" />
-        <activity android:name="com.huiche.activity.UoneUActivity" />
         <activity android:name="com.huiche.activity.PayActivity" />
         <activity android:name="com.huiche.activity.PayDetailActivity" />
         <activity android:name="com.huiche.activity.PayOrderResultActivity" />
-        <activity android:name="com.huiche.activity.HotProductActivity" />
         <!-- 微信回调实体类 -->
         <!-- 微信支付回调 默认singleTop -->
-        <activity
+    <!--    <activity
             android:name="com.huiche.wxapi.WXPayEntryActivity"
             android:exported="true"
             android:launchMode="singleTop" />
-        <!-- 微信回调，分享登录..大部分的回调 -->
+        &lt;!&ndash; 微信回调，分享登录..大部分的回调 &ndash;&gt;
         <activity
             android:name="com.huiche.wxapi.WXEntryActivity"
             android:exported="true"
@@ -84,86 +77,51 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity>
-        <activity android:name="com.huiche.activity.citychoice.CityChoice" />
-        <activity android:name="com.huiche.activity.ClassifyOfActivity" />
-        <activity android:name="com.huiche.activity.MoreProductActivity" />
+        </activity>-->
         <!-- 修改绑定手机 -->
-        <activity android:name="com.huiche.activity.mine.ChangePhoneActivity" />
+        <activity android:name=".activity.ChangePhoneActivity" />
         <!-- 个人信息 -->
-        <activity android:name="com.huiche.activity.mine.PersionalMessageActivity" />
-        <activity android:name="com.huiche.activity.mine.MessageActivity" />
-        <activity android:name="com.huiche.activity.mine.IntegralActivity" />
-        <activity
-            android:name="com.huiche.activity.mine.MyGoodsAddress"
-            android:launchMode="singleTask" />
-        <activity android:name="com.huiche.activity.mine.AddAddressActivity" />
-        <activity android:name="com.huiche.activity.mine.CardQuanActivity" />
-        <activity android:name="com.huiche.activity.mine.CardDetailActivity" />
-        <activity android:name="com.huiche.activity.mine.UsefulCardDetailActivity" />
-        <activity android:name="com.huiche.activity.mine.SecurityCenterActivity" />
-        <activity android:name="com.huiche.activity.mine.MyCollectionsActivity" />
-        <activity android:name="com.huiche.activity.mine.EvaluateActivity" />
-        <activity android:name="com.huiche.activity.mine.OnLineOrderActivity" />
-        <activity android:name="com.huiche.activity.mine.LineOrderActivity" />
-        <activity android:name="com.huiche.activity.mine.IntegralInComeActivity" />
-        <activity android:name="com.huiche.activity.mine.IntegralOutComeActivity" />
-        <activity android:name="com.huiche.activity.mine.LineWaitPayActivity" />
-        <activity android:name="com.huiche.activity.mine.LineWaitEvaluateActivity" />
-        <activity android:name="com.huiche.activity.mine.LineUnPayActivity" />
-        <activity android:name="com.huiche.activity.mine.LineFinishOrderActivity" />
-        <activity android:name="com.huiche.activity.mine.ChooseCityList" />
-        <activity android:name="com.huiche.activity.mine.ChooseTCityListActivity" />
-        <activity android:name="com.huiche.activity.mine.AreaChooseActivity" />
-        <activity android:name="com.huiche.activity.mine.FeedBackActivity" />
-        <activity android:name="com.huiche.activity.mine.MyCardQuanActivity" />
-        <activity android:name="com.huiche.activity.mine.MyCardActivity" />
-        <activity android:name="com.huiche.activity.mine.MyCardDetaiActivity" />
-        <activity android:name="com.huiche.activity.mine.CardUseRuleActivity" />
-        <activity android:name="com.huiche.activity.mine.EditTextUserAddress" />
-        <activity android:name="com.huiche.activity.mine.WebViewActivity" />
-        <activity android:name=".activity.mine.SearchActivity" />
-        <activity android:name=".activity.mine.CashActivity" />
+        <activity android:name=".activity.PersionalMessageActivity" />
+        <activity android:name=".activity.IntegralActivity" />
+        <activity android:name=".activity.AddAddressActivity" />
+        <activity android:name=".activity.CardDetailActivity" />
+        <activity android:name=".activity.SecurityCenterActivity" />
+        <activity android:name=".activity.MyCollectionsActivity" />
+        <activity android:name=".activity.AreaChooseActivity" />
+        <activity android:name=".activity.FeedBackActivity" />
+        <activity android:name=".activity.EditTextUserAddress" />
+        <activity android:name=".activity.WebViewActivity" />
         <activity android:name=".two_dimensioncode.CaptureActivity" />
-        <activity android:name=".activity.mine.LogisticsActivity" />
-        <activity android:name="com.huiche.activity.GuideActivity" />
         <activity android:name="com.huiche.activity.LoginActivity" />
-        <activity android:name="com.huiche.activity.BusinessHotProductActivity" />
-        <activity android:name="com.huiche.activity.mine.RedPacketActivity" />
-        <activity android:name=".activity.PhotoAlbumActivity" />
-        <activity android:name=".activity.HotProductActivityTest" />
-        <activity android:name=".activity.ExchangeOrderActivity" />
         <activity android:name=".activity.ShoppingCartOrderActicity" />
         <activity android:name=".activity.PaySuccessActivity" />
         <activity android:name=".activity.RedBaoDetailActivity" />
-        <activity android:name=".activity.mine.IntegralShopActivity" />
-        <activity android:name=".activity.mine.OilcardActivity" />
-        <activity android:name=".activity.mine.OilcardRechargeActivity" />
-        <activity android:name=".activity.mine.OilPayActivity" />
-        <activity android:name=".activity.mine.OilPayResultActivity" />
-        <activity android:name=".activity.mine.InsuranceActivity" />
-        <activity android:name=".activity.mine.CarManagerActivity" />
-        <activity android:name=".activity.mine.DiscountActivity" />
-        <activity android:name=".activity.mine.RegisterActivity" />
-        <activity android:name=".activity.mine.MoreActivity" />
-        <activity android:name=".activity.mine.JiFenShopping" />
-        <activity android:name=".activity.mine.jiFenShopping22Activity" />
-        <activity android:name=".activity.mine.CommitActivity" />
-        <activity android:name=".activity.mine.MyjiFenActivity"/>
-        <activity android:name=".activity.mine.MyCommentActivity"/>
-        <activity android:name=".activity.mine.CarManagerFisterActivity"/>
-        <activity android:name=".activity.mine.SecurityHelenActivity"/>
-        <activity android:name=".activity.mine.PayHelenActivity"/>
-        <activity android:name=".activity.mine.ApplyManActivity"/>
-        <activity android:name=".activity.mine.commentActivity"/>
-        <activity android:name=".activity.mine.DetailsActivity"/>
-        <activity android:name=".activity.mine.CarBeautifulActivity"/>
-        <activity android:name=".activity.mine.GoodsReceiptActivity"/>
-        <activity android:name=".activity.mine.AddGoodsReceiptActivity"/>
-        <activity android:name=".activity.mine.MyPartnerActivity"/>
-        <activity android:name=".activity.mine.MineActivity"/>
-        <activity android:name=".activity.mine.CallPhoneActivity"/>
-        <activity android:name=".activity.mine.LocationCityActivity"/>
+        <activity android:name=".activity.OilcardActivity" />
+        <activity android:name=".activity.OilCardRechargeActivity" />
+        <activity android:name=".activity.OilPayActivity" />
+        <activity android:name=".activity.OilPayResultActivity" />
+        <activity android:name=".activity.InsuranceActivity" />
+        <activity android:name=".activity.CarManagerActivity" />
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".activity.MoreActivity" />
+        <activity android:name=".activity.JiFenShopping" />
+        <activity android:name=".activity.jiFenShopping22Activity" />
+        <activity android:name=".activity.CommitActivity" />
+        <activity android:name=".activity.MyjiFenActivity"/>
+        <activity android:name=".activity.MyCommentActivity"/>
+        <activity android:name=".activity.CarManagerFisterActivity"/>
+        <activity android:name=".activity.SecurityHelenActivity"/>
+        <activity android:name=".activity.PayHelenActivity"/>
+        <activity android:name=".activity.ApplyManActivity"/>
+        <activity android:name=".activity.CommentActivity"/>
+        <activity android:name=".activity.DetailsActivity"/>
+        <activity android:name=".activity.CarBeautifulActivity"/>
+        <activity android:name=".activity.GoodsReceiptActivity"/>
+        <activity android:name=".activity.AddGoodsReceiptActivity"/>
+        <activity android:name=".activity.MyPartnerActivity"/>
+        <activity android:name=".activity.MineActivity"/>
+        <activity android:name=".activity.CallPhoneActivity"/>
+        <activity android:name=".activity.LocationCityActivity"/>
 
 
 

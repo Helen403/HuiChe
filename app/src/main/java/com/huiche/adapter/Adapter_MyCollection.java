@@ -5,8 +5,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.huiche.R;
-import com.huiche.base.MyApplication;
 import com.huiche.bean.MyCollectionBean;
+import com.huiche.lib.lib.base.BaseApplication;
 import com.huiche.lib.lib.base.MyBaseAdapter;
 
 import java.util.List;
@@ -60,7 +60,7 @@ public class Adapter_MyCollection extends MyBaseAdapter<MyCollectionBean.DataBea
         String str = dataBean.goods_mark.substring(0, 1);
         int mark = Integer.parseInt(str);
 
-        int drawable = getFieldValue("drawable", "comments_star_" + mark + "_0", MyApplication.getInstance());
+        int drawable = getFieldValue("drawable", "comments_star_" + mark + "_0", BaseApplication.context);
         getViewById(R.id.iv_1).setBackgroundResource(drawable);
     }
 

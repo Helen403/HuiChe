@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.huiche.view.CircleImageView
+        <com.huiche.lib.lib.custemview.CircleImageView
             android:id="@+id/cir"
             android:layout_width="50dp"
             android:layout_height="50dp"

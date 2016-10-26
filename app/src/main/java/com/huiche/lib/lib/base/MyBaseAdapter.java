@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.huiche.base.MyApplication;
 import com.huiche.lib.lib.Utils.ImageUtils;
 
 import java.util.ArrayList;
@@ -38,7 +37,7 @@ import java.util.TimerTask;
  */
 public abstract class MyBaseAdapter<T> extends BaseAdapter implements View.OnClickListener {
     //需要配置一下Context
-    protected Context contextApplication = MyApplication.getInstance();
+    protected Context contextApplication = BaseApplication.context;
     //用于跳转的Context
     protected Context context;
     protected List<T> data;

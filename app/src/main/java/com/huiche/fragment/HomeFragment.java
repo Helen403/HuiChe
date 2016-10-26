@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.baidu.location.BDLocation;
 import com.huiche.R;
-import com.huiche.activity.mine.LocationCityActivity;
+import com.huiche.activity.LocationCityActivity;
 import com.huiche.adapter.HomeAdapter;
 import com.huiche.adapter.HomeGVAdapter;
 import com.huiche.bean.AdBean;

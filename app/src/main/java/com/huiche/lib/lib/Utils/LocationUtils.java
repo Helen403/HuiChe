@@ -6,14 +6,14 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
-import com.huiche.base.MyApplication;
+import com.huiche.lib.lib.base.BaseApplication;
 
 /**
  * 用于定位
  */
 public final class LocationUtils {
     //配置一下
-    private static Context context = MyApplication.getInstance();
+    private static Context context = BaseApplication.context;
 
     private LocationUtils() {
     }

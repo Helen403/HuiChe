@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.view.View;
 
 import com.huiche.R;
-import com.huiche.activity.mine.jiFenShopping22Activity;
+import com.huiche.activity.jiFenShopping22Activity;
 import com.huiche.bean.jiFenBean;
 import com.huiche.lib.lib.base.MyBaseAdapter;
 

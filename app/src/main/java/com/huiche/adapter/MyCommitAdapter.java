@@ -6,6 +6,7 @@ import android.graphics.Color;
 import com.huiche.R;
 import com.huiche.bean.MyCommitBean;
 import com.huiche.lib.lib.base.MyBaseRecycleAdapter;
+import com.huiche.lib.lib.custemview.CircleImageView;
 import com.huiche.lib.lib.custemview.MyRecycleView;
 
 
@@ -26,7 +27,7 @@ public class MyCommitAdapter extends MyBaseRecycleAdapter<MyCommitBean.DataBean.
 
     @Override
     public void onInitView(RecycleViewHolder holder, MyCommitBean.DataBean.EvaluateBean evaluateBean, int position) {
-        com.huiche.view.CircleImageView icon = holder.getViewById(R.id.cir);
+        CircleImageView icon = holder.getViewById(R.id.cir);
         icon.setBorderWidth(0);
         icon.setBorderColor(Color.parseColor("#00000000"));
         holder.setImageByUrl(evaluateBean.headerimg, icon);

@@ -22,8 +22,6 @@ import android.widget.LinearLayout;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.huiche.R;
-import com.huiche.activity.BusinessDetailActivity;
-import com.huiche.utils.SystemBarUtil;
 
 import java.io.IOException;
 import java.util.Vector;
@@ -47,7 +45,6 @@ public class CaptureActivity extends Activity implements Callback {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_capture);
-        SystemBarUtil.initSystemBarElse(this);
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         CameraManager.init(getApplication());
@@ -170,7 +167,7 @@ public class CaptureActivity extends Activity implements Callback {
             urlt = str.split("id=");
             String businessId = urlt[1];
             Intent intent = new Intent();
-            intent.setClass(CaptureActivity.this, BusinessDetailActivity.class);
+//            intent.setClass(CaptureActivity.this, BusinessDetailActivity.class);
             intent.putExtra("businessStoreId", businessId);
             intent.putExtra("empty", "0");
             startActivity(intent);

@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.huiche.R;
-import com.huiche.base.CarManagerFisterBean;
+import com.huiche.bean.CarManagerFisterBean;
 import com.huiche.lib.lib.base.MyBaseAdapter;
 
 import java.util.List;

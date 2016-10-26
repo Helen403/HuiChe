@@ -11,25 +11,25 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.huiche.R;
+import com.huiche.activity.ApplyManActivity;
+import com.huiche.activity.CallPhoneActivity;
+import com.huiche.activity.CarManagerFisterActivity;
+import com.huiche.activity.FeedBackActivity;
+import com.huiche.activity.GoodsReceiptActivity;
 import com.huiche.activity.LoginActivity;
-import com.huiche.activity.mine.ApplyManActivity;
-import com.huiche.activity.mine.CallPhoneActivity;
-import com.huiche.activity.mine.CarManagerFisterActivity;
-import com.huiche.activity.mine.FeedBackActivity;
-import com.huiche.activity.mine.GoodsReceiptActivity;
-import com.huiche.activity.mine.MineActivity;
-import com.huiche.activity.mine.MyCollectionsActivity;
-import com.huiche.activity.mine.MyCommentActivity;
-import com.huiche.activity.mine.MyPartnerActivity;
-import com.huiche.activity.mine.MyjiFenActivity;
-import com.huiche.activity.mine.OilcardActivity;
-import com.huiche.activity.mine.SecurityHelenActivity;
+import com.huiche.activity.MineActivity;
+import com.huiche.activity.MyCollectionsActivity;
+import com.huiche.activity.MyCommentActivity;
+import com.huiche.activity.MyPartnerActivity;
+import com.huiche.activity.MyjiFenActivity;
+import com.huiche.activity.OilcardActivity;
+import com.huiche.activity.SecurityHelenActivity;
 import com.huiche.adapter.MyPersionalAdapter;
-import com.huiche.base.MyApplication;
 import com.huiche.constant.Constants;
-import com.huiche.customer_view.MyGridView;
+import com.huiche.lib.lib.base.BaseApplication;
 import com.huiche.lib.lib.base.BaseFragment;
-import com.huiche.view.CircleImageView;
+import com.huiche.lib.lib.custemview.CircleImageView;
+import com.huiche.lib.lib.custemview.MyGridView;
 
 /**
  * Created by Administrator on 2016/10/17.
@@ -77,7 +77,7 @@ public class MineFragment extends BaseFragment {
         llIntegralUsed = (LinearLayout) contentView.findViewById(R.id.ll_integral_used);
         tvOutcome = (TextView) contentView.findViewById(R.id.tv_outcome);
         icon = (CircleImageView) contentView.findViewById(R.id.icon);
-        mygridview = (com.huiche.customer_view.MyGridView) contentView.findViewById(R.id.mygridview);
+        mygridview = (MyGridView) contentView.findViewById(R.id.mygridview);
         tv_3 = (TextView) contentView.findViewById(R.id.tv_3);
 
     }
@@ -198,12 +198,12 @@ public class MineFragment extends BaseFragment {
 
     //申请合伙人
     private void applyMan() {
-        if (MyApplication.loginResultBean == null) {
+        if (BaseApplication.loginResultBean == null) {
             T("请登录");
             return;
         }
         //通过
-        if ("1".equals(MyApplication.loginResultBean.data.partner_state)) {
+        if ("1".equals(BaseApplication.loginResultBean.data.partner_state)) {
             //我的合伙人
             Intent intent = new Intent(getActivity(), MyPartnerActivity.class);
             startActivity(intent);
@@ -226,21 +226,21 @@ public class MineFragment extends BaseFragment {
         if (resultCode == Constants.startActivityForResult.LOGINRESULT && requestCode == Constants.startActivityForResult.LOGIN) {
             //登录成功后设置个人信息
             //设置头像
-            setImageByUrl(MyApplication.loginResultBean.data.headerimg, icon);
+            setImageByUrl(BaseApplication.loginResultBean.data.headerimg, icon);
             //设置名称
-            if (TextUtils.isEmpty(MyApplication.loginResultBean.data.username)) {
-                tv_3.setText(MyApplication.phone);
+            if (TextUtils.isEmpty(BaseApplication.loginResultBean.data.username)) {
+                tv_3.setText(BaseApplication.phone);
             } else {
-                tv_3.setText(MyApplication.loginResultBean.data.username);
+                tv_3.setText(BaseApplication.loginResultBean.data.username);
             }
 
             //设置积分
-            tvIntegral.setText(MyApplication.loginResultBean.data.points + "");
+            tvIntegral.setText(BaseApplication.loginResultBean.data.points + "");
             //设置卡卷
-            tvIncome.setText(MyApplication.loginResultBean.data.vol + "");
+            tvIncome.setText(BaseApplication.loginResultBean.data.vol + "");
             //设置收藏
-            tvOutcome.setText(MyApplication.loginResultBean.data.collect + "");
-            if ("1".equals(MyApplication.loginResultBean.data.partner_state)) {
+            tvOutcome.setText(BaseApplication.loginResultBean.data.collect + "");
+            if ("1".equals(BaseApplication.loginResultBean.data.partner_state)) {
                 strType[8] = "我的合伙人";
                 myPersionalAdapter.notifyDataSetChanged();
             }
