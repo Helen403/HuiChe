@@ -75,7 +75,25 @@ public class LRecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
     public <T> LRecyclerViewAdapter(Context context, Class<T> tClass, LRecyclerView myRecycleView) {
         try {
             this.myRecycleView = myRecycleView;
+            //默认是线性布局
             myRecycleView.setLayoutManager(new LinearLayoutManager(context));
+            //设置样式必须在调用setAdapter后调用否则不生效
+            myRecycleView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
+            adapter = (MyLBaseRecycleAdapter) tClass.newInstance();
+            adapter.setContext(context);
+            data = new ArrayList<>();
+            setAdapter(adapter);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //重构  可选择样式
+    public <T> LRecyclerViewAdapter(Context context, Class<T> tClass, LRecyclerView myRecycleView, RecyclerView.LayoutManager layoutManager) {
+        try {
+            this.myRecycleView = myRecycleView;
+            //默认是线性布局
+            myRecycleView.setLayoutManager(layoutManager);
             //设置样式必须在调用setAdapter后调用否则不生效
             myRecycleView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
             adapter = (MyLBaseRecycleAdapter) tClass.newInstance();

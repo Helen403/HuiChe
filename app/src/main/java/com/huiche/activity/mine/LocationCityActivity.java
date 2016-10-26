@@ -128,6 +128,7 @@ public class LocationCityActivity extends BaseActivity {
 
     //设置最近访问城市
     private void setLatelyCity() {
+
         Param param = new Param();
         param.put("imei", DeviceUtils.getIMEI(LocationCityActivity.this));
 
@@ -160,6 +161,10 @@ public class LocationCityActivity extends BaseActivity {
                 T("请检测网络");
             }
         });
+
+
+
+
 
     }
 

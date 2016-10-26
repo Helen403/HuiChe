@@ -93,12 +93,13 @@ public class HomeFragment extends BaseFragment {
     @Override
     protected void onAttachMyRecycleViewAdapter() {
         super.onAttachMyRecycleViewAdapter();
-        lRecyclerViewAdapter = new LRecyclerViewAdapter(getActivity(), HomeAdapter.class, myRecycleView);
 
+        lRecyclerViewAdapter = new LRecyclerViewAdapter(getActivity(), HomeAdapter.class, myRecycleView);
         myRecycleView.setAdapter(lRecyclerViewAdapter);
         myRecycleView.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh() {
+
                 Param param = new Param();
                 param.put("city", ci_id);
                 param.put("lat", lat);

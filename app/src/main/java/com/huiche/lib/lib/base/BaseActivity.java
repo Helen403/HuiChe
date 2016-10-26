@@ -1,6 +1,5 @@
 package com.huiche.lib.lib.base;
 
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -19,7 +18,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.SparseArray;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -495,57 +493,57 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
 
     /*********************************************************************************************/
 
-    /**
-     * 带返回结果的跳转
-     */
-    protected SparseArray<ActivityResultAction> mResultHandlers;
-
-    public void goActivityForResult(Context context, Class<?> cls, Bundle bundle, ActivityResultAction action) {
-        Intent intent = new Intent(context, cls);
-        if (bundle != null) {
-            intent.putExtras(bundle);
-        }
-        int rc;
-        if (action != null) {
-            if (mResultHandlers == null) {
-                mResultHandlers = new SparseArray<ActivityResultAction>();
-            }
-            rc = action.hashCode();
-            rc &= 0x0000ffff;
-            mResultHandlers.append(rc, action);
-            startActivityForResult(intent, rc);
-        } else {
-            startActivity(intent);
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        ActivityResultAction activityResultAction = mResultHandlers.get(requestCode);
-        if (null != activityResultAction) {
-            activityResultAction.invoke(resultCode, data);
-        }
-    }
-
-    public abstract class ActivityResultAction {
-        private void invoke(Integer resultCode, Intent data) {
-            switch (resultCode.intValue()) {
-                case Activity.RESULT_OK:
-                    onSuccess(data);
-                    break;
-                case Activity.RESULT_CANCELED:
-                    onCancel();
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        public abstract void onSuccess(Intent data);
-
-        protected abstract void onCancel();
-    }
+//    /**
+//     * 带返回结果的跳转
+//     */
+//    protected SparseArray<ActivityResultAction> mResultHandlers;
+//
+//    public void goActivityForResult(Context context, Class<?> cls, Bundle bundle, ActivityResultAction action) {
+//        Intent intent = new Intent(context, cls);
+//        if (bundle != null) {
+//            intent.putExtras(bundle);
+//        }
+//        int rc;
+//        if (action != null) {
+//            if (mResultHandlers == null) {
+//                mResultHandlers = new SparseArray<ActivityResultAction>();
+//            }
+//            rc = action.hashCode();
+//            rc &= 0x0000ffff;
+//            mResultHandlers.append(rc, action);
+//            startActivityForResult(intent, rc);
+//        } else {
+//            startActivity(intent);
+//        }
+//    }
+//
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        ActivityResultAction activityResultAction = mResultHandlers.get(requestCode);
+//        if (null != activityResultAction) {
+//            activityResultAction.invoke(resultCode, data);
+//        }
+//    }
+//
+//    public abstract class ActivityResultAction {
+//        private void invoke(Integer resultCode, Intent data) {
+//            switch (resultCode.intValue()) {
+//                case Activity.RESULT_OK:
+//                    onSuccess(data);
+//                    break;
+//                case Activity.RESULT_CANCELED:
+//                    onCancel();
+//                    break;
+//                default:
+//                    break;
+//            }
+//        }
+//
+//        public abstract void onSuccess(Intent data);
+//
+//        protected abstract void onCancel();
+//    }
 
 
     /*******************************************************************/

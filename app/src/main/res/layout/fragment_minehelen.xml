@@ -5,12 +5,16 @@
     android:background="#f5f5f5"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <View
+        android:background="@color/bule_title"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
 
     <RelativeLayout
+
         android:id="@+id/rela_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:background="@color/bule_title">
 
         <ImageButton
