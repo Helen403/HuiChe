@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/9/27.
  */
-public class Adapter_MyCollection extends MyBaseAdapter<MyCollectionBean.DataBean> {
+public class MyCollectionAdapter extends MyBaseAdapter<MyCollectionBean.DataBean> {
 
 
     private int mRightWidth = 0;
@@ -28,7 +28,7 @@ public class Adapter_MyCollection extends MyBaseAdapter<MyCollectionBean.DataBea
     }
 
 
-    public Adapter_MyCollection(List<MyCollectionBean.DataBean> data, int width, IOnItemRightClickListener mListener) {
+    public MyCollectionAdapter(List<MyCollectionBean.DataBean> data, int width, IOnItemRightClickListener mListener) {
         super(data);
         this.mListener = mListener;
         this.mRightWidth = width;

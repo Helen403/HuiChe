@@ -1,15 +1,13 @@
 package com.huiche.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
 import com.huiche.R;
-import com.huiche.adapter.Adapter_oil;
+import com.huiche.adapter.OilAdapter;
 import com.huiche.bean.OilBaen;
 import com.huiche.lib.lib.base.BaseActivity;
 import com.huiche.view.BufferpayViewDialog;
@@ -21,10 +19,8 @@ import java.util.ArrayList;
  */
 public class OilCardRechargeActivity extends BaseActivity {
 
-    ImageButton imageLeft_titil_all;
     GridView gv;
-    Adapter_oil adapter_oil;
-    Context context;
+    OilAdapter oilAdapter;
     BufferpayViewDialog bufferpayViewDialog;
 
 
@@ -37,21 +33,19 @@ public class OilCardRechargeActivity extends BaseActivity {
     @Override
     protected void onShowMessage(RelativeLayout relativeLayout) {
         super.onShowMessage(relativeLayout);
-
-        bufferpayViewDialog = new BufferpayViewDialog(context);
+        bufferpayViewDialog = new BufferpayViewDialog(OilCardRechargeActivity.this);
         bufferpayViewDialog.setVisibility(View.GONE);
         relativeLayout.addView(bufferpayViewDialog);
     }
 
     @Override
     public void findViews() {
+        setTitle("油卡充值");
         gv = (GridView) findViewById(R.id.gv);
     }
 
     @Override
     public void initData() {
-        //保留一位小数
-
         ArrayList<OilBaen> data = new ArrayList<>();
         for (int i = 1; i <= 5; i++) {
             OilBaen oilbean = new OilBaen();
@@ -61,8 +55,8 @@ public class OilCardRechargeActivity extends BaseActivity {
             data.add(oilbean);
         }
 
-        adapter_oil = new Adapter_oil(data);
-        gv.setAdapter(adapter_oil);
+        oilAdapter = new OilAdapter(data);
+        gv.setAdapter(oilAdapter);
     }
 
     @Override
@@ -77,15 +71,13 @@ public class OilCardRechargeActivity extends BaseActivity {
         bufferpayViewDialog.tv_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, OilPayActivity.class);
-                startActivity(intent);
+                goToActivityByClass(OilPayActivity.class);
             }
         });
         bufferpayViewDialog.tv_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, OilPayActivity.class);
-                startActivity(intent);
+                goToActivityByClass(OilPayActivity.class);
             }
         });
 

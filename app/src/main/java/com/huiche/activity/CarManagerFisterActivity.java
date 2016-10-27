@@ -8,7 +8,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshSwipeListView;
 import com.handmark.pulltorefresh.library.SwipeListView;
 import com.huiche.R;
-import com.huiche.adapter.Adapter_CarManagerFister;
+import com.huiche.adapter.CarManagerFisterAdapter;
 import com.huiche.bean.CarManagerFisterBean;
 import com.huiche.bean.DELECTCAR;
 import com.huiche.constant.Constants;
@@ -29,7 +29,7 @@ public class CarManagerFisterActivity extends com.huiche.lib.lib.base.BaseActivi
     TextView tv_1;
 
 
-    Adapter_CarManagerFister adapter_carManagerFister;
+    CarManagerFisterAdapter _carManagerFisterAdapter;
     private PullToRefreshSwipeListView pull_listview;
     private SwipeListView listview;
     CarManagerFisterBean carManagerFisterBeanTmp;
@@ -102,14 +102,14 @@ public class CarManagerFisterActivity extends com.huiche.lib.lib.base.BaseActivi
             public void onSuccess(String url, CarManagerFisterBean carManagerFisterBean, ArrayList<CarManagerFisterBean> list, String result, JSONObject jsonObject, JSONArray jsonArray) {
                 carManagerFisterBeanTmp = carManagerFisterBean;
                 bufferCircleView.hide();
-                adapter_carManagerFister = new Adapter_CarManagerFister(carManagerFisterBean.data.car, listview.getRightViewWidth(), new Adapter_CarManagerFister.IOnItemRightClickListener() {
+                _carManagerFisterAdapter = new CarManagerFisterAdapter(carManagerFisterBean.data.car, listview.getRightViewWidth(), new CarManagerFisterAdapter.IOnItemRightClickListener() {
                     @Override
                     public void onRightClick(View v, int position) {
                         //删除车辆
                         delectCar(position);
                     }
                 });
-                listview.setAdapter(adapter_carManagerFister);
+                listview.setAdapter(_carManagerFisterAdapter);
                 pull_listview.onRefreshComplete();
             }
 

@@ -14,10 +14,10 @@ import java.util.ArrayList;
 /**
  * Created by Administrator on 2016/9/27.
  */
-public class Adapter_jiFenShopping extends MyBaseAdapter<jiFenBean> {
+public class JiFenShoppingAdapter extends MyBaseAdapter<jiFenBean> {
     Context context;
 
-    public Adapter_jiFenShopping(Context context, ArrayList<jiFenBean> data) {
+    public JiFenShoppingAdapter(Context context, ArrayList<jiFenBean> data) {
         super(data);
         this.context = context;
     }

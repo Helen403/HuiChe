@@ -11,8 +11,8 @@ import com.huiche.lib.lib.base.MyBaseAdapter;
 /**
  * Created by Administrator on 2016/9/29.
  */
-public class Adapter_CarBeautiful extends MyBaseAdapter<CarBeautifulBean> {
-    public Adapter_CarBeautiful(Context context) {
+public class CarBeautifulAdapter extends MyBaseAdapter<CarBeautifulBean> {
+    public CarBeautifulAdapter(Context context) {
         super(context);
     }
 

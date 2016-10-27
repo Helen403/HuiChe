@@ -5,17 +5,15 @@ import android.content.Context;
 import com.huiche.R;
 import com.huiche.bean.MyPartnerBean;
 import com.huiche.lib.lib.base.MyBaseRecycleAdapter;
+import com.huiche.lib.lib.base.MyLBaseRecycleAdapter;
 import com.huiche.lib.lib.custemview.MyRecycleView;
 
 
 /**
  * Created by Administrator on 2016/10/8.
  */
-public class Adapter_MyPartner extends MyBaseRecycleAdapter<MyPartnerBean.DataBean.PartnerBean> {
+public class MyPartnerAdapter extends MyLBaseRecycleAdapter<MyPartnerBean.DataBean.PartnerBean> {
 
-    public Adapter_MyPartner(Context context, MyRecycleView mRecyclerView) {
-        super(context, mRecyclerView);
-    }
 
     @Override
     public int getContentView() {
@@ -37,23 +35,6 @@ public class Adapter_MyPartner extends MyBaseRecycleAdapter<MyPartnerBean.DataBe
     }
 
 
-    /**
-     * 通过反射获取资源 R.id
-     * 根据给定的类型名和字段名，返回R文件中的字段的值
-     *
-     * @param typeName  属于哪个类别的属性 （id,layout,drawable,string,color,attr......）
-     * @param fieldName 字段名
-     * @return 字段的值
-     */
-    public int getFieldValue(String typeName, String fieldName, Context context) {
-        int i;
-        try {
-            Class<?> clazz = Class.forName(context.getPackageName() + ".R$" + typeName);
-            i = clazz.getField(fieldName).getInt(null);
-        } catch (Exception e) {
-            return -1;
-        }
-        return i;
-    }
+
 
 }

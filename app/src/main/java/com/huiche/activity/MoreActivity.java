@@ -3,7 +3,7 @@ package com.huiche.activity;
 import android.widget.ImageButton;
 
 import com.huiche.R;
-import com.huiche.adapter.Adapter_more;
+import com.huiche.adapter.MoreAdapter;
 import com.huiche.bean.MoreBean;
 import com.huiche.lib.lib.base.BaseActivity;
 import com.huiche.lib.lib.custemview.MyGridView;
@@ -14,11 +14,10 @@ import java.util.ArrayList;
  * Created by Administrator on 2016/9/27.
  */
 public class MoreActivity extends BaseActivity {
-    ImageButton imageLeft_titil_all;
 
     MyGridView gv1, gv2, gv3, gv4, gv5, gv6;
 
-    Adapter_more adapter_more;
+    MoreAdapter moreAdapter_;
 
 
     @Override
@@ -47,13 +46,13 @@ public class MoreActivity extends BaseActivity {
         for (int i = 0; i < 6; i++) {
             data.add(new MoreBean());
         }
-        adapter_more = new Adapter_more(data);
-        gv1.setAdapter(adapter_more);
-        gv2.setAdapter(adapter_more);
-        gv3.setAdapter(adapter_more);
-        gv4.setAdapter(adapter_more);
-        gv5.setAdapter(adapter_more);
-        gv6.setAdapter(adapter_more);
+        moreAdapter_ = new MoreAdapter(data);
+        gv1.setAdapter(moreAdapter_);
+        gv2.setAdapter(moreAdapter_);
+        gv3.setAdapter(moreAdapter_);
+        gv4.setAdapter(moreAdapter_);
+        gv5.setAdapter(moreAdapter_);
+        gv6.setAdapter(moreAdapter_);
     }
 
     @Override

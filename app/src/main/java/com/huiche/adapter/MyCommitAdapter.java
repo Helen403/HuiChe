@@ -6,6 +6,7 @@ import android.graphics.Color;
 import com.huiche.R;
 import com.huiche.bean.MyCommitBean;
 import com.huiche.lib.lib.base.MyBaseRecycleAdapter;
+import com.huiche.lib.lib.base.MyLBaseRecycleAdapter;
 import com.huiche.lib.lib.custemview.CircleImageView;
 import com.huiche.lib.lib.custemview.MyRecycleView;
 
@@ -13,12 +14,9 @@ import com.huiche.lib.lib.custemview.MyRecycleView;
 /**
  * Created by Administrator on 2016/9/27.
  */
-public class MyCommitAdapter extends MyBaseRecycleAdapter<MyCommitBean.DataBean.EvaluateBean> {
+public class MyCommitAdapter extends MyLBaseRecycleAdapter<MyCommitBean.DataBean.EvaluateBean> {
 
 
-    public MyCommitAdapter(Context context, MyRecycleView mRecyclerView) {
-        super(context, mRecyclerView);
-    }
 
     @Override
     public int getContentView() {

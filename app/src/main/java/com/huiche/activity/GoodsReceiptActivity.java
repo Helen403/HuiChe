@@ -9,7 +9,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshSwipeListView;
 import com.handmark.pulltorefresh.library.SwipeListView;
 import com.huiche.R;
-import com.huiche.adapter.Adapter_GoodsReceipt;
+import com.huiche.adapter.GoodsReceiptAdapter;
 import com.huiche.bean.GoodsReceiptBean;
 import com.huiche.constant.Constants;
 import com.huiche.lib.lib.Utils.ControlUtils;
@@ -30,7 +30,7 @@ public class GoodsReceiptActivity extends com.huiche.lib.lib.base.BaseActivity {
     TextView tv_1;
 
 
-    Adapter_GoodsReceipt adapter_goodsReceipt;
+    GoodsReceiptAdapter _goodsReceiptAdapter;
     private PullToRefreshSwipeListView pull_listview;
     private SwipeListView listview;
 
@@ -73,14 +73,14 @@ public class GoodsReceiptActivity extends com.huiche.lib.lib.base.BaseActivity {
             @Override
             public void onSuccess(String url, GoodsReceiptBean goodsReceiptBean, ArrayList<GoodsReceiptBean> list, String result, JSONObject jsonObject, JSONArray jsonArray) {
                 bufferCircleView.hide();
-                adapter_goodsReceipt = new Adapter_GoodsReceipt(goodsReceiptBean.data, listview.getRightViewWidth(), new Adapter_GoodsReceipt.IOnItemRightClickListener() {
+                _goodsReceiptAdapter = new GoodsReceiptAdapter(goodsReceiptBean.data, listview.getRightViewWidth(), new GoodsReceiptAdapter.IOnItemRightClickListener() {
                     @Override
                     public void onRightClick(View v, int position) {
                         Toast.makeText(GoodsReceiptActivity.this, "暂时不提供删除功能", Toast.LENGTH_SHORT).show();
                         delect(position);
                     }
                 });
-                listview.setAdapter(adapter_goodsReceipt);
+                listview.setAdapter(_goodsReceiptAdapter);
                 pull_listview.onRefreshComplete();
             }
 

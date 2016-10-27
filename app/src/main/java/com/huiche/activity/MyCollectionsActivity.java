@@ -7,7 +7,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshSwipeListView;
 import com.handmark.pulltorefresh.library.SwipeListView;
 import com.huiche.R;
-import com.huiche.adapter.Adapter_MyCollection;
+import com.huiche.adapter.MyCollectionAdapter;
 import com.huiche.bean.MyCollectionBean;
 import com.huiche.bean.MyCollectionDelectBean;
 import com.huiche.constant.Constants;
@@ -30,7 +30,7 @@ public class MyCollectionsActivity extends com.huiche.lib.lib.base.BaseActivity 
     private PullToRefreshSwipeListView pull_listview;
     private SwipeListView listview;
     MyCollectionBean myCollectionBeanTmp;
-    Adapter_MyCollection adapter;
+    MyCollectionAdapter adapter;
 
 
     @Override
@@ -113,7 +113,7 @@ public class MyCollectionsActivity extends com.huiche.lib.lib.base.BaseActivity 
                 bufferCircleView.hide();
 
                 myCollectionBeanTmp = myCollectionBean;
-                adapter = new Adapter_MyCollection(myCollectionBean.data, listview.getRightViewWidth(), new Adapter_MyCollection.IOnItemRightClickListener() {
+                adapter = new MyCollectionAdapter(myCollectionBean.data, listview.getRightViewWidth(), new MyCollectionAdapter.IOnItemRightClickListener() {
                     @Override
                     public void onRightClick(View v, int position) {
                         //删除车辆

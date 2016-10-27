@@ -48,18 +48,14 @@ public class CallPhoneActivity extends BaseActivity {
 
     @Override
     public void initData() {
-
-
     }
 
     private void getCallPhone() {
-
         bufferCircleView.show();
         ControlUtils.postsEveryTime(Constants.Helen.CALLPHONE, null, CallPhoneBean.class, new ControlUtils.OnControlUtils<CallPhoneBean>() {
             @Override
             public void onSuccess(String url, CallPhoneBean callPhoneBean, ArrayList<CallPhoneBean> list, String result, JSONObject jsonObject, JSONArray jsonArray) {
                 bufferCircleView.hide();
-                T(callPhoneBean.msg);
                 callPhoneView.setVisibility(View.VISIBLE);
                 callPhoneView.tv1.setText(callPhoneBean.data.kf_tel);
                 phone = callPhoneBean.data.kf_tel;

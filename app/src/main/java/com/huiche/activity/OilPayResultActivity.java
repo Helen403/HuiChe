@@ -15,6 +15,7 @@ public class OilPayResultActivity extends BaseActivity {
 
     @Override
     public void findViews() {
+        setTitle("付款成功");
     }
 
     @Override

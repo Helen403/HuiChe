@@ -280,5 +280,23 @@ public abstract class MyLBaseRecycleAdapter<T> extends RecyclerView.Adapter<MyLB
         click.onClick(v, v.getId());
     }
 
-
+    /*************************************************************************************/
+    /**
+     * 通过反射获取资源 R.id
+     * 根据给定的类型名和字段名，返回R文件中的字段的值
+     *
+     * @param typeName  属于哪个类别的属性 （id,layout,drawable,string,color,attr......）
+     * @param fieldName 字段名
+     * @return 字段的值
+     */
+    public int getFieldValue(String typeName, String fieldName, Context context) {
+        int i;
+        try {
+            Class<?> clazz = Class.forName(context.getPackageName() + ".R$" + typeName);
+            i = clazz.getField(fieldName).getInt(null);
+        } catch (Exception e) {
+            return -1;
+        }
+        return i;
+    }
 }

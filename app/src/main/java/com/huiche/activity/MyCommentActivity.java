@@ -6,8 +6,14 @@ import android.widget.TextView;
 
 import com.huiche.R;
 import com.huiche.adapter.MyCommitAdapter;
+import com.huiche.adapter.MyJiFenAdapter;
 import com.huiche.bean.MyCommitBean;
+import com.huiche.bean.MyjiFenBean;
 import com.huiche.constant.Constants;
+import com.huiche.lib.lib.LRecyclerView.interfaces.OnLoadMoreListener;
+import com.huiche.lib.lib.LRecyclerView.interfaces.OnRefreshListener;
+import com.huiche.lib.lib.LRecyclerView.recyclerview.LRecyclerView;
+import com.huiche.lib.lib.LRecyclerView.recyclerview.LRecyclerViewAdapter;
 import com.huiche.lib.lib.MyRecycleView.MyLinearLayoutManager;
 import com.huiche.lib.lib.Utils.ControlUtils;
 import com.huiche.lib.lib.Utils.Param;
@@ -27,8 +33,8 @@ import java.util.ArrayList;
 public class MyCommentActivity extends com.huiche.lib.lib.base.BaseActivity {
 
 
-    MyRecycleView recycleView;
-    MyCommitAdapter myCommitAdapter;
+    LRecyclerView myRecycleView;
+    LRecyclerViewAdapter lRecyclerViewAdapter;
 
     CircleImageView cir;
     TextView tv_1;
@@ -43,7 +49,7 @@ public class MyCommentActivity extends com.huiche.lib.lib.base.BaseActivity {
     @Override
     public void findViews() {
         setTitle("我的评论");
-        recycleView = (MyRecycleView) findViewById(R.id.myrecycle_view);
+        myRecycleView = (LRecyclerView) findViewById(R.id.myrecycle_view);
     }
 
     @Override
@@ -52,39 +58,38 @@ public class MyCommentActivity extends com.huiche.lib.lib.base.BaseActivity {
         setRecycleView();
         //添加头部View
         addHeadView();
-
-
+        if (BaseApplication.loginResultBean == null) {
+            T("请登录");
+            return;
+        } else {
+            // 刷新
+            myRecycleView.setRefreshing(true);
+        }
     }
 
     //添加头部View
     private void addHeadView() {
         View head = inflater.inflate(R.layout.view_my_commit_head, contentView, false);
-        recycleView.addHeaderView(head);
+        lRecyclerViewAdapter.addHeaderView(head);
         cir = (CircleImageView) head.findViewById(R.id.cir);
         cir.setBorderColor(Color.parseColor("#00000000"));
         cir.setBorderWidth(0);
         tv_1 = (TextView) head.findViewById(R.id.tv_1);
         tv_2 = (TextView) head.findViewById(R.id.tv_2);
-
     }
 
     //设置RecyclerView
     private void setRecycleView() {
-
-
-        // 使用重写后的线性布局管理器
-        MyLinearLayoutManager manager = new MyLinearLayoutManager(MyCommentActivity.this);
-        recycleView.setLayoutManager(manager);
-        myCommitAdapter = new MyCommitAdapter(MyCommentActivity.this, recycleView);
-        recycleView.setAdapter(myCommitAdapter);
-        myCommitAdapter.setOnRefresh(new MyBaseRecycleAdapter.OnRefresh() {
+        lRecyclerViewAdapter = new LRecyclerViewAdapter(MyCommentActivity.this, MyCommitAdapter.class, myRecycleView);
+        myRecycleView.setAdapter(lRecyclerViewAdapter);
+        myRecycleView.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh() {
+                bufferCircleView.show();
                 if (BaseApplication.loginResultBean == null) {
                     T("请登录");
                     return;
                 }
-                bufferCircleView.show();
                 Param param = new Param();
                 param.put("us_id", BaseApplication.loginResultBean.data.id);
                 StringBuffer sb = new StringBuffer();
@@ -97,33 +102,24 @@ public class MyCommentActivity extends com.huiche.lib.lib.base.BaseActivity {
                         bufferCircleView.hide();
                         //设置数据
                         setInfo(myCommitBean);
-                        myCommitAdapter.setRefresh(myCommitBean.data.evaluate);
+                        lRecyclerViewAdapter.setRefresh(myCommitBean.data.evaluate);
                     }
 
                     @Override
                     public void onFailure(String url) {
                         bufferCircleView.hide();
                         T("请检测网络");
-                        myCommitAdapter.setRefresh(null);
+                        lRecyclerViewAdapter.setRefresh(null);
                     }
                 });
-
-            }
-
-            @Override
-            public void onAddData() {
-                myCommitAdapter.setAddData(null);
             }
         });
-        if (BaseApplication.loginResultBean == null) {
-            T("请登录");
-            return;
-        } else {
-            // 刷新
-            recycleView.setRefresh(true);
-        }
-
-
+        myRecycleView.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore() {
+                lRecyclerViewAdapter.setAddData(null);
+            }
+        });
     }
 
     //设置数据
@@ -139,7 +135,5 @@ public class MyCommentActivity extends com.huiche.lib.lib.base.BaseActivity {
 
     @Override
     public void setListeners() {
-
-
     }
 }

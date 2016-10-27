@@ -1,15 +1,16 @@
 package com.huiche.activity;
 
 import com.huiche.R;
-import com.huiche.adapter.Adapter_Detail_Helen;
+import com.huiche.adapter.DetailAdapter;
 import com.huiche.bean.DetailHelenBean;
 import com.huiche.constant.Constants;
-import com.huiche.lib.lib.MyRecycleView.MyLinearLayoutManager;
+import com.huiche.lib.lib.LRecyclerView.interfaces.OnLoadMoreListener;
+import com.huiche.lib.lib.LRecyclerView.interfaces.OnRefreshListener;
+import com.huiche.lib.lib.LRecyclerView.recyclerview.LRecyclerView;
+import com.huiche.lib.lib.LRecyclerView.recyclerview.LRecyclerViewAdapter;
 import com.huiche.lib.lib.Utils.ControlUtils;
 import com.huiche.lib.lib.Utils.Param;
 import com.huiche.lib.lib.base.BaseApplication;
-import com.huiche.lib.lib.base.MyBaseRecycleAdapter;
-import com.huiche.lib.lib.custemview.MyRecycleView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -20,10 +21,9 @@ import java.util.ArrayList;
  * Created by Administrator on 2016/9/28.
  */
 public class DetailsActivity extends com.huiche.lib.lib.base.BaseActivity {
-    Adapter_Detail_Helen adapter;
 
-    MyRecycleView myRecycleView;
-
+    LRecyclerView myRecycleView;
+    LRecyclerViewAdapter lRecyclerViewAdapter;
 
     @Override
     public int getContentView() {
@@ -33,23 +33,27 @@ public class DetailsActivity extends com.huiche.lib.lib.base.BaseActivity {
     @Override
     public void findViews() {
         setTitle("明细");
-        myRecycleView = (MyRecycleView) findViewById(R.id.my_recycleview);
+        myRecycleView = (LRecyclerView) findViewById(R.id.my_recycleview);
     }
 
     @Override
     public void initData() {
 
         setRecycleView();
+        if (BaseApplication.loginResultBean == null) {
+            T("请登录");
+            return;
+        } else {
+            // 刷新
+            myRecycleView.setRefreshing(true);
+        }
     }
 
 
     private void setRecycleView() {
-        // 使用重写后的线性布局管理器
-        MyLinearLayoutManager manager = new MyLinearLayoutManager(DetailsActivity.this);
-        myRecycleView.setLayoutManager(manager);
-        adapter = new Adapter_Detail_Helen(DetailsActivity.this, myRecycleView);
-        myRecycleView.setAdapter(adapter);
-        adapter.setOnRefresh(new MyBaseRecycleAdapter.OnRefresh() {
+        lRecyclerViewAdapter = new LRecyclerViewAdapter(DetailsActivity.this, DetailAdapter.class, myRecycleView);
+        myRecycleView.setAdapter(lRecyclerViewAdapter);
+        myRecycleView.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh() {
                 if (BaseApplication.loginResultBean == null) {
@@ -68,33 +72,24 @@ public class DetailsActivity extends com.huiche.lib.lib.base.BaseActivity {
                     public void onSuccess(String url, DetailHelenBean detailHelenBean, ArrayList<DetailHelenBean> list, String result, JSONObject jsonObject, JSONArray jsonArray) {
                         bufferCircleView.hide();
                         T(detailHelenBean.msg);
-                        adapter.setRefresh(detailHelenBean.data.commission);
+                        lRecyclerViewAdapter.setRefresh(detailHelenBean.data.commission);
                     }
 
                     @Override
                     public void onFailure(String url) {
                         bufferCircleView.hide();
                         T("请检测网络");
-                        adapter.setRefresh(null);
+                        lRecyclerViewAdapter.setRefresh(null);
                     }
                 });
-
-
-            }
-
-            @Override
-            public void onAddData() {
-                adapter.setAddData(null);
             }
         });
-
-        if (BaseApplication.loginResultBean == null) {
-            T("请登录");
-            return;
-        } else {
-            // 刷新
-            myRecycleView.setRefresh(true);
-        }
+        myRecycleView.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore() {
+                lRecyclerViewAdapter.setAddData(null);
+            }
+        });
     }
 
     @Override

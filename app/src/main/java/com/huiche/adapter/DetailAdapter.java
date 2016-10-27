@@ -5,17 +5,15 @@ import android.content.Context;
 import com.huiche.R;
 import com.huiche.bean.DetailHelenBean;
 import com.huiche.lib.lib.base.MyBaseRecycleAdapter;
+import com.huiche.lib.lib.base.MyLBaseRecycleAdapter;
 import com.huiche.lib.lib.custemview.MyRecycleView;
 
 
 /**
  * Created by Administrator on 2016/9/28.
  */
-public class Adapter_Detail_Helen extends MyBaseRecycleAdapter<DetailHelenBean.DataBean.CommissionBean> {
+public class DetailAdapter extends MyLBaseRecycleAdapter<DetailHelenBean.DataBean.CommissionBean> {
 
-    public Adapter_Detail_Helen(Context context, MyRecycleView mRecyclerView) {
-        super(context, mRecyclerView);
-    }
 
     @Override
     public int getContentView() {

@@ -7,7 +7,6 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical" >
     <!-- 买单页面 -->
-    <include layout="@layout/include_title_bar" />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

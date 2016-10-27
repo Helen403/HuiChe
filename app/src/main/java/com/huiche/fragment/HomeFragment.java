@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.baidu.location.BDLocation;
 import com.huiche.R;
 import com.huiche.activity.LocationCityActivity;
+import com.huiche.activity.MoreActivity;
 import com.huiche.adapter.HomeAdapter;
 import com.huiche.adapter.HomeGVAdapter;
 import com.huiche.bean.AdBean;
@@ -48,6 +49,7 @@ public class HomeFragment extends BaseFragment {
 
     MyGridView mygridview;
     ImageView iv1;
+    ImageView imageRigth_titil_allScanCode;
     TextView tv1;
 
     LRecyclerView myRecycleView;
@@ -69,6 +71,10 @@ public class HomeFragment extends BaseFragment {
         myRecycleView = (LRecyclerView) content.findViewById(R.id.myrecycleview);
         ll = (LinearLayout) content.findViewById(R.id.ll);
         ll_cityName_titleBar = (LinearLayout) content.findViewById(R.id.ll_cityName_titleBar);
+        imageRigth_titil_allScanCode = (ImageView) content.findViewById(R.id.imageRigth_titil_allScanCode);
+
+        //设置标题栏的透明度
+        ll.setAlpha(0);
     }
 
     @Override
@@ -77,13 +83,18 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     public void setListeners() {
-        setOnListeners(ll_cityName_titleBar);
+        setOnListeners(ll_cityName_titleBar, imageRigth_titil_allScanCode);
         setOnClick(new onClick() {
             @Override
             public void onClick(View v, int id) {
                 switch (id) {
+                    //城市定位
                     case R.id.ll_cityName_titleBar:
                         goToActivityByClass(getActivity(), LocationCityActivity.class);
+                        break;
+                    //更多
+                    case R.id.imageRigth_titil_allScanCode:
+                        goToActivityByClass(getActivity(), MoreActivity.class);
                         break;
                 }
             }
@@ -130,12 +141,11 @@ public class HomeFragment extends BaseFragment {
         myRecycleView.setLScrollListener(new LRecyclerView.LScrollListener() {
             @Override
             public void onScrollUp() {
-                L("Up");
+
             }
 
             @Override
             public void onScrollDown() {
-                L("Down");
             }
 
             @Override

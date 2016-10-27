@@ -12,10 +12,10 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
 import com.huiche.R;
-import com.huiche.adapter.Adapter_CarBeautiful;
-import com.huiche.adapter.Adapter_CarBeautiful2;
-import com.huiche.adapter.Adapter_CityCar_2;
-import com.huiche.adapter.Adapter_City_Car;
+import com.huiche.adapter.CarBeautifulAdapter;
+import com.huiche.adapter.CarBeautiful2Adapter;
+import com.huiche.adapter.CityCar2Adapter;
+import com.huiche.adapter.CityCarAdapter;
 import com.huiche.bean.CarBeautiful2Bean;
 import com.huiche.bean.CarBeautifulBean;
 import com.huiche.bean.CityCar2Bean;
@@ -30,9 +30,8 @@ import java.util.ArrayList;
 public class CarBeautifulActivity extends BaseActivity {
 
     ListView listView;
-    Adapter_CarBeautiful adapter_carBeautiful;
-    ImageButton imageLeft_titil_all;
-    RelativeLayout ll,rl2;
+    CarBeautifulAdapter carBeautifulAdapter;
+    RelativeLayout ll, rl2;
 
 
     @Override
@@ -42,8 +41,8 @@ public class CarBeautifulActivity extends BaseActivity {
 
     @Override
     public void findViews() {
+        setTitle("汽车美容");
         listView = (ListView) findViewById(R.id.listview);
-        imageLeft_titil_all = (ImageButton) findViewById(R.id.imageLeft_titil_all);
         ll = (RelativeLayout) findViewById(R.id.ll);
         rl2 = (RelativeLayout) findViewById(R.id.rl2);
     }
@@ -55,30 +54,27 @@ public class CarBeautifulActivity extends BaseActivity {
             data.add(new CarBeautifulBean());
 
         }
-        adapter_carBeautiful = new Adapter_CarBeautiful(CarBeautifulActivity.this);
-        listView.setAdapter(adapter_carBeautiful);
-        adapter_carBeautiful.setData(data);
+        carBeautifulAdapter = new CarBeautifulAdapter(CarBeautifulActivity.this);
+        listView.setAdapter(carBeautifulAdapter);
+        carBeautifulAdapter.setData(data);
     }
 
     @Override
     public void setListeners() {
-        imageLeft_titil_all.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
-        ll.setOnClickListener(new View.OnClickListener() {
+
+        setOnListeners(ll, rl2);
+        setOnClick(new onClick() {
             @Override
-            public void onClick(View v) {
-                showPopupWindow(ll);
-            }
-        });
-        rl2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showPopupWindow2(ll);
+            public void onClick(View v, int id) {
+                switch (id) {
+                    case R.id.ll:
+                        showPopupWindow(ll);
+                        break;
+                    case R.id.rl2:
+                        showPopupWindow(ll);
+                        break;
+                }
             }
         });
     }
@@ -114,7 +110,7 @@ public class CarBeautifulActivity extends BaseActivity {
         for (int i = 0; i < 7; i++) {
             data.add(new CityCarBean());
         }
-        Adapter_City_Car adapter = new Adapter_City_Car(data);
+        CityCarAdapter adapter = new CityCarAdapter(data);
         listview.setAdapter(adapter);
 
 
@@ -123,8 +119,8 @@ public class CarBeautifulActivity extends BaseActivity {
         for (int i = 0; i < 7; i++) {
             data2.add(new CityCar2Bean());
         }
-        Adapter_CityCar_2 adapter_cityCar_2 = new Adapter_CityCar_2(data2);
-        listview_2.setAdapter(adapter_cityCar_2);
+        CityCar2Adapter _cityCar_2Adapter = new CityCar2Adapter(data2);
+        listview_2.setAdapter(_cityCar_2Adapter);
     }
 
     private void showPopupWindow2(View parent) {
@@ -157,7 +153,7 @@ public class CarBeautifulActivity extends BaseActivity {
         for (int i = 0; i < 3; i++) {
             data.add(new CarBeautiful2Bean());
         }
-        Adapter_CarBeautiful2 adapter = new Adapter_CarBeautiful2(data);
+        CarBeautiful2Adapter adapter = new CarBeautiful2Adapter(data);
         listview.setAdapter(adapter);
     }
 

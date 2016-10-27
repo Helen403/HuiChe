@@ -3,7 +3,7 @@ package com.huiche.activity;
 import android.widget.ListView;
 
 import com.huiche.R;
-import com.huiche.adapter.Adapter_discount;
+import com.huiche.adapter.DiscountAdapter;
 import com.huiche.bean.DiscountBean;
 import com.huiche.lib.lib.base.BaseActivity;
 
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class DiscountActivity extends BaseActivity {
 
     ListView listView;
-    Adapter_discount adapter_discount;
+    DiscountAdapter discountAdapter_;
 
 
     @Override
@@ -37,9 +37,9 @@ public class DiscountActivity extends BaseActivity {
             DiscountBean dis = new DiscountBean();
             data.add(dis);
         }
-        adapter_discount = new Adapter_discount(DiscountActivity.this);
-        listView.setAdapter(adapter_discount);
-        adapter_discount.setData(data);
+        discountAdapter_ = new DiscountAdapter(DiscountActivity.this);
+        listView.setAdapter(discountAdapter_);
+        discountAdapter_.setData(data);
     }
 
     @Override

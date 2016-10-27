@@ -21,6 +21,7 @@ public class OilPayActivity extends BaseActivity {
 
     @Override
     public void findViews() {
+        setTitle("油卡支付");
         tv_3 = (TextView) findViewById(R.id.tv_3);
     }
 

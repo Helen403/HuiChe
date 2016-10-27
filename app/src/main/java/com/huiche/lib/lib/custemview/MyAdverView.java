@@ -1,6 +1,7 @@
 package com.huiche.lib.lib.custemview;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Handler;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -252,9 +253,9 @@ public final class MyAdverView extends LinearLayout {
             ImageView imageView;
             if (mImageViewCacheList.isEmpty()) {
                 imageView = new ImageView(mContext);
-                imageView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+                imageView.setBackgroundColor(Color.parseColor("#000000"));
+                imageView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
                 imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-
             } else {
                 imageView = mImageViewCacheList.remove(0);
             }

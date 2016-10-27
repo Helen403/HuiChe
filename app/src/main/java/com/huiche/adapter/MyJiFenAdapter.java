@@ -5,16 +5,14 @@ import android.content.Context;
 import com.huiche.R;
 import com.huiche.bean.MyjiFenBean;
 import com.huiche.lib.lib.base.MyBaseRecycleAdapter;
+import com.huiche.lib.lib.base.MyLBaseRecycleAdapter;
 import com.huiche.lib.lib.custemview.MyRecycleView;
 
 /**
  * Created by Administrator on 2016/9/27.
  */
-public class Adapter_MyjiFen extends MyBaseRecycleAdapter<MyjiFenBean.DataBean> {
+public class MyJiFenAdapter extends MyLBaseRecycleAdapter<MyjiFenBean.DataBean> {
 
-    public Adapter_MyjiFen(Context context, MyRecycleView mRecyclerView) {
-        super(context, mRecyclerView);
-    }
 
     @Override
     public int getContentView() {

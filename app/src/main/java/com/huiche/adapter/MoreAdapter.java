@@ -12,8 +12,8 @@ import java.util.ArrayList;
 /**
  * Created by Administrator on 2016/9/27.
  */
-public class Adapter_more extends MyBaseAdapter<MoreBean> {
-    public Adapter_more(ArrayList<MoreBean> data) {
+public class MoreAdapter extends MyBaseAdapter<MoreBean> {
+    public MoreAdapter(ArrayList<MoreBean> data) {
         super(data);
     }
 

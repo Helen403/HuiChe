@@ -11,8 +11,8 @@ import com.huiche.lib.lib.base.MyBaseAdapter;
 /**
  * Created by Administrator on 2016/9/27.
  */
-public class Adapter_discount extends MyBaseAdapter<DiscountBean> {
-    public Adapter_discount(Context context) {
+public class DiscountAdapter extends MyBaseAdapter<DiscountBean> {
+    public DiscountAdapter(Context context) {
         super(context);
     }
 

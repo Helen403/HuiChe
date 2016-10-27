@@ -12,8 +12,8 @@ import java.util.ArrayList;
 /**
  * Created by Administrator on 2016/9/30.
  */
-public class Adapter_CarBeautiful2 extends MyBaseAdapter<CarBeautiful2Bean> {
-    public Adapter_CarBeautiful2(ArrayList<CarBeautiful2Bean> data) {
+public class CarBeautiful2Adapter extends MyBaseAdapter<CarBeautiful2Bean> {
+    public CarBeautiful2Adapter(ArrayList<CarBeautiful2Bean> data) {
         super(data);
     }
 

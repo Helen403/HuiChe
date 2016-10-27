@@ -6,9 +6,14 @@ import android.widget.TextView;
 
 import com.baidu.location.BDLocation;
 import com.huiche.R;
-import com.huiche.adapter.Adapter_MyPartner;
+import com.huiche.adapter.MyJiFenAdapter;
+import com.huiche.adapter.MyPartnerAdapter;
 import com.huiche.bean.MyPartnerBean;
 import com.huiche.constant.Constants;
+import com.huiche.lib.lib.LRecyclerView.interfaces.OnLoadMoreListener;
+import com.huiche.lib.lib.LRecyclerView.interfaces.OnRefreshListener;
+import com.huiche.lib.lib.LRecyclerView.recyclerview.LRecyclerView;
+import com.huiche.lib.lib.LRecyclerView.recyclerview.LRecyclerViewAdapter;
 import com.huiche.lib.lib.MyRecycleView.MyLinearLayoutManager;
 import com.huiche.lib.lib.Utils.ControlUtils;
 import com.huiche.lib.lib.Utils.LocationUtils;
@@ -28,8 +33,8 @@ import java.util.ArrayList;
 public class MyPartnerActivity extends com.huiche.lib.lib.base.BaseActivity {
 
 
-    Adapter_MyPartner adapter_myPartner;
-    MyRecycleView recycleView;
+    LRecyclerView myRecycleView;
+    LRecyclerViewAdapter lRecyclerViewAdapter;
     TextView tv_1;
 
     @Override
@@ -41,7 +46,7 @@ public class MyPartnerActivity extends com.huiche.lib.lib.base.BaseActivity {
     public void findViews() {
         setTitle("我的合伙人");
         setRightRes(R.drawable.classify_01);
-        recycleView = (MyRecycleView) findViewById(R.id.myrecycle_view);
+        myRecycleView = (LRecyclerView) findViewById(R.id.myrecycle_view);
     }
 
     @Override
@@ -51,21 +56,25 @@ public class MyPartnerActivity extends com.huiche.lib.lib.base.BaseActivity {
         setRecycleView();
         //添加头部View
         addHeadView();
+        if (BaseApplication.loginResultBean == null) {
+            T("请登录");
+            return;
+        } else {
+            // 刷新
+            myRecycleView.setRefreshing(true);
+        }
     }
 
     private void addHeadView() {
         View head = inflater.inflate(R.layout.activity_my_partner, contentView, false);
-        recycleView.addHeaderView(head);
+        lRecyclerViewAdapter.addHeaderView(head);
         tv_1 = (TextView) head.findViewById(R.id.tv_1);
     }
 
     private void setRecycleView() {
-        // 使用重写后的线性布局管理器
-        MyLinearLayoutManager manager = new MyLinearLayoutManager(MyPartnerActivity.this);
-        recycleView.setLayoutManager(manager);
-        adapter_myPartner = new Adapter_MyPartner(MyPartnerActivity.this, recycleView);
-        recycleView.setAdapter(adapter_myPartner);
-        adapter_myPartner.setOnRefresh(new MyBaseRecycleAdapter.OnRefresh() {
+        lRecyclerViewAdapter = new LRecyclerViewAdapter(MyPartnerActivity.this, MyPartnerAdapter.class, myRecycleView);
+        myRecycleView.setAdapter(lRecyclerViewAdapter);
+        myRecycleView.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh() {
                 if (BaseApplication.loginResultBean == null) {
@@ -80,19 +89,15 @@ public class MyPartnerActivity extends com.huiche.lib.lib.base.BaseActivity {
                     }
                 });
             }
-
+        });
+        myRecycleView.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
-            public void onAddData() {
-                adapter_myPartner.setAddData(null);
+            public void onLoadMore() {
+                lRecyclerViewAdapter.setAddData(null);
             }
         });
-        if (BaseApplication.loginResultBean == null) {
-            T("请登录");
-            return;
-        } else {
-            // 刷新
-            recycleView.setRefresh(true);
-        }
+
+
     }
 
     private void setDataRefresh(double lat, double lng) {
@@ -115,14 +120,14 @@ public class MyPartnerActivity extends com.huiche.lib.lib.base.BaseActivity {
 
                 //设置数据
                 setInfo(myPartnerBean);
-                adapter_myPartner.setRefresh(myPartnerBean.data.partner);
+                lRecyclerViewAdapter.setRefresh(myPartnerBean.data.partner);
             }
 
             @Override
             public void onFailure(String url) {
                 bufferCircleView.hide();
                 T("请检测网络");
-                adapter_myPartner.setRefresh(null);
+                lRecyclerViewAdapter.setRefresh(null);
             }
         });
     }
@@ -134,12 +139,10 @@ public class MyPartnerActivity extends com.huiche.lib.lib.base.BaseActivity {
 
     @Override
     public void setListeners() {
-
         getRightBtn().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MyPartnerActivity.this, DetailsActivity.class);
-                startActivity(intent);
+                goToActivityByClass(DetailsActivity.class);
             }
         });
 

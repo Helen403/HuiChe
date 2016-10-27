@@ -5,7 +5,7 @@ import android.widget.ImageButton;
 import android.widget.ScrollView;
 
 import com.huiche.R;
-import com.huiche.adapter.Adapter_jiFenShopping;
+import com.huiche.adapter.JiFenShoppingAdapter;
 import com.huiche.lib.lib.base.BaseActivity;
 import com.huiche.lib.lib.custemview.MyGridView;
 
@@ -15,7 +15,7 @@ import com.huiche.lib.lib.custemview.MyGridView;
 public class JiFenShopping extends BaseActivity {
 
     MyGridView gv;
-    Adapter_jiFenShopping adapter;
+    JiFenShoppingAdapter adapter;
     ScrollView scrollviewf;
     ImageButton imageLeft_titil_all;
 

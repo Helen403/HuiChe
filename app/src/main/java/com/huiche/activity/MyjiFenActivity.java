@@ -3,20 +3,20 @@ package com.huiche.activity;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.huiche.R;
-import com.huiche.adapter.Adapter_MyjiFen;
+import com.huiche.adapter.MyJiFenAdapter;
 import com.huiche.bean.MyPointBean;
 import com.huiche.bean.MyjiFenBean;
 import com.huiche.constant.Constants;
-import com.huiche.lib.lib.MyRecycleView.MyLinearLayoutManager;
+import com.huiche.lib.lib.LRecyclerView.interfaces.OnLoadMoreListener;
+import com.huiche.lib.lib.LRecyclerView.interfaces.OnRefreshListener;
+import com.huiche.lib.lib.LRecyclerView.recyclerview.LRecyclerView;
+import com.huiche.lib.lib.LRecyclerView.recyclerview.LRecyclerViewAdapter;
 import com.huiche.lib.lib.Utils.ControlUtils;
 import com.huiche.lib.lib.Utils.Param;
 import com.huiche.lib.lib.base.BaseApplication;
-import com.huiche.lib.lib.base.MyBaseRecycleAdapter;
-import com.huiche.lib.lib.custemview.MyRecycleView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -28,9 +28,8 @@ import java.util.ArrayList;
  */
 public class MyjiFenActivity extends com.huiche.lib.lib.base.BaseActivity {
 
-    Adapter_MyjiFen adapter_myjiFen;
-    MyRecycleView recycleView;
-
+    LRecyclerView myRecycleView;
+    LRecyclerViewAdapter lRecyclerViewAdapter;
 
     private LinearLayout rlTitleMainActivity;
     private ImageButton imageLeftTitilAll;
@@ -40,7 +39,6 @@ public class MyjiFenActivity extends com.huiche.lib.lib.base.BaseActivity {
     private TextView tv1;
     private TextView tv2;
     private TextView tv3;
-    private ListView listview;
 
 
     @Override
@@ -51,8 +49,7 @@ public class MyjiFenActivity extends com.huiche.lib.lib.base.BaseActivity {
     @Override
     public void findViews() {
         setTitle("我的积分");
-
-        recycleView = (MyRecycleView) findViewById(R.id.myrecycle_view);
+        myRecycleView = (LRecyclerView) findViewById(R.id.myrecycle_view);
     }
 
     @Override
@@ -63,6 +60,14 @@ public class MyjiFenActivity extends com.huiche.lib.lib.base.BaseActivity {
         setRecycleView();
         //添加头部View
         addHeadView();
+        if (BaseApplication.loginResultBean == null) {
+            T("请登录");
+            return;
+        } else {
+            // 刷新
+            myRecycleView.setRefreshing(true);
+        }
+
         //获取用户现有的积分
         getUsePoint();
 
@@ -72,7 +77,7 @@ public class MyjiFenActivity extends com.huiche.lib.lib.base.BaseActivity {
     //添加头部View
     private void addHeadView() {
         View head = inflater.inflate(R.layout.activity_my_jifen, contentView, false);
-        recycleView.addHeaderView(head);
+        lRecyclerViewAdapter.addHeaderView(head);
         rlTitleMainActivity = (LinearLayout) head.findViewById(R.id.rl_title_mainActivity);
         imageLeftTitilAll = (ImageButton) head.findViewById(R.id.imageLeft_titil_all);
         textTitilAll = (TextView) head.findViewById(R.id.text_titil_all);
@@ -81,23 +86,21 @@ public class MyjiFenActivity extends com.huiche.lib.lib.base.BaseActivity {
         tv1 = (TextView) head.findViewById(R.id.tv_1);
         tv2 = (TextView) head.findViewById(R.id.tv_2);
         tv3 = (TextView) head.findViewById(R.id.tv_3);
-        listview = (ListView) head.findViewById(R.id.listview);
-
     }
 
 
     //设置RecyclerView
     private void setRecycleView() {
-        // 使用重写后的线性布局管理器
-        MyLinearLayoutManager manager = new MyLinearLayoutManager(MyjiFenActivity.this);
-        recycleView.setLayoutManager(manager);
-        adapter_myjiFen = new Adapter_MyjiFen(MyjiFenActivity.this, recycleView);
-        recycleView.setAdapter(adapter_myjiFen);
-        adapter_myjiFen.setOnRefresh(new MyBaseRecycleAdapter.OnRefresh() {
+        lRecyclerViewAdapter = new LRecyclerViewAdapter(MyjiFenActivity.this, MyJiFenAdapter.class, myRecycleView);
+        myRecycleView.setAdapter(lRecyclerViewAdapter);
+        myRecycleView.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh() {
-
                 bufferCircleView.show();
+                if (BaseApplication.loginResultBean == null) {
+                    T("请登录");
+                    return;
+                }
                 Param param = new Param();
                 param.put("id", BaseApplication.loginResultBean.data.id);
                 StringBuffer sb = new StringBuffer();
@@ -108,35 +111,24 @@ public class MyjiFenActivity extends com.huiche.lib.lib.base.BaseActivity {
                     @Override
                     public void onSuccess(String url, MyjiFenBean myjiFenBean, ArrayList<MyjiFenBean> list, String result, JSONObject jsonObject, JSONArray jsonArray) {
                         bufferCircleView.hide();
-                        adapter_myjiFen.setRefresh(myjiFenBean.data);
-
+                        lRecyclerViewAdapter.setRefresh(myjiFenBean.data);
                     }
 
                     @Override
                     public void onFailure(String url) {
                         bufferCircleView.hide();
                         T("请检测网络");
-                        adapter_myjiFen.setRefresh(null);
+                        lRecyclerViewAdapter.setRefresh(null);
                     }
                 });
-
-
-            }
-
-            @Override
-            public void onAddData() {
-                adapter_myjiFen.setAddData(null);
             }
         });
-
-        if (BaseApplication.loginResultBean == null) {
-            T("请登录");
-            return;
-        } else {
-            // 刷新
-            recycleView.setRefresh(true);
-        }
-
+        myRecycleView.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore() {
+                lRecyclerViewAdapter.setAddData(null);
+            }
+        });
 
     }
 

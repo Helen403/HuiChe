@@ -13,10 +13,10 @@ import java.util.ArrayList;
 /**
  * Created by Administrator on 2016/9/26.
  */
-public class Adapter_oil extends MyBaseAdapter<OilBaen> {
+public class OilAdapter extends MyBaseAdapter<OilBaen> {
 
 
-    public Adapter_oil(ArrayList<OilBaen> data) {
+    public OilAdapter(ArrayList<OilBaen> data) {
         super(data);
     }
 

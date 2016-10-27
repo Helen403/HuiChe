@@ -12,8 +12,8 @@ import java.util.ArrayList;
 /**
  * Created by Administrator on 2016/9/29.
  */
-public class Adapter_City_Car extends MyBaseAdapter<CityCarBean> {
-    public Adapter_City_Car(ArrayList<CityCarBean> data) {
+public class CityCarAdapter extends MyBaseAdapter<CityCarBean> {
+    public CityCarAdapter(ArrayList<CityCarBean> data) {
         super(data);
     }
 
