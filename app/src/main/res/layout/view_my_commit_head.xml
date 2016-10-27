@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:background="@color/bule_title">
 
-    <com.huiche.view.CircleImageView
+    <com.huiche.lib.lib.custemview.CircleImageView
         android:id="@+id/cir"
         android:layout_width="60dp"
         android:layout_height="60dp"

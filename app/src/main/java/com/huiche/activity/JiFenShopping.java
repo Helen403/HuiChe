@@ -31,7 +31,6 @@ public class JiFenShopping extends BaseActivity {
 
     @Override
     public void findViews() {
-//        setContentView();
 //        gv = (MyGridView) findViewById(R.id.gv);
 //        scrollviewf= (ScrollView) findViewById(R.id.scrollview);
 //        imageLeft_titil_all= (ImageButton) findViewById(R.id.imageLeft_titil_all);

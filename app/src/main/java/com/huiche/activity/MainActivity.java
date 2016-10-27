@@ -42,7 +42,6 @@ public class MainActivity extends com.huiche.lib.lib.base.BaseActivity implement
     public void setListeners() {
         radioGroup.setOnCheckedChangeListener(this);
         iv_uu_Fragment.setOnClickListener(this);
-
     }
 
     @Override
@@ -50,7 +49,7 @@ public class MainActivity extends com.huiche.lib.lib.base.BaseActivity implement
         switch (v.getId()) {
             case R.id.iv_uu_Fragment:
                 radioGroup.clearCheck();
-                switchFragment(2);
+                goToActivityByClass(NearCardActivity.class);
                 break;
         }
     }
@@ -97,7 +96,6 @@ public class MainActivity extends com.huiche.lib.lib.base.BaseActivity implement
                 break;
         }
     }
-
 
 
     @Override

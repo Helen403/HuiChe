@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
-    <include layout="@layout/include_title_bar" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,7 +18,7 @@
             android:id="@+id/whewView_U_U"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-        <com.huiche.view.CircleImageView
+        <com.huiche.lib.lib.custemview.CircleImageView
             android:layout_width="30dp"
             android:id="@+id/user_icon"
             android:layout_centerInParent="true"
@@ -28,7 +27,7 @@
             app:border_color="@color/status_color"
             android:layout_height="30dp">
 
-        </com.huiche.view.CircleImageView>
+        </com.huiche.lib.lib.custemview.CircleImageView>
 
         <LinearLayout
             android:id="@+id/ll"

@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.huiche.R;
+import com.huiche.activity.InsuranceActivity;
 import com.huiche.bean.HomeGVBean;
 import com.huiche.lib.lib.base.MyBaseAdapter;
 
@@ -23,9 +24,19 @@ public class HomeGVAdapter extends MyBaseAdapter<HomeGVBean> {
     }
 
     @Override
-    public void onInitView(View view, HomeGVBean homeGVBean, int position) {
+    public void onInitView(View view, HomeGVBean homeGVBean, final int position) {
         ImageView iv = getViewById(R.id.iv_1);
         iv.setImageResource(homeGVBean.drawable);
         setText(homeGVBean.title, R.id.tv_1);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (position) {
+                    case 7:
+                        goToActivityByClass(InsuranceActivity.class);
+                        break;
+                }
+            }
+        });
     }
 }

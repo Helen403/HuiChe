@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshSwipeListView;
+import com.handmark.pulltorefresh.library.SwipeListView;
 import com.huiche.R;
 import com.huiche.adapter.Adapter_CarManagerFister;
 import com.huiche.bean.CarManagerFisterBean;
@@ -27,8 +30,8 @@ public class CarManagerFisterActivity extends com.huiche.lib.lib.base.BaseActivi
 
 
     Adapter_CarManagerFister adapter_carManagerFister;
-//    private PullToRefreshSwipeListView pull_listview;
-//    private SwipeListView listview;
+    private PullToRefreshSwipeListView pull_listview;
+    private SwipeListView listview;
     CarManagerFisterBean carManagerFisterBeanTmp;
 
 
@@ -41,10 +44,10 @@ public class CarManagerFisterActivity extends com.huiche.lib.lib.base.BaseActivi
     public void findViews() {
         setTitle("车辆管理");
 
-//
-//        pull_listview = (PullToRefreshSwipeListView) findViewById(R.id.listview);
-//        pull_listview.setMode(PullToRefreshBase.Mode.BOTH);
-//        listview = pull_listview.getRefreshableView();
+
+        pull_listview = (PullToRefreshSwipeListView) findViewById(R.id.listview);
+        pull_listview.setMode(PullToRefreshBase.Mode.BOTH);
+        listview = pull_listview.getRefreshableView();
 
         tv_1 = (TextView) findViewById(R.id.tv_1);
 
@@ -63,20 +66,20 @@ public class CarManagerFisterActivity extends com.huiche.lib.lib.base.BaseActivi
         getCarInfo();
 
 
-//        pull_listview.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<SwipeListView>() {
-//            @Override
-//            public void onPullDownToRefresh(PullToRefreshBase<SwipeListView> refreshView) {
-//                //获取车辆信息
-//                getCarInfo();
-//            }
-//
-//            @Override
-//            public void onPullUpToRefresh(PullToRefreshBase<SwipeListView> refreshView) {
-//
-//            }
-//
-//
-//        });
+        pull_listview.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<SwipeListView>() {
+            @Override
+            public void onPullDownToRefresh(PullToRefreshBase<SwipeListView> refreshView) {
+                //获取车辆信息
+                getCarInfo();
+            }
+
+            @Override
+            public void onPullUpToRefresh(PullToRefreshBase<SwipeListView> refreshView) {
+
+            }
+
+
+        });
 
     }
 
@@ -86,35 +89,38 @@ public class CarManagerFisterActivity extends com.huiche.lib.lib.base.BaseActivi
             T("请登录");
             return;
         }
-//        bufferCircleView.show();
-//        Param param = new Param();
-//        param.put("us_id", BaseApplication.loginResultBean.data.id);
-//        StringBuffer sb = new StringBuffer();
-//        sb.append("{").append("\"us_id\":\"").append(BaseApplication.loginResultBean.data.id).append("\"}");
-//        param.put("key", getMd5Password(sb.toString()));
-//        ControlUtils.postsEveryTime(Constants.Helen.CARMANAGER, param, CarManagerFisterBean.class, new ControlUtils.OnControlUtils<CarManagerFisterBean>() {
-//
-//
-//            @Override
-//            public void onSuccess(String url, CarManagerFisterBean carManagerFisterBean, ArrayList<CarManagerFisterBean> list, String result, JSONObject jsonObject, JSONArray jsonArray) {
-//                carManagerFisterBeanTmp = carManagerFisterBean;
-//                bufferCircleView.hide();
-//                adapter_carManagerFister = new Adapter_CarManagerFister(carManagerFisterBean.data.car, listview.getRightViewWidth(), new Adapter_CarManagerFister.IOnItemRightClickListener() {
-//                    @Override
-//                    public void onRightClick(View v, int position) {
-//                        //删除车辆
-//                        delectCar(position);
-//                    }
-//                });
-//                listview.setAdapter(adapter_carManagerFister);
-//            }
-//
-//            @Override
-//            public void onFailure(String url) {
-//                bufferCircleView.hide();
-//                T("请检测网络");
-//            }
-//        });
+        bufferCircleView.show();
+        Param param = new Param();
+        param.put("us_id", BaseApplication.loginResultBean.data.id);
+        StringBuffer sb = new StringBuffer();
+        sb.append("{").append("\"us_id\":\"").append(BaseApplication.loginResultBean.data.id).append("\"}");
+        param.put("key", getMd5Password(sb.toString()));
+        ControlUtils.postsEveryTime(Constants.Helen.CARMANAGER, param, CarManagerFisterBean.class, new ControlUtils.OnControlUtils<CarManagerFisterBean>() {
+
+
+            @Override
+            public void onSuccess(String url, CarManagerFisterBean carManagerFisterBean, ArrayList<CarManagerFisterBean> list, String result, JSONObject jsonObject, JSONArray jsonArray) {
+                carManagerFisterBeanTmp = carManagerFisterBean;
+                bufferCircleView.hide();
+                adapter_carManagerFister = new Adapter_CarManagerFister(carManagerFisterBean.data.car, listview.getRightViewWidth(), new Adapter_CarManagerFister.IOnItemRightClickListener() {
+                    @Override
+                    public void onRightClick(View v, int position) {
+                        //删除车辆
+                        delectCar(position);
+                    }
+                });
+                listview.setAdapter(adapter_carManagerFister);
+                pull_listview.onRefreshComplete();
+            }
+
+            @Override
+            public void onFailure(String url) {
+                pull_listview.onRefreshComplete();
+                bufferCircleView.hide();
+                T("请检测网络");
+
+            }
+        });
     }
 
 

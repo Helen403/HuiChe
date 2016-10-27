@@ -122,6 +122,8 @@
         <activity android:name=".activity.MineActivity"/>
         <activity android:name=".activity.CallPhoneActivity"/>
         <activity android:name=".activity.LocationCityActivity"/>
+        <activity android:name=".activity.NearCardActivity"/>
+        <activity android:name=".activity.DiscountActivity"/>
 
 
 
@@ -136,7 +138,7 @@
         <!--cong百度地图测试key-->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="okhbKoS0xo7gUzHesqffAkGVShaOWrsK" />
+            android:value="hRmmqlxOwbMkAVCrZGxlQ7X7KFb0bpRQ" />
 
         <service
             android:name="com.baidu.location.f"

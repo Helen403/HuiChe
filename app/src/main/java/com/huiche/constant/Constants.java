@@ -58,6 +58,15 @@ public interface Constants {
 
         String SHOPPING = "http://hyh2.281.com.cn/api.php/home/index/distance_limit_goods";
 
+
+        String NEARCARD = "http://hyh2.281.com.cn/api.php/home/voucher/vonearby";
+
+        String INSURANCE = "http://hyh2.281.com.cn/api.php/home/insurance/allassurer";
+
+        String PAYINSURANCE = "http://hyh2.281.com.cn/api.php/home/insurance/applyins";
+
+        String ADDCITYHOSTORY = "http://hyh2.281.com.cn/api.php/home/city/addcityhistory";
+
     }
 
     interface startActivityForResult {
