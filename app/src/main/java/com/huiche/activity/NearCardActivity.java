@@ -36,6 +36,7 @@ import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 import com.baidu.mapapi.search.poi.PoiSearch;
 import com.huiche.R;
 import com.huiche.bean.NearCardBean;
+import com.huiche.bean.NearCardInfoBean;
 import com.huiche.constant.Constants;
 import com.huiche.lib.lib.Utils.ControlUtils;
 import com.huiche.lib.lib.Utils.Param;
@@ -103,7 +104,7 @@ public class NearCardActivity extends BaseActivity implements OnGetGeoCoderResul
     int num = -1;
 
     NearCardBean nearCardBeanTmp;
-
+    View cardView;
 
     @Override
     public int getContentView() {
@@ -130,6 +131,25 @@ public class NearCardActivity extends BaseActivity implements OnGetGeoCoderResul
         whewView_U_U.setRippleWidthScale(8);
         soundPool = new SoundPool(10, AudioManager.STREAM_SYSTEM, 5);
         music = soundPool.load(NearCardActivity.this, R.raw.hongbao_gq, 1);
+    }
+
+
+    @Override
+    protected void onShowMessage(RelativeLayout relativeLayout) {
+        super.onShowMessage(relativeLayout);
+        cardView = inflater.inflate(R.layout.card_item_dialog, content, false);
+
+        tv1 = (TextView) cardView.findViewById(R.id.tv_1);
+        tv2 = (TextView) cardView.findViewById(R.id.tv_2);
+        tv3 = (TextView) cardView.findViewById(R.id.tv_3);
+        tv4 = (TextView) cardView.findViewById(R.id.tv_4);
+        tv5 = (TextView) cardView.findViewById(R.id.tv_5);
+        tv6 = (TextView) cardView.findViewById(R.id.tv_6);
+        tv7 = (TextView) cardView.findViewById(R.id.tv_7);
+
+
+        cardView.setVisibility(View.GONE);
+        relativeLayout.addView(cardView);
     }
 
     @Override
@@ -216,6 +236,30 @@ public class NearCardActivity extends BaseActivity implements OnGetGeoCoderResul
                 Bundle bundle = marker.getExtraInfo();
                 num = bundle.getInt("num");
                 if (TextUtils.isEmpty(num + "") || num != -1 || nearCardBeanTmp != null) {
+                    bufferCircleView.show();
+                    String vo_id = nearCardBeanTmp.data.get(num).vo_id;
+                    Param param = new Param();
+                    param.put("vo_id", vo_id);
+                    StringBuffer sb = new StringBuffer();
+                    sb.append("{").append("\"vo_id\":\"").append(vo_id).append("\"}");
+                    param.put("key", getMd5Password(sb.toString()));
+                    ControlUtils.postsEveryTime(Constants.Helen.NEARCARDINFO, param, NearCardInfoBean.class, new ControlUtils.OnControlUtils<NearCardInfoBean>() {
+                        @Override
+                        public void onSuccess(String url, NearCardInfoBean nearCardInfoBean, ArrayList<NearCardInfoBean> list, String result, JSONObject jsonObject, JSONArray jsonArray) {
+                            bufferCircleView.hide();
+                            cardView.setVisibility(View.VISIBLE);
+                            tv1.setText(nearCardInfoBean.data.get(0).co_name);
+                            tv2.setText(nearCardInfoBean.data.get(0).co_address);
+                        }
+
+                        @Override
+                        public void onFailure(String url) {
+                            bufferCircleView.hide();
+                            T("请检测网络");
+                        }
+                    });
+
+
 //                    BusinessCardDetail businessCardDetail = businessCardInfo.businessStoreList.get(num);
 //                    id = businessCardDetail.getCoupons().getId();
 //                    businessId = businessCardDetail.getId();

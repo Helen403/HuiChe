@@ -67,6 +67,9 @@ public interface Constants {
 
         String ADDCITYHOSTORY = "http://hyh2.281.com.cn/api.php/home/city/addcityhistory";
 
+
+        String NEARCARDINFO = "http://hyh2.281.com.cn/api.php/home/voucher/voinfo";
+
     }
 
     interface startActivityForResult {
